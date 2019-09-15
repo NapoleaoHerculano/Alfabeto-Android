@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradiente_fundo"
+    android:onClick="onClick"
+    tools:context=".activity.MainActivity">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline25"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.52" />
+
+    <TextView
+        android:id="@+id/txtTemas3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="TEMAS"
+        android:textColor="@android:color/white"
+        android:textSize="70sp"
+        app:fontFamily="@font/luckiest_guy"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtTemas3">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/btnCores"
+                    android:layout_width="156dp"
+                    android:layout_height="150dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:onClick="onClick"
+                    android:scaleType="centerInside"
+                    app:srcCompat="@drawable/cores" />
+
+                <TextView
+                    android:id="@+id/txtCores"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="onClick"
+                    android:paddingTop="40dp"
+                    android:text="@string/cores"
+                    android:textColor="@android:color/white"
+                    android:textSize="45sp"
+                    app:fontFamily="@font/luckiest_guy" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:paddingTop="25dp">
+
+                <ImageButton
+                    android:id="@+id/btnObjetos"
+                    android:layout_width="206dp"
+                    android:layout_height="150dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:onClick="onClick"
+                    android:scaleType="centerInside"
+                    app:srcCompat="@drawable/objetos" />
+
+                <TextView
+                    android:id="@+id/txtObjetos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="onClick"
+                    android:paddingTop="40dp"
+                    android:text="@string/objetos"
+                    android:textColor="@android:color/white"
+                    android:textSize="45sp"
+                    app:fontFamily="@font/luckiest_guy" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:paddingTop="25dp">
+
+                <ImageButton
+                    android:id="@+id/btnAnimais"
+                    android:layout_width="203dp"
+                    android:layout_height="150dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:onClick="onClick"
+                    android:scaleType="centerInside"
+                    app:srcCompat="@drawable/animais" />
+
+                <TextView
+                    android:id="@+id/txtAnimais"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="onClick"
+                    android:paddingTop="40dp"
+                    android:text="@string/animais"
+                    android:textColor="@android:color/white"
+                    android:textSize="45sp"
+                    app:fontFamily="@font/luckiest_guy" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:paddingTop="25dp">
+
+                <ImageButton
+                    android:id="@+id/btnFrutas"
+                    android:layout_width="179dp"
+                    android:layout_height="150dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:onClick="onClick"
+                    android:scaleType="centerInside"
+                    app:srcCompat="@drawable/frutas" />
+
+                <TextView
+                    android:id="@+id/txtFrutas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="onClick"
+                    android:paddingTop="40dp"
+                    android:text="@string/frutas"
+                    android:textColor="@android:color/white"
+                    android:textSize="45sp"
+                    app:fontFamily="@font/luckiest_guy" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:paddingTop="25dp">
+
+                <ImageButton
+                    android:id="@+id/btnPaises"
+                    android:layout_width="166dp"
+                    android:layout_height="150dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:onClick="onClick"
+                    android:scaleType="centerInside"
+                    app:srcCompat="@drawable/paises" />
+
+                <TextView
+                    android:id="@+id/txtPaises"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="onClick"
+                    android:paddingTop="40dp"
+                    android:text="@string/paises"
+                    android:textColor="@android:color/white"
+                    android:textSize="45sp"
+                    app:fontFamily="@font/luckiest_guy" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

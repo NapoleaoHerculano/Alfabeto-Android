@@ -1,0 +1,48 @@
+package com.napoleao.alphabeto.activity;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.napoleao.alphabeto.R;
+import com.napoleao.alphabeto.controller.SingletonAudio;
+
+
+public class TelaInicialActivity extends AppCompatActivity implements View.OnClickListener {
+
+    int[] botoes = {R.id.btnIniciar, R.id.btnConfig};
+    private SingletonAudio tts;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        setContentView(R.layout.tela_inicial);
+        super.onCreate(savedInstanceState);
+
+        tts.getSingleton(this);
+
+        instanciarBotoes();
+
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.btnIniciar:
+                Intent it = new Intent(TelaInicialActivity.this, MainActivity.class);
+                startActivity(it);
+                break;
+        }
+    }
+
+    public void instanciarBotoes(){
+        int i;
+        for(i = 0; i < botoes.length; i++){
+            ImageButton btn = findViewById(botoes[i]);
+            btn.setOnClickListener(this);
+        }
+    }
+
+}
