@@ -8,100 +8,60 @@
     android:background="@drawable/gradiente_fundo"
     android:orientation="vertical">
 
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/btnIniciar"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:background="@android:color/transparent"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnConfig"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtAppNome"
+        app:srcCompat="@drawable/botao_iniciar" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/btnConfig"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:background="@android:color/transparent"
+        android:onClick="onClick"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnIniciar"
+        app:layout_constraintTop_toBottomOf="@+id/txtAppNome"
+        app:srcCompat="@drawable/botaoconfig_cropped" />
+
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/txtAppNome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="135dp"
         android:gravity="center"
         android:text="ALFABETO"
         android:textColor="@android:color/white"
         android:textSize="75sp"
         app:fontFamily="@font/luckiest_guy"
-        app:layout_constraintBottom_toTopOf="@+id/guideline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.4" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.81" />
-
-    <androidx.appcompat.widget.AppCompatImageButton
-        android:id="@+id/btnIniciar"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
-        android:background="@android:color/transparent"
-        android:scaleType="centerInside"
-        app:layout_constraintBottom_toTopOf="@+id/guideline2"
-        app:layout_constraintEnd_toStartOf="@+id/guideline6"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline"
-        app:srcCompat="@drawable/botao_iniciar" />
-
-    <androidx.appcompat.widget.AppCompatImageButton
-        android:id="@+id/btnConfig"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
-        android:layout_marginBottom="8dp"
-        android:background="@android:color/transparent"
-        android:onClick="onClick"
-        android:scaleType="centerInside"
-        app:layout_constraintBottom_toTopOf="@+id/guideline2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/guideline6"
-        app:layout_constraintTop_toTopOf="@+id/guideline"
-        app:srcCompat="@drawable/botaoconfig_cropped" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.5" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
         android:gravity="center|center_horizontal"
         android:text="Jogar"
         android:textColor="@android:color/white"
         android:textSize="20sp"
         app:fontFamily="@font/luckiest_guy"
-        app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toEndOf="@+id/btnIniciar"
         app:layout_constraintStart_toStartOf="@+id/btnIniciar"
-        app:layout_constraintTop_toBottomOf="@+id/btnIniciar"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/btnIniciar" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textView4"
@@ -110,16 +70,13 @@
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
         android:gravity="center|center_horizontal"
         android:text="Configurações"
         android:textColor="@android:color/white"
         android:textSize="20sp"
         app:fontFamily="@font/luckiest_guy"
-        app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toEndOf="@+id/btnConfig"
         app:layout_constraintStart_toStartOf="@+id/btnConfig"
-        app:layout_constraintTop_toBottomOf="@+id/btnConfig"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/btnConfig" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

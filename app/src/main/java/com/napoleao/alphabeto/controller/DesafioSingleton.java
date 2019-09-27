@@ -168,4 +168,15 @@ public class DesafioSingleton {
         acertou.start();
     }
 
+    public static String dandoEspacos(String underscore) {
+        StringBuilder novaString = new StringBuilder();
+        novaString.append(" ");
+        for(int i = 0; i < underscore.length(); i++) {
+            novaString.append(underscore.charAt(i)) ;
+            novaString.append(" ");
+        }
+
+        return novaString.toString();
+    }
+
 }

@@ -61,7 +61,6 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:gravity="center|center_horizontal"
-        android:letterSpacing="0.2"
         android:background="@drawable/text_view_border"
         android:padding="10dp"
         android:text="TextView"

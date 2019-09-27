@@ -8,68 +8,70 @@
     android:background="@drawable/gradiente_fundo"
     android:orientation="vertical">
 
+    <ImageButton
+        android:id="@+id/btnVogais"
+        android:layout_width="95dp"
+        android:layout_height="95dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@android:color/transparent"
+        android:onClick="onClick"
+        android:scaleType="centerInside"
+        android:src="@drawable/vogais"
+        app:layout_constraintBottom_toTopOf="@+id/btnConsoantes"
+        app:layout_constraintEnd_toStartOf="@+id/txtVogais"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtNivel" />
+
+    <ImageButton
+        android:id="@+id/btnConsoantes"
+        android:layout_width="95dp"
+        android:layout_height="95dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:background="@android:color/transparent"
+        android:onClick="onClick"
+        android:scaleType="centerInside"
+        android:src="@drawable/consoantes"
+        app:layout_constraintBottom_toTopOf="@+id/btnAlfabeto"
+        app:layout_constraintEnd_toStartOf="@+id/txtConsoantes"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnVogais" />
+
+    <ImageButton
+        android:id="@+id/btnAlfabeto"
+        android:layout_width="95dp"
+        android:layout_height="95dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:background="@android:color/transparent"
+        android:onClick="onClick"
+        android:scaleType="centerInside"
+        android:src="@drawable/alfabeto"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/txtAlfabeto"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnConsoantes" />
+
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/txtNivel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
         android:text="NÍVEIS"
         android:textColor="@android:color/white"
         android:textSize="40sp"
         app:fontFamily="@font/luckiest_guy"
-        app:layout_constraintBottom_toTopOf="@+id/guideline14"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline11"
-        app:layout_constraintVertical_bias="0.120000005" />
-
-    <ImageButton
-        android:id="@+id/btnVogais"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:background="@android:color/transparent"
-        android:onClick="onClick"
-        android:scaleType="centerInside"
-        android:src="@drawable/vogais"
-        app:layout_constraintBottom_toTopOf="@+id/guideline18"
-        app:layout_constraintStart_toStartOf="@+id/guideline21"
-        app:layout_constraintTop_toTopOf="@+id/guideline14"
-        app:layout_constraintVertical_bias="0.507" />
-
-    <ImageButton
-        android:id="@+id/btnConsoantes"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:background="@android:color/transparent"
-        android:onClick="onClick"
-        android:scaleType="centerInside"
-        android:src="@drawable/consoantes"
-        app:layout_constraintBottom_toTopOf="@+id/guideline19"
-        app:layout_constraintStart_toStartOf="@+id/guideline21"
-        app:layout_constraintTop_toTopOf="@+id/guideline18"
-        app:layout_constraintVertical_bias="0.507" />
-
-    <ImageButton
-        android:id="@+id/btnAlfabeto"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:background="@android:color/transparent"
-        android:onClick="onClick"
-        android:scaleType="centerInside"
-        android:src="@drawable/alfabeto"
-        app:layout_constraintBottom_toTopOf="@+id/guideline20"
-        app:layout_constraintStart_toStartOf="@+id/guideline21"
-        app:layout_constraintTop_toTopOf="@+id/guideline19" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/txtVogais"
@@ -77,18 +79,17 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
         android:text="@string/vogais"
         android:textColor="@android:color/white"
         android:textSize="30sp"
         app:fontFamily="@font/luckiest_guy"
-        app:layout_constraintBottom_toTopOf="@+id/guideline18"
+        app:layout_constraintBottom_toBottomOf="@+id/btnVogais"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/btnVogais"
-        app:layout_constraintTop_toTopOf="@+id/guideline14" />
+        app:layout_constraintTop_toTopOf="@+id/btnVogais" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/txtConsoantes"
@@ -96,18 +97,17 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
         android:text="@string/consoantes"
         android:textColor="@android:color/white"
         android:textSize="30sp"
         app:fontFamily="@font/luckiest_guy"
-        app:layout_constraintBottom_toTopOf="@+id/guideline19"
+        app:layout_constraintBottom_toBottomOf="@+id/btnConsoantes"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/btnConsoantes"
-        app:layout_constraintTop_toTopOf="@+id/guideline18" />
+        app:layout_constraintTop_toTopOf="@+id/btnConsoantes" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/txtAlfabeto"
@@ -115,58 +115,16 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
         android:text="Alfabeto"
         android:textColor="@android:color/white"
         android:textSize="30sp"
         app:fontFamily="@font/luckiest_guy"
-        app:layout_constraintBottom_toTopOf="@+id/guideline20"
+        app:layout_constraintBottom_toBottomOf="@+id/btnAlfabeto"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/btnAlfabeto"
-        app:layout_constraintTop_toTopOf="@+id/guideline19" />
+        app:layout_constraintTop_toTopOf="@+id/btnAlfabeto" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.03" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline14"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.15" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline18"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.38" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline19"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.61" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline20"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.85" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline21"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.06" />
 </androidx.constraintlayout.widget.ConstraintLayout>

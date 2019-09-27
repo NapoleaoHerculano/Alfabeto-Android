@@ -64,7 +64,7 @@ public class AlfabetoActivity extends AppCompatActivity implements View.OnClickL
 
         //Definindo os primeiros elementos a serem iniciados
         imagem.setImageResource(listTema.get(indice).getImagem());
-        txtQuiz.setText(desafioSingleton.definirPalavraAlfabeto(listTema.get(indice).getNomeImagem()));
+        txtQuiz.setText(desafioSingleton.definirPalavraAlfabeto(desafioSingleton.dandoEspacos(listTema.get(indice).getNomeImagem())));
         desafio = desafioSingleton.definirPalavraAlfabeto(listTema.get(indice).getNomeImagem()).toCharArray();
 
     }
@@ -178,14 +178,16 @@ public class AlfabetoActivity extends AppCompatActivity implements View.OnClickL
         }
     }
 
+    //Método que fala o nome da imagem que está sendo mostrada
     public void falarImagem(View v){
         tts.ditarFoto(listTema.get(indice).getNomeImagem());
 
     }
 
+    //Método que veriifica se a reposta está correta
     private void verificaResposta(char alternativa){
         String resposta = desafioSingleton.verificarAlternativa(this, alternativa,listTema.get(indice).getNomeImagem(),desafio, jogador);
-        txtQuiz.setText(resposta);
+        txtQuiz.setText(desafioSingleton.dandoEspacos(resposta));
 
         acertou = desafioSingleton.verificaResposta(listTema.get(indice).getNomeImagem(), resposta);
         if (acertou == true){
@@ -203,6 +205,8 @@ public class AlfabetoActivity extends AppCompatActivity implements View.OnClickL
                     public void run() {
                         desafioSingleton.setAtributosAlfabeto(imagem, txtQuiz, listTema, indice);
                         desafio = desafioSingleton.definirPalavraAlfabeto(listTema.get(indice).getNomeImagem()).toCharArray();
+                        //Mudando o desafio. Para isso é chamado o método que seta a quantidade de espaços que formam a palavra
+                        txtQuiz.setText(desafioSingleton.definirPalavraAlfabeto(desafioSingleton.dandoEspacos(listTema.get(indice).getNomeImagem())));
                     }
                 }, 2000);
 

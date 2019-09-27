@@ -17,14 +17,15 @@
 
     <ImageButton
         android:id="@+id/ditarFoto"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:background="@android:color/transparent"
         android:onClick="falarImagem"
+        android:scaleType="centerCrop"
         android:tint="@android:color/white"
         app:layout_constraintBottom_toBottomOf="@+id/imageConsoante"
         app:layout_constraintEnd_toEndOf="parent"
@@ -34,8 +35,8 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/imageConsoante"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
@@ -75,9 +76,13 @@
         app:layout_constraintTop_toTopOf="@+id/guideline16" />
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/guideline13"
@@ -88,8 +93,8 @@
         <include
             android:id="@+id/tecladoConsoantes"
             layout="@layout/teclado_consoantes"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"></include>
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></include>
     </LinearLayout>
 
     <androidx.constraintlayout.widget.Guideline
@@ -97,7 +102,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.95" />
+        app:layout_constraintGuide_percent="0.94" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline15"

@@ -69,7 +69,7 @@ public class ConsoanteActivity extends AppCompatActivity implements View.OnClick
 
         //Definindo os primeiros elementos a serem iniciados
         imagem.setImageResource(listTema.get(indice).getImagem());
-        txtQuiz.setText(desafioSingleton.definirPalavraConsoante(listTema.get(indice).getNomeImagem()));
+        txtQuiz.setText(desafioSingleton.definirPalavraConsoante(desafioSingleton.dandoEspacos(listTema.get(indice).getNomeImagem())));
         desafio = desafioSingleton.definirPalavraConsoante(listTema.get(indice).getNomeImagem()).toCharArray();
     }
 
@@ -171,7 +171,7 @@ public class ConsoanteActivity extends AppCompatActivity implements View.OnClick
 
     private void verificaResposta(char alternativa){
         String resposta = desafioSingleton.verificarAlternativa(this, alternativa,listTema.get(indice).getNomeImagem(),desafio, jogador);
-        txtQuiz.setText(resposta);
+        txtQuiz.setText(desafioSingleton.dandoEspacos(resposta));
 
         acertou = desafioSingleton.verificaResposta(listTema.get(indice).getNomeImagem(), resposta);
         if (acertou == true){
@@ -189,6 +189,8 @@ public class ConsoanteActivity extends AppCompatActivity implements View.OnClick
                     public void run() {
                         desafioSingleton.setAtributosConsoantes(imagem, txtQuiz, listTema, indice);
                         desafio = desafioSingleton.definirPalavraConsoante(listTema.get(indice).getNomeImagem()).toCharArray();
+                        //Mudando o desafio. Para isso é chamado o método que seta a quantidade de espaços que formam a palavra
+                        txtQuiz.setText(desafioSingleton.definirPalavraConsoante(desafioSingleton.dandoEspacos(listTema.get(indice).getNomeImagem())));
                     }
                 }, 2000);
 

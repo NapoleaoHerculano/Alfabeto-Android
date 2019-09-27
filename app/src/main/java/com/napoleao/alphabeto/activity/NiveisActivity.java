@@ -7,7 +7,6 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-
 import com.napoleao.alphabeto.R;
 
 public class NiveisActivity extends AppCompatActivity implements View.OnClickListener{

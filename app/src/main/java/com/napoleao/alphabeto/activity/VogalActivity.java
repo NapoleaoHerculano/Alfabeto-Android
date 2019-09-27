@@ -68,7 +68,7 @@ public class VogalActivity extends AppCompatActivity implements View.OnClickList
 
         //Definindo os primeiros elementos a serem iniciados
         imagem.setImageResource(listTema.get(indice).getImagem());
-        txtQuiz.setText(desafioSingleton.definirPalavraVogal(listTema.get(indice).getNomeImagem()));
+        txtQuiz.setText(desafioSingleton.dandoEspacos(desafioSingleton.definirPalavraVogal(listTema.get(indice).getNomeImagem())));
         desafio = desafioSingleton.definirPalavraVogal(listTema.get(indice).getNomeImagem()).toCharArray();
 
     }
@@ -102,12 +102,11 @@ public class VogalActivity extends AppCompatActivity implements View.OnClickList
 
     public void falarImagem(View v){
         tts.ditarFoto(listTema.get(indice).getNomeImagem());
-
     }
 
     private void verificaResposta(char alternativa){
         String resposta = desafioSingleton.verificarAlternativa(this, alternativa,listTema.get(indice).getNomeImagem(),desafio, jogador);
-        txtQuiz.setText(resposta);
+        txtQuiz.setText(desafioSingleton.dandoEspacos(resposta));
 
         acertou = desafioSingleton.verificaResposta(listTema.get(indice).getNomeImagem(), resposta);
         if (acertou == true){
@@ -125,6 +124,8 @@ public class VogalActivity extends AppCompatActivity implements View.OnClickList
                     public void run() {
                         desafioSingleton.setAtributosVogais(imagem, txtQuiz, listTema, indice);
                         desafio = desafioSingleton.definirPalavraVogal(listTema.get(indice).getNomeImagem()).toCharArray();
+                        //Mudando o desafio. Para isso é chamado o método que seta a quantidade de espaços que formam a palavra
+                        txtQuiz.setText(desafioSingleton.dandoEspacos(desafioSingleton.definirPalavraVogal(listTema.get(indice).getNomeImagem())));
                     }
                 }, 2000);
 

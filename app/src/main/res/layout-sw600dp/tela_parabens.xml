@@ -9,6 +9,113 @@
     android:orientation="vertical"
     tools:context=".activity.FimDeJogoActivity">
 
+    <ImageButton
+        android:id="@+id/voltar_temas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginBottom="8dp"
+        android:background="@android:color/transparent"
+        android:cropToPadding="false"
+        android:onClick="onClick"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/repetir"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtFraseFim"
+        app:srcCompat="@drawable/botao_tela_temas" />
+
+    <ImageButton
+        android:id="@+id/repetir"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@android:color/transparent"
+        android:onClick="onClick"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/voltar_temas"
+        app:layout_constraintTop_toBottomOf="@+id/txtFraseFim"
+        app:srcCompat="@drawable/botao_repetir" />
+
+    <TextView
+        android:id="@+id/txtFraseFim"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="center_horizontal"
+        android:includeFontPadding="true"
+        android:text="Você foi demais!"
+        android:textColor="@android:color/white"
+        android:textSize="75sp"
+        android:typeface="normal"
+        app:fontFamily="@font/luckiest_guy"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/simpleRatingBar"
+        app:layout_constraintVertical_bias="0.19" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:gravity="center|center_horizontal"
+        android:text="Pontuação"
+        android:textColor="@android:color/white"
+        android:textSize="70sp"
+        app:fontFamily="@font/luckiest_guy"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Repetir"
+        android:textColor="@android:color/white"
+        android:textSize="30sp"
+        app:fontFamily="@font/luckiest_guy"
+        app:layout_constraintEnd_toEndOf="@+id/repetir"
+        app:layout_constraintStart_toStartOf="@+id/repetir"
+        app:layout_constraintTop_toBottomOf="@+id/repetir" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center|center_horizontal"
+        android:text="Voltar para Temas"
+        android:textColor="@android:color/white"
+        android:textSize="30sp"
+        app:fontFamily="@font/luckiest_guy"
+        app:layout_constraintEnd_toEndOf="@+id/voltar_temas"
+        app:layout_constraintStart_toStartOf="@+id/voltar_temas"
+        app:layout_constraintTop_toBottomOf="@+id/voltar_temas" />
+
     <com.willy.ratingbar.ScaleRatingBar
         android:id="@+id/simpleRatingBar"
         android:layout_width="wrap_content"
@@ -30,117 +137,9 @@
         app:srb_numStars="3"
         app:srb_rating="2"
         app:srb_scrollable="true"
-        app:srb_starHeight="140dp"
+        app:srb_starHeight="180dp"
         app:srb_starPadding="15dp"
-        app:srb_starWidth="140dp"
+        app:srb_starWidth="180dp"
         app:srb_stepSize="0.5"></com.willy.ratingbar.ScaleRatingBar>
-
-    <TextView
-        android:id="@+id/txtFraseFim"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:gravity="center_horizontal"
-        android:includeFontPadding="true"
-        android:text="Você foi demais!"
-        android:textColor="@android:color/white"
-        android:textSize="75sp"
-        android:typeface="normal"
-        app:fontFamily="@font/luckiest_guy"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/simpleRatingBar"
-        app:layout_constraintVertical_bias="0.19" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline23"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.5" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:gravity="center|center_horizontal"
-        android:text="Pontuação"
-        android:textColor="@android:color/white"
-        android:textSize="70sp"
-        app:fontFamily="@font/luckiest_guy"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageButton
-        android:id="@+id/voltar_temas"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
-        android:background="@android:color/transparent"
-        android:cropToPadding="false"
-        android:onClick="onClick"
-        android:scaleType="fitCenter"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/guideline23"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtFraseFim"
-        app:srcCompat="@drawable/botao_tela_temas" />
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:gravity="center|center_horizontal"
-        android:text="Voltar para Temas"
-        android:textColor="@android:color/white"
-        android:textSize="30sp"
-        app:fontFamily="@font/luckiest_guy"
-        app:layout_constraintEnd_toEndOf="@+id/voltar_temas"
-        app:layout_constraintStart_toStartOf="@+id/voltar_temas"
-        app:layout_constraintTop_toBottomOf="@+id/voltar_temas" />
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Repetir"
-        android:textColor="@android:color/white"
-        android:textSize="30sp"
-        app:fontFamily="@font/luckiest_guy"
-        app:layout_constraintEnd_toEndOf="@+id/repetir"
-        app:layout_constraintStart_toStartOf="@+id/repetir"
-        app:layout_constraintTop_toBottomOf="@+id/repetir" />
-
-    <ImageButton
-        android:id="@+id/repetir"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
-        android:background="@android:color/transparent"
-        android:onClick="onClick"
-        android:scaleType="fitCenter"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/guideline23"
-        app:layout_constraintTop_toBottomOf="@+id/txtFraseFim"
-        app:srcCompat="@drawable/botao_repetir" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
