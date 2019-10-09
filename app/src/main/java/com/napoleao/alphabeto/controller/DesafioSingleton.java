@@ -1,15 +1,24 @@
 package com.napoleao.alphabeto.controller;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.napoleao.alphabeto.R;
+import com.napoleao.alphabeto.activity.TelaInicialActivity;
 import com.napoleao.alphabeto.model.Tema;
 
 import java.util.ArrayList;
 import android.os.Vibrator;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
+
+import static androidx.core.content.ContextCompat.startActivity;
 
 
 public class DesafioSingleton {
@@ -177,6 +186,30 @@ public class DesafioSingleton {
         }
 
         return novaString.toString();
+    }
+
+    public void exibirConfirmacao(final Activity activity) {
+
+        AlertDialog.Builder mensagem = new AlertDialog.Builder(activity);
+        mensagem.setTitle("Confirmação");
+        mensagem.setIcon(null);
+        mensagem.setMessage("Deseja sair da partida?");
+
+        mensagem.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Toast.makeText(activity, "Menu inicial", Toast.LENGTH_LONG).show();
+                activity.finish();
+            }
+        });
+
+        mensagem.setNegativeButton("Não", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Toast.makeText(activity, "Continuando...", Toast.LENGTH_LONG).show();
+            }
+        });
+        mensagem.show();
     }
 
 }

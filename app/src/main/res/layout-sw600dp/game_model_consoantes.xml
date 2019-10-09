@@ -52,7 +52,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline17"
         tools:srcCompat="@tools:sample/avatars[0]" />
 
-    <androidx.appcompat.widget.AppCompatTextView
+    <com.napoleao.alphabeto.config.AlphaTextView
         android:id="@+id/textConsoante"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

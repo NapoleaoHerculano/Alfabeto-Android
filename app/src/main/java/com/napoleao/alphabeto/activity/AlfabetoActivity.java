@@ -199,6 +199,7 @@ public class AlfabetoActivity extends AppCompatActivity implements View.OnClickL
                 startActivity(it);
                 finish();
             }else if(indice < listTema.size()){
+                desligarBotoes();
                 Handler handle = new Handler();
                 handle.postDelayed(new Runnable() {
                     @Override
@@ -207,12 +208,13 @@ public class AlfabetoActivity extends AppCompatActivity implements View.OnClickL
                         desafio = desafioSingleton.definirPalavraAlfabeto(listTema.get(indice).getNomeImagem()).toCharArray();
                         //Mudando o desafio. Para isso é chamado o método que seta a quantidade de espaços que formam a palavra
                         txtQuiz.setText(desafioSingleton.definirPalavraAlfabeto(desafioSingleton.dandoEspacos(listTema.get(indice).getNomeImagem())));
+                        ligarBotoes();
                     }
                 }, 2000);
 
             }
-        }
 
+        }
     }
 
     public void instanciarBotoes(){
@@ -221,6 +223,27 @@ public class AlfabetoActivity extends AppCompatActivity implements View.OnClickL
             Button btn = findViewById(botoes[i]);
             btn.setOnClickListener(this);
         }
+    }
+
+    public void desligarBotoes(){
+        int i;
+        for(i = 0; i < botoes.length; i++){
+            Button btn = findViewById(botoes[i]);
+            btn.setEnabled(false);
+        }
+    }
+
+    public void ligarBotoes(){
+        int i;
+        for(i = 0; i < botoes.length; i++){
+            Button btn = findViewById(botoes[i]);
+            btn.setEnabled(true);
+        }
+    }
+
+    @Override
+    public void onBackPressed(){
+        desafioSingleton.exibirConfirmacao(this);
     }
 
 }

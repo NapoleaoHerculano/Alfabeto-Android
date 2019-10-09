@@ -11,37 +11,44 @@
         android:supportsRtl="true"
         android:theme="@style/Outros"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".activity.SplashScreenActivity"
+        <activity android:name=".activity.SobreActivity"></activity>
+        <activity android:name=".activity.ConfiguracoesActivity" />
+        <activity
+            android:name=".activity.SplashScreenActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
-
-        <activity android:name=".activity.VogalActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".activity.ConsoanteActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".activity.TelaInicialActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".activity.NiveisActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".activity.AlfabetoActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".activity.MainActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".activity.FimDeJogoActivity"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".activity.VogalActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.ConsoanteActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.TelaInicialActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.NiveisActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.AlfabetoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.FimDeJogoActivity"
+            android:screenOrientation="portrait" />
 
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
     </application>
-    <uses-permission android:name="android.permission.VIBRATE">
 
-    </uses-permission>
+    <uses-permission android:name="android.permission.VIBRATE" />
 
 </manifest>

@@ -94,7 +94,7 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.95" />
 
-    <TextView
+    <com.napoleao.alphabeto.config.AlphaTextView
         android:id="@+id/txtQuiz"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -1,10 +1,13 @@
 package com.napoleao.alphabeto.activity;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import com.napoleao.alphabeto.R;
 
@@ -54,5 +57,30 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         it.putExtra("tema", select);
         startActivity(it);
         finish();
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        AlertDialog.Builder mensagem = new AlertDialog.Builder(this);
+        mensagem.setTitle("Confirmação");
+        mensagem.setIcon(null);
+        mensagem.setMessage("Voltar para o menu inicial?");
+
+        mensagem.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Toast.makeText(MainActivity.this, "Menu inicial", Toast.LENGTH_LONG).show();
+                finish();
+            }
+        });
+
+        mensagem.setNegativeButton("Não", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Toast.makeText(MainActivity.this, "Continuando...", Toast.LENGTH_LONG).show();
+            }
+        });
+        mensagem.show();
     }
 }

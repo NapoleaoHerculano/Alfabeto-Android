@@ -8,10 +8,12 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.napoleao.alphabeto.R;
+import com.napoleao.alphabeto.controller.DesafioSingleton;
 
 public class NiveisActivity extends AppCompatActivity implements View.OnClickListener{
 
     int select;
+    private DesafioSingleton desafioSingleton;
 
     int[] botoes = {R.id.txtVogais, R.id.txtConsoantes, R.id.txtAlfabeto};
 
@@ -23,6 +25,8 @@ public class NiveisActivity extends AppCompatActivity implements View.OnClickLis
         instanciarBotoes();
 
         Bundle extras = getIntent().getExtras();
+
+        desafioSingleton = DesafioSingleton.getSingleton();
         select = extras.getInt("tema");
 
     }
@@ -52,6 +56,11 @@ public class NiveisActivity extends AppCompatActivity implements View.OnClickLis
                 finish();
                 break;
         }
+    }
+
+    @Override
+    public void onBackPressed(){
+        desafioSingleton.exibirConfirmacao(this);
     }
 
     public void instanciarBotoes(){

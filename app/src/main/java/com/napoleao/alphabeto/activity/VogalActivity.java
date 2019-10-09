@@ -118,6 +118,7 @@ public class VogalActivity extends AppCompatActivity implements View.OnClickList
                 startActivity(it);
                 finish();
             }else if(indice < listTema.size()){
+                desligarBotoes();
                 Handler handle = new Handler();
                 handle.postDelayed(new Runnable() {
                     @Override
@@ -126,6 +127,7 @@ public class VogalActivity extends AppCompatActivity implements View.OnClickList
                         desafio = desafioSingleton.definirPalavraVogal(listTema.get(indice).getNomeImagem()).toCharArray();
                         //Mudando o desafio. Para isso é chamado o método que seta a quantidade de espaços que formam a palavra
                         txtQuiz.setText(desafioSingleton.dandoEspacos(desafioSingleton.definirPalavraVogal(listTema.get(indice).getNomeImagem())));
+                        ligarBotoes();
                     }
                 }, 2000);
 
@@ -140,6 +142,27 @@ public class VogalActivity extends AppCompatActivity implements View.OnClickList
             Button btn = findViewById(botoes[i]);
             btn.setOnClickListener(this);
         }
+    }
+
+    public void desligarBotoes(){
+        int i;
+        for(i = 0; i < botoes.length; i++){
+            Button btn = findViewById(botoes[i]);
+            btn.setEnabled(false);
+        }
+    }
+
+    public void ligarBotoes(){
+        int i;
+        for(i = 0; i < botoes.length; i++){
+            Button btn = findViewById(botoes[i]);
+            btn.setEnabled(true);
+        }
+    }
+
+    @Override
+    public void onBackPressed(){
+        desafioSingleton.exibirConfirmacao(this);
     }
 
 }
