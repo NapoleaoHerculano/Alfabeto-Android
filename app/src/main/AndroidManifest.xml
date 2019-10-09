@@ -11,8 +11,11 @@
         android:supportsRtl="true"
         android:theme="@style/Outros"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".activity.SobreActivity"></activity>
-        <activity android:name=".activity.ConfiguracoesActivity" />
+
+        <activity android:name=".activity.SobreActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activity.ConfiguracoesActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".activity.SplashScreenActivity"
             android:screenOrientation="portrait">

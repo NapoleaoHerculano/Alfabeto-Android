@@ -30,10 +30,10 @@ public class SingletonAudio implements TextToSpeech.OnInitListener{
     @Override
     public void onInit(int status) {
         if(status == TextToSpeech.SUCCESS){
-            Toast toast = Toast.makeText(myContext, "Serviço de aúdio carregado com sucesso!", Toast.LENGTH_LONG);
+            Toast toast = Toast.makeText(myContext, "Serviço de áudio carregado com sucesso!", Toast.LENGTH_LONG);
             toast.show();
         }else{
-            Toast toast = Toast.makeText(myContext, "Serviço de aúdio indisponível. Reinicie o APP!", Toast.LENGTH_LONG);
+            Toast toast = Toast.makeText(myContext, "Serviço de áudio indisponível. Reinicie o aplicativo!", Toast.LENGTH_LONG);
             toast.show();
         }
 

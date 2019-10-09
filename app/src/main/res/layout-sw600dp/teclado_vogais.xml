@@ -21,7 +21,7 @@
             android:padding="10dp"
             android:text="@string/a"
             android:textColor="@color/colorPrimary"
-            android:textSize="40sp"
+            android:textSize="30sp"
             android:textStyle="bold"
             app:backgroundTint="@android:color/white" />
 
@@ -34,7 +34,7 @@
             android:padding="10dp"
             android:text="@string/e"
             android:textColor="@color/colorPrimary"
-            android:textSize="40sp"
+            android:textSize="30sp"
             android:textStyle="bold"
             app:backgroundTint="@android:color/white" />
 
@@ -47,7 +47,7 @@
             android:padding="10dp"
             android:text="@string/i"
             android:textColor="@color/colorPrimary"
-            android:textSize="40sp"
+            android:textSize="30sp"
             android:textStyle="bold"
             app:backgroundTint="@android:color/white" />
 
@@ -60,7 +60,7 @@
             android:padding="10dp"
             android:text="@string/o"
             android:textColor="@color/colorPrimary"
-            android:textSize="40sp"
+            android:textSize="30sp"
             android:textStyle="bold"
             app:backgroundTint="@android:color/white" />
 
@@ -73,7 +73,7 @@
             android:padding="10dp"
             android:text="@string/u"
             android:textColor="@color/colorPrimary"
-            android:textSize="40sp"
+            android:textSize="30sp"
             android:textStyle="bold"
             app:backgroundTint="@android:color/white" />
     </LinearLayout>

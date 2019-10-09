@@ -50,7 +50,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtAppNome"
         app:layout_constraintVertical_bias="0.257"
-        app:srcCompat="@drawable/botao_iniciar" />
+        app:srcCompat="@drawable/botaoplay" />
 
     <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/btnConfig"
