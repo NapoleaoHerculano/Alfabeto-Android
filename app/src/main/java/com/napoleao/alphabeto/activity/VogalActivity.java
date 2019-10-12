@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.napoleao.alphabeto.R;
+import com.napoleao.alphabeto.config.AppConfig;
 import com.napoleao.alphabeto.controller.DesafioSingleton;
 import com.napoleao.alphabeto.controller.FabricaTemas;
 import com.napoleao.alphabeto.controller.JogadorSingleton;
@@ -104,13 +105,21 @@ public class VogalActivity extends AppCompatActivity implements View.OnClickList
         tts.ditarFoto(listTema.get(indice).getNomeImagem());
     }
 
+    public void voltarVogais(View v){
+        onBackPressed();
+    }
+
+    public void fecharVogais(View v){
+        desafioSingleton.exibirConfirmacaoFechar(this);
+    }
+
     private void verificaResposta(char alternativa){
         String resposta = desafioSingleton.verificarAlternativa(this, alternativa,listTema.get(indice).getNomeImagem(),desafio, jogador);
         txtQuiz.setText(desafioSingleton.dandoEspacos(resposta));
 
         acertou = desafioSingleton.verificaResposta(listTema.get(indice).getNomeImagem(), resposta);
-        if (acertou == true){
-            desafioSingleton.acertou(this);
+        if (acertou){
+            desafioSingleton.acertou(this, AppConfig.getInstance(this).getCurrentSound());
             indice++;
             if(indice == listTema.size()) {
                 Intent it = new Intent(VogalActivity.this, FimDeJogoActivity.class);
@@ -162,7 +171,7 @@ public class VogalActivity extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void onBackPressed(){
-        desafioSingleton.exibirConfirmacao(this);
+        desafioSingleton.exibirConfirmacaoVoltar(this);
     }
 
 }

@@ -2,6 +2,7 @@ package com.napoleao.alphabeto.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.TextView;
 
@@ -9,11 +10,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.napoleao.alphabeto.R;
 import com.napoleao.alphabeto.controller.DesafioSingleton;
+import com.napoleao.alphabeto.controller.SingletonAudio;
 
 public class NiveisActivity extends AppCompatActivity implements View.OnClickListener{
 
     int select;
-    private DesafioSingleton desafioSingleton;
+    private SingletonAudio tts;
 
     int[] botoes = {R.id.txtVogais, R.id.txtConsoantes, R.id.txtAlfabeto};
 
@@ -26,7 +28,7 @@ public class NiveisActivity extends AppCompatActivity implements View.OnClickLis
 
         Bundle extras = getIntent().getExtras();
 
-        desafioSingleton = DesafioSingleton.getSingleton();
+        tts = SingletonAudio.getSingleton(this);
         select = extras.getInt("tema");
 
     }
@@ -36,31 +38,59 @@ public class NiveisActivity extends AppCompatActivity implements View.OnClickLis
         switch (v.getId()){
             case R.id.txtVogais:
             case R.id.btnVogais:
-                Intent it = new Intent(NiveisActivity.this, VogalActivity.class);
-                it.putExtra("tema", select);
-                startActivity(it);
-                finish();
+                tts.ditarFoto("Vogais");
+                Handler handler = new Handler();
+
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Intent it = new Intent(NiveisActivity.this, VogalActivity.class);
+                        it.putExtra("tema", select);
+                        startActivity(it);
+                        finish();
+                    }
+                }, 1300);
                 break;
             case R.id.txtConsoantes:
             case R.id.btnConsoantes:
-                it = new Intent(NiveisActivity.this, ConsoanteActivity.class);
-                it.putExtra("tema", select);
-                startActivity(it);
-                finish();
+                tts.ditarFoto("Consoantes");
+                handler = new Handler();
+
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Intent it = new Intent(NiveisActivity.this, ConsoanteActivity.class);
+                        it.putExtra("tema", select);
+                        startActivity(it);
+                        finish();
+                    }
+                }, 1300);
                 break;
             case R.id.txtAlfabeto:
             case R.id.btnAlfabeto:
-                it = new Intent(NiveisActivity.this, AlfabetoActivity.class);
-                it.putExtra("tema", select);
-                startActivity(it);
-                finish();
+                tts.ditarFoto("Alfabeto");
+                handler = new Handler();
+
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Intent it = new Intent(NiveisActivity.this, AlfabetoActivity.class);
+                        it.putExtra("tema", select);
+                        startActivity(it);
+                        finish();
+                    }
+                }, 1300);
                 break;
+            case R.id.btnVoltarNiveis:
+                onBackPressed();
         }
     }
 
     @Override
     public void onBackPressed(){
-        desafioSingleton.exibirConfirmacao(this);
+        Intent it = new Intent(NiveisActivity.this, MainActivity.class);
+        startActivity(it);
+        finish();
     }
 
     public void instanciarBotoes(){

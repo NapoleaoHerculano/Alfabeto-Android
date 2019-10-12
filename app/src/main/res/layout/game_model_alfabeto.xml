@@ -8,6 +8,32 @@
     android:background="@drawable/gradiente_fundo"
     android:orientation="vertical">
 
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/btnVoltarAlfabeto"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/botao_tela_anterior"
+        android:contentDescription="@string/menu_anterior"
+        android:onClick="voltarAlfabeto"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/btnFecharAlfabeto"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@drawable/botao_desistir"
+        android:contentDescription="@string/menu_anterior"
+        android:onClick="fecharAlfabeto"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageButton
         android:id="@+id/ditarFoto"
         android:layout_width="wrap_content"
@@ -17,6 +43,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:background="@android:color/transparent"
+        android:contentDescription="@string/ditar"
         android:onClick="falarImagem"
         android:tint="@android:color/white"
         app:layout_constraintBottom_toBottomOf="@+id/imageAlfabeto"
@@ -27,7 +54,7 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/imageAlfabeto"
-        android:layout_width="190dp"
+        android:layout_width="250dp"
         android:layout_height="190dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
@@ -56,12 +83,12 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
+        android:background="@drawable/text_view_border"
         android:gravity="center|center_horizontal"
         android:padding="10dp"
-        android:text="TextView"
+        android:text="@string/desafio"
         android:textColor="@android:color/white"
         android:textSize="45sp"
-        android:background="@drawable/text_view_border"
         app:fontFamily="@font/luckiest_guy"
         app:layout_constraintBottom_toTopOf="@+id/guideline8"
         app:layout_constraintEnd_toEndOf="parent"

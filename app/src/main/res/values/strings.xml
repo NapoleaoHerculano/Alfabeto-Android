@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">AlfaBeto</string>
-    <string name="title_app">ALPHABETO</string>
+    <string name="title_app">ALFABETO</string>
     <string name="vogais">Vogais</string>
     <string name="consoantes">Consoantes</string>
     <string name="animais">Animais</string>
@@ -34,6 +34,50 @@
     <string name="x">X</string>
     <string name="y">Y</string>
     <string name="z">Z</string>
+
+    <string name="configuracoes">Configurações</string>
+    <string name="font_tipo">Tipo de fonte</string>
+    <string name="letra_tipo">Tipo de letra</string>
+    <string name="visualizacao">Visualização</string>
+    <string name="alfabeto">a b c d e f g h i j k l m n o p q r s t u v w x y z</string>
+    <string name="salvar">Salvar</string>
+    <string name="maiusculas">Maiúsculas</string>
+    <string name="minusculas">Minúsculas</string>
+    <string name="font_cursiva">Cursiva</string>
+    <string name="font_bastao">Bastão</string>
+
+    <string name="temas">Temas</string>
+    <string name="menu_inicial">Menu inicial</string>
+
+    <string name="sobre">Sobre</string>
+    <string name="dev_by">Desenvolvido por :</string>
+    <string name="projeto">Projeto :</string>
+    <string name="creditos">Créditos :</string>
+    <string name="sobre_projeto">O Apps4Society é um projeto de extensão desenvolvido pela UFPB - Campus IV. O objetivo do mesmo é desenvolver aplicativos que impactem positivamente a sociedade.</string>
+    <string name="link_projeto">https://apps4society.dcx.ufpb.br/</string>
+    <string name="creditos_imgs">As imagens usadas nos desafios foram obtidas do site: https://pt.freeimages.com/</string>
+    <string name="site_projeto">https://apps4society.dcx.ufpb.br/</string>
+    <string name="dev_name">Francivaldo Napoleão Herculano</string>
+    <string name="dev_curso">Sistemas de Informação</string>
+    <string name="curso_infos">UFPB - Campus IV - Rio Tinto</string>
+    <string name="dev_status">Aluno voluntário</string>
+
+    <string name="ditar">ditar</string>
+    <string name="desafio">Desafio</string>
+    <string name="niveis">Níveis</string>
+    <string name="nivel_alfabeto">Alfabeto</string>
+
+    <string name="jogar">Jogar</string>
+    <string name="exemplo">Exemplo</string>
+    <string name="repetir">Repetir</string>
+    <string name="pontuacao">Pontuação</string>
+    <string name="voltar_temas">Voltar para Temas</string>
+    <string name="menu_anterior">Menu anterior</string>
+    <string name="voltar">Voltar</string>
+    <string name="som_acerto">Som de acerto</string>
+    <string name="op1">Opção 01</string>
+    <string name="op2">Opção 02</string>
+    <string name="op3">Opção 03</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

@@ -68,6 +68,7 @@ public class TelaInicialActivity extends AppCompatActivity implements View.OnCli
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 Toast.makeText(TelaInicialActivity.this, "Até a próxima!", Toast.LENGTH_LONG).show();
+                tts.stopTts();
                 finish();
             }
         });

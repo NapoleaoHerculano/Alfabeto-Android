@@ -8,6 +8,32 @@
     android:background="@drawable/gradiente_fundo"
     android:orientation="vertical">
 
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/btnFecharVogais"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@drawable/botao_desistir"
+        android:contentDescription="@string/menu_anterior"
+        android:onClick="fecharVogais"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/btnVoltarVogais"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/botao_tela_anterior"
+        android:contentDescription="@string/menu_anterior"
+        android:onClick="voltarVogais"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="wrap_content"
@@ -42,6 +68,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:background="@android:color/transparent"
+        android:contentDescription="@string/ditar"
         android:onClick="falarImagem"
         android:tint="@android:color/white"
         app:layout_constraintBottom_toBottomOf="@+id/imageVogal"
@@ -52,7 +79,7 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/imageVogal"
-        android:layout_width="190dp"
+        android:layout_width="250dp"
         android:layout_height="190dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
@@ -105,7 +132,7 @@
         android:background="@drawable/text_view_border"
         android:gravity="center|center_horizontal"
         android:padding="10dp"
-        android:text="TextView"
+        android:text="@string/desafio"
         android:textColor="@android:color/white"
         android:textSize="45sp"
         app:fontFamily="@font/luckiest_guy"

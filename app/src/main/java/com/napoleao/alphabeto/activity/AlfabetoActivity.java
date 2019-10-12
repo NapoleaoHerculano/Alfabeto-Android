@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.napoleao.alphabeto.R;
+import com.napoleao.alphabeto.config.AppConfig;
 import com.napoleao.alphabeto.controller.DesafioSingleton;
 import com.napoleao.alphabeto.controller.FabricaTemas;
 import com.napoleao.alphabeto.controller.JogadorSingleton;
@@ -181,7 +182,14 @@ public class AlfabetoActivity extends AppCompatActivity implements View.OnClickL
     //Método que fala o nome da imagem que está sendo mostrada
     public void falarImagem(View v){
         tts.ditarFoto(listTema.get(indice).getNomeImagem());
+    }
 
+    public void voltarAlfabeto(View v){
+        onBackPressed();
+    }
+
+    public void fecharAlfabeto(View v){
+        desafioSingleton.exibirConfirmacaoFechar(this);
     }
 
     //Método que veriifica se a reposta está correta
@@ -190,8 +198,8 @@ public class AlfabetoActivity extends AppCompatActivity implements View.OnClickL
         txtQuiz.setText(desafioSingleton.dandoEspacos(resposta));
 
         acertou = desafioSingleton.verificaResposta(listTema.get(indice).getNomeImagem(), resposta);
-        if (acertou == true){
-            desafioSingleton.acertou(this);
+        if (acertou){
+            desafioSingleton.acertou(this, AppConfig.getInstance(this).getCurrentSound());
             indice++;
             if(indice == listTema.size()) {
                 Intent it = new Intent(AlfabetoActivity.this, FimDeJogoActivity.class);
@@ -243,7 +251,7 @@ public class AlfabetoActivity extends AppCompatActivity implements View.OnClickL
 
     @Override
     public void onBackPressed(){
-        desafioSingleton.exibirConfirmacao(this);
+        desafioSingleton.exibirConfirmacaoVoltar(this);
     }
 
 }

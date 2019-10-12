@@ -1,12 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradiente_fundo"
     android:orientation="vertical">
+
+    <ImageButton
+        android:id="@+id/btnVoltarNiveis"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/botao_tela_anterior"
+        android:contentDescription="@string/menu_anterior"
+        android:onClick="onClick"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
         android:id="@+id/btnVogais"
@@ -15,6 +27,7 @@
         android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
         android:background="@android:color/transparent"
+        android:contentDescription="@string/vogais"
         android:onClick="onClick"
         android:scaleType="centerInside"
         android:src="@drawable/vogais"
@@ -31,6 +44,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginLeft="32dp"
         android:background="@android:color/transparent"
+        android:contentDescription="@string/consoantes"
         android:onClick="onClick"
         android:scaleType="centerInside"
         android:src="@drawable/consoantes"
@@ -49,6 +63,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:background="@android:color/transparent"
+        android:contentDescription="@string/nivel_alfabeto"
         android:onClick="onClick"
         android:scaleType="centerInside"
         android:src="@drawable/alfabeto"
@@ -63,13 +78,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="NÍVEIS"
+        android:text="@string/niveis"
         android:textColor="@android:color/white"
         android:textSize="70sp"
         app:fontFamily="@font/luckiest_guy"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:textAllCaps="true" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/txtVogais"
@@ -115,7 +131,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:text="Alfabeto"
+        android:text="@string/nivel_alfabeto"
         android:textColor="@android:color/white"
         android:textSize="45sp"
         app:fontFamily="@font/luckiest_guy"

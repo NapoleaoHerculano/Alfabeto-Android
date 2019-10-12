@@ -9,6 +9,32 @@
     android:orientation="vertical">
 
     <ImageButton
+        android:id="@+id/btnVoltarAlfabeto"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/botao_tela_anterior"
+        android:contentDescription="@string/menu_anterior"
+        android:onClick="voltarAlfabeto"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/btnFecharAlfabeto"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@drawable/botao_desistir"
+        android:contentDescription="@string/menu_anterior"
+        android:onClick="fecharAlfabeto"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
         android:id="@+id/ditarFoto"
         android:layout_width="70dp"
         android:layout_height="70dp"
@@ -17,6 +43,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:background="@android:color/transparent"
+        android:contentDescription="@string/ditar"
         android:onClick="falarImagem"
         android:scaleType="centerCrop"
         android:tint="@android:color/white"
@@ -28,8 +55,8 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/imageAlfabeto"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
+        android:layout_width="400dp"
+        android:layout_height="290dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginEnd="8dp"
@@ -52,10 +79,11 @@
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/text_view_border"
+        android:contentDescription="@string/desafio"
         android:gravity="center|center_horizontal"
         android:includeFontPadding="true"
         android:padding="10dp"
-        android:text="TextView"
+        android:text="@string/desafio"
         android:textColor="@android:color/white"
         android:textSize="80sp"
         app:fontFamily="@font/luckiest_guy"

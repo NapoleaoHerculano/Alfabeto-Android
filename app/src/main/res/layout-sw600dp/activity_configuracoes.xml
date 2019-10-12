@@ -8,41 +8,72 @@
     tools:context=".activity.ConfiguracoesActivity">
 
     <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textView29"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:gravity="center|center_horizontal"
+        android:text="@string/voltar"
+        android:textColor="@android:color/white"
+        android:textSize="25sp"
+        app:fontFamily="@font/luckiest_guy"
+        app:layout_constraintEnd_toEndOf="@+id/btnVoltarConfiguracoes"
+        app:layout_constraintStart_toStartOf="@+id/btnVoltarConfiguracoes"
+        app:layout_constraintTop_toBottomOf="@+id/btnVoltarConfiguracoes" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/som_acerto"
+        android:textColor="@color/white"
+        android:textSize="35sp"
+        app:fontFamily="@font/luckiest_guy"
+        app:layout_constraintBottom_toTopOf="@+id/rgSound"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout7" />
+
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textView21"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center|center_horizontal"
-        android:text="Salvar"
+        android:text="@string/salvar"
         android:textColor="@android:color/white"
         android:textSize="25sp"
         app:fontFamily="@font/luckiest_guy"
-        app:layout_constraintEnd_toEndOf="@+id/imageButton"
-        app:layout_constraintStart_toStartOf="@+id/imageButton"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton" />
+        app:layout_constraintEnd_toEndOf="@+id/btnSalvar"
+        app:layout_constraintStart_toStartOf="@+id/btnSalvar"
+        app:layout_constraintTop_toBottomOf="@+id/btnSalvar" />
 
     <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_marginBottom="16dp"
+        android:id="@+id/btnSalvar"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginBottom="8dp"
         android:background="@android:color/transparent"
+        android:contentDescription="@string/salvar"
         android:onClick="saveChanges"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout7"
+        app:layout_constraintStart_toEndOf="@+id/btnVoltarConfiguracoes"
+        app:layout_constraintTop_toBottomOf="@+id/rgSound"
         app:srcCompat="@drawable/btn_salvar" />
 
     <RadioGroup
         android:id="@+id/rgLetterCase"
-        android:layout_width="210dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/recycler_view"
         android:padding="5dp"
         app:layout_constraintBottom_toTopOf="@+id/textView19"
         app:layout_constraintEnd_toEndOf="@+id/textView18"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/textView18"
         app:layout_constraintTop_toBottomOf="@+id/textView18">
 
@@ -52,8 +83,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginRight="3dp"
-            android:text="Maiúsculas"
-            android:textSize="30sp"
+            android:text="@string/maiusculas"
+            android:textSize="28sp"
             android:textStyle="bold">
 
         </RadioButton>
@@ -64,8 +95,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginRight="3dp"
-            android:text="Minúsculas"
-            android:textSize="30sp"
+            android:text="@string/minusculas"
+            android:textSize="28sp"
             android:textStyle="bold">
 
         </RadioButton>
@@ -73,13 +104,15 @@
 
     <RadioGroup
         android:id="@+id/rgLetterType"
-        android:layout_width="170dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/recycler_view"
         android:padding="5dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView18"
+        app:layout_constraintBottom_toTopOf="@+id/textView19"
         app:layout_constraintEnd_toEndOf="@+id/textView13"
-        app:layout_constraintStart_toStartOf="@+id/textView13"
+        app:layout_constraintEnd_toStartOf="@+id/rgLetterCase"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView13">
 
         <RadioButton
@@ -90,8 +123,8 @@
             android:layout_marginLeft="0dp"
             android:layout_marginRight="3dp"
             android:gravity="center"
-            android:text="Cursiva"
-            android:textSize="30sp"
+            android:text="@string/font_cursiva"
+            android:textSize="28sp"
             android:textStyle="bold">
 
         </RadioButton>
@@ -103,8 +136,8 @@
             android:layout_gravity="center"
             android:layout_marginRight="5dp"
             android:gravity="center"
-            android:text="Bastão"
-            android:textSize="30sp"
+            android:text="@string/font_bastao"
+            android:textSize="28sp"
             android:textStyle="bold">
 
         </RadioButton>
@@ -115,10 +148,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="CONFIGURAÇÕES"
+        android:text="@string/configuracoes"
+        android:textAllCaps="true"
         android:textColor="@android:color/white"
         android:textSize="70sp"
         app:fontFamily="@font/luckiest_guy"
+        app:layout_constraintBottom_toTopOf="@+id/textView13"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -127,12 +162,12 @@
         android:id="@+id/textView13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tipo de fonte"
+        android:layout_marginTop="20dp"
+        android:text="@string/font_tipo"
         android:textColor="@color/white"
-        android:textSize="40sp"
+        android:textSize="35sp"
         app:fontFamily="@font/luckiest_guy"
-        app:layout_constraintBottom_toTopOf="@+id/rgLetterType"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/textView18"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtConfig" />
@@ -141,38 +176,37 @@
         android:id="@+id/textView19"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Visualização"
+        android:text="@string/visualizacao"
         android:textColor="@color/white"
-        android:textSize="40sp"
+        android:textSize="35sp"
         app:fontFamily="@font/luckiest_guy"
         app:layout_constraintBottom_toTopOf="@+id/constraintLayout7"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rgLetterCase" />
+        app:layout_constraintTop_toBottomOf="@+id/rgLetterType" />
 
     <TextView
         android:id="@+id/textView18"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tipo de letra"
+        android:layout_marginTop="20dp"
+        android:text="@string/letra_tipo"
         android:textColor="@color/white"
-        android:textSize="40sp"
+        android:textSize="35sp"
         app:fontFamily="@font/luckiest_guy"
-        app:layout_constraintBottom_toTopOf="@+id/rgLetterCase"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rgLetterType" />
+        app:layout_constraintStart_toEndOf="@+id/textView13"
+        app:layout_constraintTop_toBottomOf="@+id/txtConfig" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout7"
-        android:layout_width="450dp"
+        android:layout_width="470dp"
         android:layout_height="wrap_content"
         android:background="@drawable/recycler_view"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton"
+        app:layout_constraintBottom_toTopOf="@+id/textView16"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView19">
 
@@ -182,13 +216,79 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:padding="5dp"
-            android:text="a b c d e f g h i j k l m n o p q r s t u v w x y z"
-            android:textSize="38sp"
+            android:text="@string/alfabeto"
+            android:textSize="28sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <RadioGroup
+        android:id="@+id/rgSound"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/recycler_view"
+        android:onClick="onClick"
+        app:layout_constraintBottom_toTopOf="@+id/btnSalvar"
+        app:layout_constraintEnd_toEndOf="@+id/textView16"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/textView16"
+        app:layout_constraintTop_toBottomOf="@+id/textView16">
+
+        <RadioButton
+            android:id="@+id/rbOpcao1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:onClick="onClick"
+            android:text="@string/op1"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+
+        <RadioButton
+            android:id="@+id/rbOpcao2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:onClick="onClick"
+            android:text="@string/op2"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+
+        <RadioButton
+            android:id="@+id/rbOpcao3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:onClick="onClick"
+            android:text="@string/op3"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+    </RadioGroup>
+
+    <ImageButton
+        android:id="@+id/btnVoltarConfiguracoes"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginBottom="8dp"
+        android:background="@android:color/transparent"
+        android:onClick="voltarConfigurcoes"
+        android:scaleType="fitCenter"
+        android:contentDescription="@string/voltar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnSalvar"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rgSound"
+        app:srcCompat="@drawable/botao_tela_anterior" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

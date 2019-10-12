@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.napoleao.alphabeto.R;
+import com.napoleao.alphabeto.config.AppConfig;
 import com.napoleao.alphabeto.controller.DesafioSingleton;
 import com.napoleao.alphabeto.controller.FabricaTemas;
 import com.napoleao.alphabeto.controller.JogadorSingleton;
@@ -166,7 +167,14 @@ public class ConsoanteActivity extends AppCompatActivity implements View.OnClick
 
     public void falarImagem(View v){
         tts.ditarFoto(listTema.get(indice).getNomeImagem());
+    }
 
+    public void voltarConsoantes(View v){
+        onBackPressed();
+    }
+
+    public void fecharConsoantes(View v){
+        desafioSingleton.exibirConfirmacaoFechar(this);
     }
 
     private void verificaResposta(char alternativa){
@@ -174,8 +182,8 @@ public class ConsoanteActivity extends AppCompatActivity implements View.OnClick
         txtQuiz.setText(desafioSingleton.dandoEspacos(resposta));
 
         acertou = desafioSingleton.verificaResposta(listTema.get(indice).getNomeImagem(), resposta);
-        if (acertou == true){
-            desafioSingleton.acertou(this);
+        if (acertou){
+            desafioSingleton.acertou(this, AppConfig.getInstance(this).getCurrentSound());
             indice++;
             if(indice == listTema.size()) {
                 Intent it = new Intent(ConsoanteActivity.this, FimDeJogoActivity.class);
@@ -227,7 +235,7 @@ public class ConsoanteActivity extends AppCompatActivity implements View.OnClick
 
     @Override
     public void onBackPressed(){
-        desafioSingleton.exibirConfirmacao(this);
+        desafioSingleton.exibirConfirmacaoVoltar(this);
     }
 
 }

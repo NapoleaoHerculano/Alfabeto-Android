@@ -9,7 +9,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.napoleao.alphabeto.R;
+import com.napoleao.alphabeto.activity.MainActivity;
 import com.napoleao.alphabeto.activity.TelaInicialActivity;
+import com.napoleao.alphabeto.activity.VogalActivity;
+import com.napoleao.alphabeto.config.AppConfig;
 import com.napoleao.alphabeto.model.Tema;
 
 import java.util.ArrayList;
@@ -24,6 +27,8 @@ import static androidx.core.content.ContextCompat.startActivity;
 public class DesafioSingleton {
 
     private static DesafioSingleton singleton;
+
+    private AppConfig appConfig;
 
     private DesafioSingleton() {
 
@@ -115,7 +120,7 @@ public class DesafioSingleton {
         }
 
         //Aqui é diminuido da pontuação 0.20 caso o jogador erre
-        if (certo == false){
+        if (!certo){
             vibrar(context);
             jogador.setPontuacao(jogador.getPontuacao() - 0.20f);
 
@@ -145,10 +150,7 @@ public class DesafioSingleton {
     }
     //Verifica se a resposta é igual ao desafio
     public static boolean verificaResposta(String palavra, String resposta){
-        if(resposta.equals(palavra)){
-            return true;
-        }
-        return false;
+        return resposta.equals(palavra);
     }
 
     public static void setAtributosVogais(ImageView imagem, TextView textoImagem, ArrayList<Tema> temas, int indice){
@@ -172,8 +174,18 @@ public class DesafioSingleton {
         vibrator.vibrate(milliseconds);
     }
 
-    public static void acertou(Context context){
-        final MediaPlayer acertou = MediaPlayer.create(context, R.raw.acertou);
+    public static void acertou(Context context, String opcao){
+
+        MediaPlayer acertou;
+
+        if(opcao.equals("Opção 01")){
+            acertou = MediaPlayer.create(context, R.raw.acertou);
+        }else if(opcao.equals("Opção 02")){
+            acertou = MediaPlayer.create(context, R.raw.acertou2);
+        }else {
+            acertou = MediaPlayer.create(context, R.raw.acertou3);
+
+        }
         acertou.start();
     }
 
@@ -188,17 +200,19 @@ public class DesafioSingleton {
         return novaString.toString();
     }
 
-    public void exibirConfirmacao(final Activity activity) {
+    public void exibirConfirmacaoVoltar(final Activity activity) {
 
         AlertDialog.Builder mensagem = new AlertDialog.Builder(activity);
         mensagem.setTitle("Confirmação");
         mensagem.setIcon(null);
-        mensagem.setMessage("Deseja sair da partida?");
+        mensagem.setMessage("Você voltará para a seleção de temas. Deseja sair da partida?");
 
         mensagem.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Toast.makeText(activity, "Menu inicial", Toast.LENGTH_LONG).show();
+                Toast.makeText(activity, "Seleção de temas", Toast.LENGTH_SHORT).show();
+                Intent it = new Intent(activity, MainActivity.class);
+                activity.startActivity(it);
                 activity.finish();
             }
         });
@@ -206,7 +220,31 @@ public class DesafioSingleton {
         mensagem.setNegativeButton("Não", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Toast.makeText(activity, "Continuando...", Toast.LENGTH_LONG).show();
+                Toast.makeText(activity, "Continuando...", Toast.LENGTH_SHORT).show();
+            }
+        });
+        mensagem.show();
+    }
+
+    public void exibirConfirmacaoFechar(final Activity activity) {
+
+        AlertDialog.Builder mensagem = new AlertDialog.Builder(activity);
+        mensagem.setTitle("Confirmação");
+        mensagem.setIcon(null);
+        mensagem.setMessage("Você voltará para a tela inicial. Deseja sair da partida?");
+
+        mensagem.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Toast.makeText(activity, "Início", Toast.LENGTH_SHORT).show();
+                activity.finish();
+            }
+        });
+
+        mensagem.setNegativeButton("Não", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Toast.makeText(activity, "Continuando...", Toast.LENGTH_SHORT).show();
             }
         });
         mensagem.show();

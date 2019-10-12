@@ -23,6 +23,7 @@ public class SingletonAudio implements TextToSpeech.OnInitListener{
         return singleton;
     }
 
+
     public void ditarFoto(String palavra){
         tts.speak(palavra, tts.QUEUE_FLUSH, null);
     }
@@ -37,5 +38,10 @@ public class SingletonAudio implements TextToSpeech.OnInitListener{
             toast.show();
         }
 
+    }
+
+    public void stopTts(){
+        tts.stop();
+        tts.shutdown();
     }
 }
