@@ -29,10 +29,11 @@ public class ConsoanteActivity extends AppCompatActivity implements View.OnClick
     private FabricaTemas temas;
     private ArrayList<Tema> listTema;
     private DesafioSingleton desafioSingleton;
-    int select;
-    char[] desafio;//Array responsável por guardar e atualizar o desafio de acordo com as respostas
-    boolean acertou;
-    int indice;
+    private int select;
+    private int tema_select;
+    private char[] desafio;//Array responsável por guardar e atualizar o desafio de acordo com as respostas
+    private boolean acertou;
+    private int indice;
     private SingletonAudio tts;
     private JogadorSingleton jogador;
 
@@ -59,10 +60,11 @@ public class ConsoanteActivity extends AppCompatActivity implements View.OnClick
         //Pegando o tema escolhido
         Bundle extras = getIntent().getExtras();
         select = extras.getInt("tema");
+        tema_select = 1;
 
         //Carregando os temas de acordo com a escolha
         temas.escolhaDeTema(select);
-        listTema = desafioSingleton.carregarTemas(listTema);
+        listTema = desafioSingleton.carregarTemas(listTema, tema_select);
 
         //Instanciando a interface
         imagem = findViewById(R.id.imageConsoante);

@@ -30,8 +30,9 @@ public class VogalActivity extends AppCompatActivity implements View.OnClickList
     private FabricaTemas temas;//Classe responsável por instanciar o tema escolhido
     private ArrayList<Tema> listTema;//Lista com os temas carregados
     private DesafioSingleton desafioSingleton;//Classe responsável pela lógica do aplicativo
-    int select;//Valor que indica qual o tema a ser carregado
-    char[] desafio;//Array responsável por guardar e atualizar o desafio de acordo com as respostas
+    private int select;//Valor que indica qual o tema a ser carregado
+    private int tema_select;//Valor que indica quais desafios serão carregados
+    private char[] desafio;//Array responsável por guardar e atualizar o desafio de acordo com as respostas
     private boolean acertou;
     private int indice;
     private SingletonAudio tts;
@@ -58,10 +59,11 @@ public class VogalActivity extends AppCompatActivity implements View.OnClickList
         //Pegando o tema escolhido
         Bundle extras = getIntent().getExtras();
         select = extras.getInt("tema");
+        tema_select = 0;
 
         //Carregando os temas de acordo com a escolha
         temas.escolhaDeTema(select);
-        listTema = desafioSingleton.carregarTemas(listTema);
+        listTema = desafioSingleton.carregarTemas(listTema, tema_select);
 
         //Instanciando a interface
         imagem = findViewById(R.id.imageVogal);

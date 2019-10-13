@@ -57,7 +57,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.03" />
+        app:layout_constraintGuide_percent="0.1" />
 
     <ImageButton
         android:id="@+id/ditarFoto"
@@ -80,7 +80,7 @@
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/imageVogal"
         android:layout_width="250dp"
-        android:layout_height="190dp"
+        android:layout_height="0dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
@@ -134,7 +134,7 @@
         android:padding="10dp"
         android:text="@string/desafio"
         android:textColor="@android:color/white"
-        android:textSize="45sp"
+        android:textSize="38sp"
         app:fontFamily="@font/luckiest_guy"
         app:layout_constraintBottom_toTopOf="@+id/guideline5"
         app:layout_constraintEnd_toStartOf="@+id/guideline26"

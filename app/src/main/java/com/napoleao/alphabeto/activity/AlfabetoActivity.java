@@ -28,8 +28,9 @@ public class AlfabetoActivity extends AppCompatActivity implements View.OnClickL
     private FabricaTemas temas;
     private ArrayList<Tema> listTema;
     private DesafioSingleton desafioSingleton;
-    int select;
-    char[] desafio;//Array responsável por guardar e atualizar o desafio de acordo com as respostas
+    private int select;
+    private int tema_select;
+    private char[] desafio;//Array responsável por guardar e atualizar o desafio de acordo com as respostas
     private boolean acertou;
     private int indice;
     private SingletonAudio tts;
@@ -55,10 +56,11 @@ public class AlfabetoActivity extends AppCompatActivity implements View.OnClickL
 
         Bundle extras = getIntent().getExtras();
         select = extras.getInt("tema");
+        tema_select = 2;
 
         //Carregando os temas de acordo com a escolha
         temas.escolhaDeTema(select);
-        listTema = desafioSingleton.carregarTemas(listTema);
+        listTema = desafioSingleton.carregarTemas(listTema, tema_select);
 
         imagem = findViewById(R.id.imageAlfabeto);
         txtQuiz = findViewById(R.id.textAlfabeto);

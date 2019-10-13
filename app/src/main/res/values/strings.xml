@@ -40,7 +40,7 @@
     <string name="letra_tipo">Tipo de letra</string>
     <string name="visualizacao">Visualização</string>
     <string name="alfabeto">a b c d e f g h i j k l m n o p q r s t u v w x y z</string>
-    <string name="salvar">Salvar</string>
+    <string name="salvar">Visualizar e Salvar</string>
     <string name="maiusculas">Maiúsculas</string>
     <string name="minusculas">Minúsculas</string>
     <string name="font_cursiva">Cursiva</string>

@@ -28,8 +28,6 @@ public class DesafioSingleton {
 
     private static DesafioSingleton singleton;
 
-    private AppConfig appConfig;
-
     private DesafioSingleton() {
 
     }
@@ -69,7 +67,7 @@ public class DesafioSingleton {
         for(i = 0; i < palavra.length; i++){
             if(palavra[i] != 'A' && palavra[i] != 'E' && palavra[i] != 'I' && palavra[i] != 'O' && palavra[i] != 'U' && palavra[i] != 'Ã' &&
             palavra[i] != 'É' && palavra[i] != 'Á' && palavra[i] != 'Õ' && palavra[i] != 'Ô' && palavra[i] != 'Ó' && palavra[i] != ' '
-            && palavra[i] != 'Ç' && palavra[i] != 'Ê' && palavra[i] != 'Ú' && palavra[i] != 'Í'){
+            && palavra[i] != 'Ç' && palavra[i] != 'Ê' && palavra[i] != 'Ú' && palavra[i] != 'Í' && palavra[i] != '-' && palavra[i] != '\n'){
                 palavra[i] = '_';
             }
         }
@@ -90,7 +88,7 @@ public class DesafioSingleton {
         int i;
         for(i = 0; i < palavra.length; i++){
             if(palavra[i] != 'Ã' && palavra[i] != 'É' && palavra[i] != 'Á'  && palavra[i] != 'Í' && palavra[i] != 'Õ' && palavra[i] != 'Ó'
-                    && palavra[i] != 'Ç' && palavra[i] != 'Ê' && palavra[i] != 'Ú' && palavra[i] != 'Ô' && palavra[i] != ' ' && palavra[i] != 'Í'){
+                    && palavra[i] != 'Ç' && palavra[i] != 'Ê' && palavra[i] != 'Ú' && palavra[i] != 'Ô' && palavra[i] != ' ' && palavra[i] != 'Í' && palavra[i] != '-' && palavra[i] != '\n'){
 
                palavra[i] = '_';
             }
@@ -138,13 +136,25 @@ public class DesafioSingleton {
         return nomeFormatado;
     }
     //Recebe uma lista com temas e escolhe 5 deles
-    public static ArrayList<Tema> carregarTemas(ArrayList<Tema> listTemas){
+    public static ArrayList<Tema> carregarTemas(ArrayList<Tema> listTemas, int nivel){
         ArrayList<Tema> temas = new ArrayList<>();
 
         int i;
-        for(i = 0; i < 5; i++){
-            temas.add(listTemas.get(i));
+        if(nivel == 0){
+            for(i = 0; i < 5; i++){
+                temas.add(listTemas.get(i));
+            }
+        }else if(nivel == 1){
+            for(i = 5; i < 10; i++){
+                temas.add(listTemas.get(i));
+            }
+        }else{
+            for(i = 10; i <= 14; i++){
+                temas.add(listTemas.get(i));
+            }
         }
+
+
 
         return temas;
     }

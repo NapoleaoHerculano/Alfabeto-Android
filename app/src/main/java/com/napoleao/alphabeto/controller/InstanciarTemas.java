@@ -36,10 +36,12 @@ public abstract class InstanciarTemas {
         Animal a12 = new Animal(R.drawable.rato, "RATO");
         Animal a13 = new Animal(R.drawable.rinoceronte, "RINOCERONTE");
         Animal a14 = new Animal(R.drawable.zebra, "ZEBRA");
+        Animal a15 = new Animal(R.drawable.leopardo, "LEOPARDO");
+
 
         tema.add(a1); tema.add(a2);tema.add(a3);tema.add(a4);tema.add(a5);
         tema.add(a6);tema.add(a7);tema.add(a8);tema.add(a9);tema.add(a10);
-        tema.add(a11);tema.add(a12);tema.add(a13);tema.add(a14);
+        tema.add(a11);tema.add(a12);tema.add(a13);tema.add(a14);tema.add(a15);
 
         return tema;
     }
@@ -57,10 +59,10 @@ public abstract class InstanciarTemas {
         Pais p9 = new Pais(R.drawable.holanda, "HOLANDA");
         Pais p10 = new Pais(R.drawable.italia, "ITÁLIA");
         Pais p11 = new Pais(R.drawable.japao, "JAPÃO");
-        Pais p12 = new Pais(R.drawable.coreia, "CORÉIA DO SUL");
+        Pais p12 = new Pais(R.drawable.coreia, "CORÉIA\nDO\nSUL");
         Pais p13 = new Pais(R.drawable.russia, "RÚSSIA");
-        Pais p14 = new Pais(R.drawable.reino, "REINO UNIDO");
-        Pais p15 = new Pais(R.drawable.usa, "ESTADOS UNIDOS");
+        Pais p14 = new Pais(R.drawable.reino, "REINO\nUNIDO");
+        Pais p15 = new Pais(R.drawable.usa, "ESTADOS\nUNIDOS");
 
         tema.add(p1); tema.add(p2);tema.add(p3);tema.add(p4);tema.add(p5);
         tema.add(p6);tema.add(p7);tema.add(p8);tema.add(p9);tema.add(p10);
@@ -82,9 +84,15 @@ public abstract class InstanciarTemas {
         Cor c8 = new Cor(R.drawable.roxo, "ROXO");
         Cor c9 = new Cor(R.drawable.verde, "VERDE");
         Cor c10 = new Cor(R.drawable.vermelho, "VERMELHO");
+        Cor c11 = new Cor(R.drawable.dourado, "DOURADO");
+        Cor c12 = new Cor(R.drawable.azul_escuro, "AZUL\nMARINHO");
+        Cor c13 = new Cor(R.drawable.purpura, "ROXO\nPÚRPURA");
+        Cor c14 = new Cor(R.drawable.marrom_caramelo, "MARROM\nCARAMELO");
+        Cor c15 = new Cor(R.drawable.azul_turquesa, "AZUL\nTURQUESA");
 
         tema.add(c1); tema.add(c2);tema.add(c3);tema.add(c4);tema.add(c5);
         tema.add(c6);tema.add(c7);tema.add(c8);tema.add(c9);tema.add(c10);
+        tema.add(c11);tema.add(c12);tema.add(c13);tema.add(c14);tema.add(c15);
 
         return tema;
     }
@@ -106,10 +114,11 @@ public abstract class InstanciarTemas {
         Objeto o12= new Objeto(R.drawable.tambor, "TAMBOR");
         Objeto o13 = new Objeto(R.drawable.vaso, "VASO");
         Objeto o14 = new Objeto(R.drawable.xicara, "XÍCARA");
+        Objeto o15 = new Objeto(R.drawable.telefone, "TELEFONE");
 
         tema.add(o1); tema.add(o2);tema.add(o3);tema.add(o4);tema.add(o5);
         tema.add(o6);tema.add(o7);tema.add(o8);tema.add(o9);tema.add(o10);
-        tema.add(o11);tema.add(o12);tema.add(o13);tema.add(o14);
+        tema.add(o11);tema.add(o12);tema.add(o13);tema.add(o14);tema.add(o15);
 
         return tema;
     }
@@ -129,7 +138,7 @@ public abstract class InstanciarTemas {
         Fruta f10 = new Fruta(R.drawable.caju, "CAJÚ");
         Fruta f11 = new Fruta(R.drawable.acerola, "ACEROLA");
         Fruta f12 = new Fruta(R.drawable.maracuja, "MARACUJÁ");
-        Fruta f13 = new Fruta(R.drawable.melancia, ",MELANCIA");
+        Fruta f13 = new Fruta(R.drawable.melancia, "MELANCIA");
         Fruta f14 = new Fruta(R.drawable.melao, "MELÃO");
         Fruta f15 = new Fruta(R.drawable.limao, "LIMÃO");
 
