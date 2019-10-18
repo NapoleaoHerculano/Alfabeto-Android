@@ -4,6 +4,8 @@ import android.content.Context;
 import android.speech.tts.TextToSpeech;
 import android.widget.Toast;
 
+import java.util.Locale;
+
 public class SingletonAudio implements TextToSpeech.OnInitListener{
 
     private Context myContext;
@@ -31,6 +33,7 @@ public class SingletonAudio implements TextToSpeech.OnInitListener{
     @Override
     public void onInit(int status) {
         if(status == TextToSpeech.SUCCESS){
+            tts.setLanguage(Locale.getDefault());
             Toast toast = Toast.makeText(myContext, "Serviço de áudio carregado com sucesso!", Toast.LENGTH_LONG);
             toast.show();
         }else{
@@ -43,5 +46,6 @@ public class SingletonAudio implements TextToSpeech.OnInitListener{
     public void stopTts(){
         tts.stop();
         tts.shutdown();
+        singleton = null;
     }
 }

@@ -58,7 +58,6 @@ public class TelaInicialActivity extends AppCompatActivity implements View.OnCli
 
     @Override
     public void onBackPressed() {
-
         AlertDialog.Builder mensagem = new AlertDialog.Builder(this);
         mensagem.setTitle("Confirmação");
         mensagem.setIcon(null);
