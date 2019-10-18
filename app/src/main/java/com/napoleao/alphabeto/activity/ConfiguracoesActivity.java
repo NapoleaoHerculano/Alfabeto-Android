@@ -139,7 +139,7 @@ public class ConfiguracoesActivity extends AppCompatActivity implements View.OnC
         acertou.start();
     }
 
-    public void voltarConfigurcoes(View v){
+    public void voltarConfiguracoes(View v){
         onBackPressed();
     }
 

@@ -10,24 +10,14 @@
         android:layout_height="match_parent"
         android:background="@color/colorPrimaryDark">
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/textApp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginBottom="8dp"
-            android:text="@string/title_app"
-            android:textColor="@android:color/white"
-            android:textSize="50sp"
-            app:fontFamily="@font/luckiest_guy"
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageView7"
+            android:layout_width="300dp"
+            android:layout_height="80dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/beto_logo" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>

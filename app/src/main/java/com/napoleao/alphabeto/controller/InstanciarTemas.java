@@ -107,7 +107,7 @@ public abstract class InstanciarTemas {
         Objeto o5 = new Objeto(R.drawable.livro, "LIVRO");
         Objeto o6 = new Objeto(R.drawable.lupa, "LUPA");
         Objeto o7 = new Objeto(R.drawable.martelo, "MARTELO");
-        Objeto o8 = new Objeto(R.drawable.mouse, "MOUSE");
+        Objeto o8 = new Objeto(R.drawable.mesa, "MESA");
         Objeto o9 = new Objeto(R.drawable.oculos, "ÓCULOS");
         Objeto o10 = new Objeto(R.drawable.relogio, "RELÓGIO");
         Objeto o11 = new Objeto(R.drawable.sorvete, "SORVETE");
@@ -132,10 +132,10 @@ public abstract class InstanciarTemas {
         Fruta f4 = new Fruta(R.drawable.pera, "PÊRA");
         Fruta f5 = new Fruta(R.drawable.banana, "BANANA");
         Fruta f6 = new Fruta(R.drawable.laranja, "LARANJA");
-        Fruta f7 = new Fruta(R.drawable.uvas, "UVAS");
+        Fruta f7 = new Fruta(R.drawable.uvas, "UVA");
         Fruta f8 = new Fruta(R.drawable.manga, "MANGA");
         Fruta f9 = new Fruta(R.drawable.goiaba, "GOIABA");
-        Fruta f10 = new Fruta(R.drawable.caju, "CAJÚ");
+        Fruta f10 = new Fruta(R.drawable.caju, "CAJU");
         Fruta f11 = new Fruta(R.drawable.acerola, "ACEROLA");
         Fruta f12 = new Fruta(R.drawable.maracuja, "MARACUJÁ");
         Fruta f13 = new Fruta(R.drawable.melancia, "MELANCIA");

@@ -7,6 +7,16 @@
     android:background="@drawable/gradiente_fundo"
     android:orientation="vertical">
 
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imageView5"
+        android:layout_width="330dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="90dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/beto_logo" />
+
     <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/btnSobre"
         android:layout_width="120dp"
@@ -29,7 +39,6 @@
         android:layout_height="150dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="24dp"
         android:background="@android:color/transparent"
         android:onClick="onClick"
         android:scaleType="centerInside"
@@ -37,7 +46,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/btnIniciar"
-        app:layout_constraintTop_toBottomOf="@+id/txtAppNome"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5"
         app:layout_constraintVertical_bias="0.415"
         app:srcCompat="@drawable/botaoconfig_cropped" />
 
@@ -45,30 +54,15 @@
         android:id="@+id/btnIniciar"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_marginTop="20dp"
         android:background="@android:color/transparent"
         android:scaleType="centerInside"
         app:layout_constraintBottom_toTopOf="@+id/btnSobre"
         app:layout_constraintEnd_toStartOf="@+id/btnConfig"
         app:layout_constraintHorizontal_bias="0.67"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtAppNome"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5"
         app:layout_constraintVertical_bias="0.51"
         app:srcCompat="@drawable/botaoplay" />
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/txtAppNome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="70dp"
-        android:gravity="center"
-        android:text="@string/title_app"
-        android:textColor="@android:color/white"
-        android:textSize="75sp"
-        app:fontFamily="@font/luckiest_guy"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textView3"

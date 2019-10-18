@@ -281,7 +281,7 @@
         android:layout_marginLeft="32dp"
         android:layout_marginBottom="8dp"
         android:background="@android:color/transparent"
-        android:onClick="voltarConfigurcoes"
+        android:onClick="voltarConfiguracoes"
         android:scaleType="fitCenter"
         android:contentDescription="@string/voltar"
         app:layout_constraintBottom_toBottomOf="parent"

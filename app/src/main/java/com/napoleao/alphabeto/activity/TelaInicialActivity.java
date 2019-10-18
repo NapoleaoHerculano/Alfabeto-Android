@@ -24,7 +24,7 @@ public class TelaInicialActivity extends AppCompatActivity implements View.OnCli
         setContentView(R.layout.tela_inicial);
         super.onCreate(savedInstanceState);
 
-        tts = tts.getSingleton(this);
+        tts = SingletonAudio.getSingleton(this);
 
         instanciarBotoes();
 

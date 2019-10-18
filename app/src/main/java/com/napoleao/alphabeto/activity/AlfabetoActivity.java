@@ -49,7 +49,7 @@ public class AlfabetoActivity extends AppCompatActivity implements View.OnClickL
         desafioSingleton = desafioSingleton.getSingleton();
         acertou = false;
         indice = 0;
-        tts = tts.getSingleton(this);
+        tts = SingletonAudio.getSingleton(this);
         jogador = jogador.getJogador();
 
         instanciarBotoes();

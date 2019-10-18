@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/ConstraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -47,7 +48,7 @@
         app:layout_constraintEnd_toStartOf="@+id/btnConfig"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtAppNome"
+        app:layout_constraintTop_toBottomOf="@+id/imageView6"
         app:layout_constraintVertical_bias="0.257"
         app:srcCompat="@drawable/botaoplay" />
 
@@ -62,27 +63,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/btnIniciar"
-        app:layout_constraintTop_toBottomOf="@+id/txtAppNome"
+        app:layout_constraintTop_toBottomOf="@+id/imageView6"
         app:layout_constraintVertical_bias="0.487"
         app:srcCompat="@drawable/botaoconfig_cropped" />
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/txtAppNome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="135dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:gravity="center"
-        android:text="@string/title_app"
-        android:textColor="@android:color/white"
-        android:textSize="120sp"
-        app:fontFamily="@font/luckiest_guy"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textView3"
@@ -111,5 +94,15 @@
         app:layout_constraintEnd_toEndOf="@+id/btnConfig"
         app:layout_constraintStart_toStartOf="@+id/btnConfig"
         app:layout_constraintTop_toBottomOf="@+id/btnConfig" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="530dp"
+        android:layout_height="130dp"
+        android:layout_marginTop="135dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/beto_logo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

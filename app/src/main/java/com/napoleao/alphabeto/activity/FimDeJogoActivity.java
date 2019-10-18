@@ -35,9 +35,9 @@ public class FimDeJogoActivity extends AppCompatActivity implements View.OnClick
 
 
         if(jogador.getPontuacao() <= 1){
-            txt.setText("Você é capaz!\nContinue tentando.");
+            txt.setText("Você é capaz!\nContinue tentando!");
         }else if(jogador.getPontuacao() > 1 && jogador.getPontuacao() <= 2){
-            txt.setText("Parabéns!\nVocê foi ótimo!");
+            txt.setText("Parabéns!\nVocê foi muito bem!");
         }else if(jogador.getPontuacao() > 2 && jogador.getPontuacao() <= 3){
             txt.setText("Parabéns!\n Você foi demais!");
         }

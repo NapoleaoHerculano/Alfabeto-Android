@@ -14,7 +14,7 @@
         android:layout_marginBottom="16dp"
         android:background="@android:color/transparent"
         android:contentDescription="@string/voltar"
-        android:onClick="voltarConfigurcoes"
+        android:onClick="voltarConfiguracoes"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btnSalvar"
