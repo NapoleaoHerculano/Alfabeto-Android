@@ -12,10 +12,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.napoleao.alphabeto.R;
 import com.napoleao.alphabeto.config.AppConfig;
-import com.napoleao.alphabeto.controller.DesafioSingleton;
+import com.napoleao.alphabeto.controller.DesafioFacade;
 import com.napoleao.alphabeto.controller.FabricaTemas;
 import com.napoleao.alphabeto.controller.JogadorSingleton;
-import com.napoleao.alphabeto.controller.SingletonAudio;
 import com.napoleao.alphabeto.model.Tema;
 
 import java.util.ArrayList;
@@ -26,32 +25,26 @@ public class VogalActivity extends AppCompatActivity implements View.OnClickList
     private ImageView imagem;
     private TextView txtQuiz;
     //----------------------------------------------------------------------------------------------//
-    private char alternativa;//Armazena o caractere pressionado no botão
-    private FabricaTemas temas;//Classe responsável por instanciar o tema escolhido
-    private ArrayList<Tema> listTema;//Lista com os temas carregados
-    private DesafioSingleton desafioSingleton;//Classe responsável pela lógica do aplicativo
+    private ArrayList<Tema> listTema = new ArrayList<>();//Lista com os temas carregados
+    private DesafioFacade desafioFacade = new DesafioFacade();//Classe responsável pela lógica do aplicativo
+    private FabricaTemas temas = new FabricaTemas(listTema);//Classe responsável por instanciar o tema escolhido
     private int select;//Valor que indica qual o tema a ser carregado
-    private int tema_select;//Valor que indica quais desafios serão carregados
+    private final int TEMA_SELECT = 0;//Valor que indica quais desafios serão carregados
     private char[] desafio;//Array responsável por guardar e atualizar o desafio de acordo com as respostas
     private boolean acertou;
     private int indice;
-    private SingletonAudio tts;
-    private Button btn;
     private JogadorSingleton jogador;
 
-    int[] botoes = {R.id.btnA,R.id.btnE,R.id.btnI,R.id.btnO,R.id.btnU};
+    private int[] botoes = {R.id.btnA,R.id.btnE,R.id.btnI,R.id.btnO,R.id.btnU};
+    private View viewBotoes;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.game_model_vogais);
 
-        //Inicialização das classes e variaveis
-        listTema = new ArrayList<>();
-        temas = new FabricaTemas(listTema);
-        desafioSingleton = desafioSingleton.getSingleton();
+        //Inicialização das variaveis
         acertou = false;
         indice = 0;
-        tts = SingletonAudio.getSingleton(this);
         jogador = jogador.getJogador();
 
         instanciarBotoes();
@@ -59,69 +52,40 @@ public class VogalActivity extends AppCompatActivity implements View.OnClickList
         //Pegando o tema escolhido
         Bundle extras = getIntent().getExtras();
         select = extras.getInt("tema");
-        tema_select = 0;
 
         //Carregando os temas de acordo com a escolha
         temas.escolhaDeTema(select);
-        listTema = desafioSingleton.carregarTemas(listTema, tema_select);
+        listTema = desafioFacade.carregarTemas(listTema, TEMA_SELECT);
 
         //Instanciando a interface
         imagem = findViewById(R.id.imageVogal);
         txtQuiz = findViewById(R.id.txtQuiz);
+        viewBotoes = findViewById(R.id.botoesVogais);
 
         //Definindo os primeiros elementos a serem iniciados
         imagem.setImageResource(listTema.get(indice).getImagem());
-        txtQuiz.setText(desafioSingleton.dandoEspacos(desafioSingleton.definirPalavraVogal(listTema.get(indice).getNomeImagem())));
-        desafio = desafioSingleton.definirPalavraVogal(listTema.get(indice).getNomeImagem()).toCharArray();
-
+        txtQuiz.setText(desafioFacade.dandoEspacos(desafioFacade.definirPalavraVogal(listTema.get(indice).getNomeImagem())));
+        desafio = desafioFacade.definirPalavraVogal(listTema.get(indice).getNomeImagem()).toCharArray();
     }
 
     @Override
     public void onClick(View v) {
-        btn = findViewById(v.getId());
-        switch (v.getId()){
-            case R.id.btnA:
-                alternativa = 'A';
-                verificaResposta(alternativa);
-                break;
-            case R.id.btnE:
-                alternativa = 'E';
-                verificaResposta(alternativa);
-                break;
-            case R.id.btnI:
-                alternativa = 'I';
-                verificaResposta(alternativa);
-                break;
-            case R.id.btnO:
-                alternativa = 'O';
-                verificaResposta(alternativa);
-                break;
-            case R.id.btnU:
-                alternativa = 'U';
-                verificaResposta(alternativa);
-                break;
-        }
+        Button button = (Button) v;
+        String alternativa = button.getText().toString();
+        verificaResposta(alternativa.charAt(0));
     }
 
     public void falarImagem(View v){
-        tts.ditarFoto(listTema.get(indice).getNomeImagem());
-    }
-
-    public void voltarVogais(View v){
-        onBackPressed();
-    }
-
-    public void fecharVogais(View v){
-        desafioSingleton.exibirConfirmacaoFechar(this);
+        desafioFacade.falarImagem(listTema, indice);
     }
 
     private void verificaResposta(char alternativa){
-        String resposta = desafioSingleton.verificarAlternativa(this, alternativa,listTema.get(indice).getNomeImagem(),desafio, jogador);
-        txtQuiz.setText(desafioSingleton.dandoEspacos(resposta));
+        String resposta = desafioFacade.verificarAlternativa(this, alternativa,listTema.get(indice).getNomeImagem(),desafio, jogador);
+        txtQuiz.setText(desafioFacade.dandoEspacos(resposta));
 
-        acertou = desafioSingleton.verificaResposta(listTema.get(indice).getNomeImagem(), resposta);
+        acertou = desafioFacade.verificaResposta(listTema.get(indice).getNomeImagem(), resposta);
         if (acertou){
-            desafioSingleton.acertou(this, AppConfig.getInstance(this).getCurrentSound());
+            desafioFacade.acertou(this, AppConfig.getInstance(this).getCurrentSound());
             indice++;
             if(indice == listTema.size()) {
                 Intent it = new Intent(VogalActivity.this, FimDeJogoActivity.class);
@@ -129,22 +93,20 @@ public class VogalActivity extends AppCompatActivity implements View.OnClickList
                 startActivity(it);
                 finish();
             }else if(indice < listTema.size()){
-                desligarBotoes();
+                desafioFacade.getComponentesAuxiliares().desligarBotoes(botoes, viewBotoes);
                 Handler handle = new Handler();
                 handle.postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        desafioSingleton.setAtributosVogais(imagem, txtQuiz, listTema, indice);
-                        desafio = desafioSingleton.definirPalavraVogal(listTema.get(indice).getNomeImagem()).toCharArray();
+                        desafioFacade.setAtributosVogais(imagem, txtQuiz, listTema, indice);
+                        desafio = desafioFacade.definirPalavraVogal(listTema.get(indice).getNomeImagem()).toCharArray();
                         //Mudando o desafio. Para isso é chamado o método que seta a quantidade de espaços que formam a palavra
-                        txtQuiz.setText(desafioSingleton.dandoEspacos(desafioSingleton.definirPalavraVogal(listTema.get(indice).getNomeImagem())));
-                        ligarBotoes();
+                        txtQuiz.setText(desafioFacade.dandoEspacos(desafioFacade.definirPalavraVogal(listTema.get(indice).getNomeImagem())));
+                        desafioFacade.getComponentesAuxiliares().ligarBotoes(botoes, viewBotoes);
                     }
                 }, 2000);
-
             }
         }
-
     }
 
     public void instanciarBotoes(){
@@ -155,25 +117,17 @@ public class VogalActivity extends AppCompatActivity implements View.OnClickList
         }
     }
 
-    public void desligarBotoes(){
-        int i;
-        for(i = 0; i < botoes.length; i++){
-            Button btn = findViewById(botoes[i]);
-            btn.setEnabled(false);
-        }
-    }
-
-    public void ligarBotoes(){
-        int i;
-        for(i = 0; i < botoes.length; i++){
-            Button btn = findViewById(botoes[i]);
-            btn.setEnabled(true);
-        }
-    }
-
     @Override
     public void onBackPressed(){
-        desafioSingleton.exibirConfirmacaoVoltar(this);
+        desafioFacade.getComponentesAuxiliares().exibirConfirmacaoVoltar(this);
+    }
+
+    public void voltarVogais(View v){
+        onBackPressed();
+    }
+
+    public void fecharVogais(View v){
+        desafioFacade.getComponentesAuxiliares().exibirConfirmacaoFechar(this);
     }
 
 }

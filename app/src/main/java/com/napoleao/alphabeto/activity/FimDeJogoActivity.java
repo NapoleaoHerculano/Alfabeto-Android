@@ -8,7 +8,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.napoleao.alphabeto.R;
-import com.napoleao.alphabeto.controller.DesafioSingleton;
+import com.napoleao.alphabeto.controller.DesafioFacade;
 import com.napoleao.alphabeto.controller.JogadorSingleton;
 import com.willy.ratingbar.BaseRatingBar;
 import com.willy.ratingbar.ScaleRatingBar;
@@ -18,7 +18,7 @@ public class FimDeJogoActivity extends AppCompatActivity implements View.OnClick
     private TextView txt;
     private JogadorSingleton jogador;
     private int select;
-    private DesafioSingleton desafioSingleton;
+    private DesafioFacade desafioFacade;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +27,7 @@ public class FimDeJogoActivity extends AppCompatActivity implements View.OnClick
 
         Bundle extras = getIntent().getExtras();
         select = extras.getInt("tema");
-        desafioSingleton = DesafioSingleton.getSingleton();
+        //desafioFacade = DesafioFacade.getSingleton();
 
         jogador = jogador.getJogador();
 
@@ -82,8 +82,8 @@ public class FimDeJogoActivity extends AppCompatActivity implements View.OnClick
         }
     }
 
-    @Override
-    public void onBackPressed(){
-        desafioSingleton.exibirConfirmacaoVoltar(this);
-    }
+    //@Override
+    //public void onBackPressed(){
+      //  desafioFacade.exibirConfirmacaoVoltar(this);
+    //}
 }

@@ -13,28 +13,24 @@ public class AlphaTextView extends AppCompatTextView {
     private String fontCase;
 
 
-    //@RequiresApi(api = Build.VERSION_CODES.M)
     public AlphaTextView(Context context) {
         super(context);
         this.context = context;
         init();
     }
 
-    //@RequiresApi(api = Build.VERSION_CODES.M)
     public AlphaTextView(Context context, AttributeSet attrs) {
         super(context, attrs);
         this.context = context;
         init();
     }
 
-    //@RequiresApi(api = Build.VERSION_CODES.M)
     public AlphaTextView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         this.context = context;
         init();
     }
 
-    //@RequiresApi(api = Build.VERSION_CODES.M)
     private void init() {
         this.fontFamily = AppConfig.getInstance(this.context).getCurrentLetterType();
         this.fontCase = AppConfig.getInstance(this.context).getCurrentLetterCase();
@@ -45,14 +41,12 @@ public class AlphaTextView extends AppCompatTextView {
             case AppConfig.CURSIVA: {
                 Typeface tf = Typeface.createFromAsset(this.context.getAssets(), "fonts/Maria_lucia.ttf");
                 this.setTypeface(tf);
-                //this.setTextAppearance(R.style.styleCursive);
                 break;
             }
 
             case AppConfig.BASTAO: {
                 Typeface tf = Typeface.create("sans-serif", Typeface.NORMAL);
                 this.setTypeface(tf);
-                //this.setTextAppearance(R.style.styleBastao);
                 break;
             }
 

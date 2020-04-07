@@ -95,7 +95,7 @@
         app:layout_constraintStart_toStartOf="@+id/btnConfig"
         app:layout_constraintTop_toBottomOf="@+id/btnConfig" />
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/imageView6"
         android:layout_width="530dp"
         android:layout_height="130dp"
