@@ -14,12 +14,11 @@ public abstract class InstanciarTemas {
 
     protected ArrayList<Tema> tema;
 
-    public InstanciarTemas(ArrayList<Tema> tema) {
+    InstanciarTemas(ArrayList<Tema> tema) {
         this.tema = tema;
     }
 
-
-    public ArrayList<Tema> instanciarAnimais(){
+    void instanciarAnimais(){
         tema.clear();
 
         Animal a1 = new Animal(R.drawable.bode, "BODE");
@@ -38,14 +37,12 @@ public abstract class InstanciarTemas {
         Animal a14 = new Animal(R.drawable.zebra, "ZEBRA");
         Animal a15 = new Animal(R.drawable.leopardo, "LEOPARDO");
 
-
         tema.add(a1); tema.add(a2);tema.add(a3);tema.add(a4);tema.add(a5);
         tema.add(a6);tema.add(a7);tema.add(a8);tema.add(a9);tema.add(a10);
         tema.add(a11);tema.add(a12);tema.add(a13);tema.add(a14);tema.add(a15);
-
-        return tema;
     }
-    public ArrayList<Tema> instanciarPaises(){
+
+    void instanciarPaises(){
         tema.clear();
 
         Pais p1 = new Pais(R.drawable.australia, "AUSTRÁLIA");
@@ -67,11 +64,9 @@ public abstract class InstanciarTemas {
         tema.add(p1); tema.add(p2);tema.add(p3);tema.add(p4);tema.add(p5);
         tema.add(p6);tema.add(p7);tema.add(p8);tema.add(p9);tema.add(p10);
         tema.add(p11);tema.add(p12);tema.add(p13);tema.add(p14);tema.add(p15);
-
-        return tema;
     }
 
-    public ArrayList<Tema> instanciarCores(){
+    void instanciarCores(){
         tema.clear();
 
         Cor c1 = new Cor(R.drawable.amarelo, "AMARELO");
@@ -93,11 +88,9 @@ public abstract class InstanciarTemas {
         tema.add(c1); tema.add(c2);tema.add(c3);tema.add(c4);tema.add(c5);
         tema.add(c6);tema.add(c7);tema.add(c8);tema.add(c9);tema.add(c10);
         tema.add(c11);tema.add(c12);tema.add(c13);tema.add(c14);tema.add(c15);
-
-        return tema;
     }
 
-    public ArrayList<Tema> instanciarObjetos(){
+    void instanciarObjetos(){
         tema.clear();
 
         Objeto o1 = new Objeto(R.drawable.bateria, "BATERIA");
@@ -119,11 +112,9 @@ public abstract class InstanciarTemas {
         tema.add(o1); tema.add(o2);tema.add(o3);tema.add(o4);tema.add(o5);
         tema.add(o6);tema.add(o7);tema.add(o8);tema.add(o9);tema.add(o10);
         tema.add(o11);tema.add(o12);tema.add(o13);tema.add(o14);tema.add(o15);
-
-        return tema;
     }
 
-    public ArrayList<Tema> instanciarFrutas(){
+    void instanciarFrutas(){
         tema.clear();
 
         Fruta f1 = new Fruta(R.drawable.abacaxi, "ABACAXI");
@@ -145,7 +136,5 @@ public abstract class InstanciarTemas {
         tema.add(f1); tema.add(f2);tema.add(f3);tema.add(f4);tema.add(f5);
         tema.add(f6);tema.add(f7);tema.add(f8);tema.add(f9);tema.add(f10);
         tema.add(f11);tema.add(f12);tema.add(f13);tema.add(f14);tema.add(f15);
-
-        return tema;
     }
 }
