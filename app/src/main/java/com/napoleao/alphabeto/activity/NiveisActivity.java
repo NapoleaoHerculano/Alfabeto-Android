@@ -1,21 +1,21 @@
 package com.napoleao.alphabeto.activity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.napoleao.alphabeto.R;
-import com.napoleao.alphabeto.controller.SingletonAudio;
+import com.napoleao.alphabeto.controller.DesafioFacade;
 
 public class NiveisActivity extends AppCompatActivity implements View.OnClickListener{
 
-    private int tema_select;
-    private SingletonAudio tts;
+    private int temaSelecionado;
+    private DesafioFacade desafioFacade;
 
     int[] botoes = {R.id.txtVogais, R.id.txtConsoantes, R.id.txtAlfabeto};
 
@@ -24,12 +24,12 @@ public class NiveisActivity extends AppCompatActivity implements View.OnClickLis
         setContentView(R.layout.niveis_screen);
         super.onCreate(savedInstanceState);
 
-        instanciarBotoes();
+        instanciarTextButtons();
+
+        desafioFacade = new DesafioFacade();
 
         Bundle extras = getIntent().getExtras();
-
-        tts = SingletonAudio.getSingleton(this);
-        tema_select = extras.getInt("tema");
+        temaSelecionado = extras.getInt("tema");
     }
 
     @Override
@@ -37,51 +37,42 @@ public class NiveisActivity extends AppCompatActivity implements View.OnClickLis
         switch (v.getId()){
             case R.id.txtVogais:
             case R.id.btnVogais:
-                impedirDuploClique();
-                tts.ditarFoto("Vogais");
+                desafioFacade.getComponentesAuxiliares().impedirDuploClique(this);
+                desafioFacade.ditarPalavra("Vogais");
 
                 Handler handler = new Handler();
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        Intent it = new Intent(NiveisActivity.this, VogalActivity.class);
-                        it.putExtra("tema", tema_select);
-                        startActivity(it);
-                        finish();
+                        invocarIntent(VogalActivity.class);
                     }
                 }, 1300);
                 break;
 
             case R.id.txtConsoantes:
             case R.id.btnConsoantes:
-                impedirDuploClique();
-                tts.ditarFoto("Consoantes");
+                desafioFacade.getComponentesAuxiliares().impedirDuploClique(this);
+                desafioFacade.ditarPalavra("Consoantes");
 
                 handler = new Handler();
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        Intent it = new Intent(NiveisActivity.this, ConsoanteActivity.class);
-                        it.putExtra("tema", tema_select);
-                        startActivity(it);
-                        finish();
+                        invocarIntent(ConsoanteActivity.class);
                     }
                 }, 1300);
                 break;
 
             case R.id.txtAlfabeto:
             case R.id.btnAlfabeto:
-                impedirDuploClique();
-                tts.ditarFoto("Alfabeto");
+                desafioFacade.getComponentesAuxiliares().impedirDuploClique(this);
+                desafioFacade.ditarPalavra("Alfabeto");
 
                 handler = new Handler();
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        Intent it = new Intent(NiveisActivity.this, AlfabetoActivity.class);
-                        it.putExtra("tema", tema_select);
-                        startActivity(it);
-                        finish();
+                        invocarIntent(AlfabetoActivity.class);
                     }
                 }, 1300);
                 break;
@@ -92,6 +83,10 @@ public class NiveisActivity extends AppCompatActivity implements View.OnClickLis
         }
     }
 
+    /**
+     * Mapeia o botão de voltar nativo do Android, para que feche a Activity atual e retorne à
+     * Activity anterior.
+     */
     @Override
     public void onBackPressed(){
         Intent it = new Intent(NiveisActivity.this, MainActivity.class);
@@ -99,17 +94,24 @@ public class NiveisActivity extends AppCompatActivity implements View.OnClickLis
         finish();
     }
 
-    public void instanciarBotoes(){
-        int i;
-        for(i = 0; i < botoes.length; i++){
-            TextView btn = findViewById(botoes[i]);
+    /**
+     * Define os ID's dos TextView's e adicionam eventos de clique.
+     */
+    private void instanciarTextButtons(){
+        for (int buttons : botoes) {
+            TextView btn = findViewById(buttons);
             btn.setOnClickListener(this);
         }
     }
 
-    // Desativa a Activity (impedir clique em outro botão)
-    public void impedirDuploClique(){
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
-                WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+    /**
+     * Abre uma nova Activity.
+     * @param novaActivity Activity a ser aberta
+     */
+    private void invocarIntent(Class novaActivity){
+        Intent it = new Intent(NiveisActivity.this, novaActivity);
+        it.putExtra("tema", temaSelecionado);
+        startActivity(it);
+        finish();
     }
 }

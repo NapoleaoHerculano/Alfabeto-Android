@@ -1,6 +1,5 @@
 package com.napoleao.alphabeto.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -19,48 +18,39 @@ import com.napoleao.alphabeto.model.Tema;
 
 import java.util.ArrayList;
 
-
 public class VogalActivity extends AppCompatActivity implements View.OnClickListener {
     //Componentes da interface
     private ImageView imagem;
     private TextView txtQuiz;
-    //----------------------------------------------------------------------------------------------//
-    private ArrayList<Tema> listTema = new ArrayList<>();//Lista com os temas carregados
-    private DesafioFacade desafioFacade = new DesafioFacade();//Classe responsável pela lógica do aplicativo
-    private FabricaTemas temas = new FabricaTemas(listTema);//Classe responsável por instanciar o tema escolhido
-    private int select;//Valor que indica qual o tema a ser carregado
-    private final int TEMA_SELECT = 0;//Valor que indica quais desafios serão carregados
-    private char[] desafio;//Array responsável por guardar e atualizar o desafio de acordo com as respostas
-    private boolean acertou;
-    private int indice;
-    private JogadorSingleton jogador;
-
+    private View botoesVogais;
     private int[] botoes = {R.id.btnA,R.id.btnE,R.id.btnI,R.id.btnO,R.id.btnU};
-    private View viewBotoes;
+    //--------------------------------------------------------------------------------------------//
+    private ArrayList<Tema> listTema = new ArrayList<>();//Lista com os temas carregados;
+    private DesafioFacade desafioFacade = new DesafioFacade();//Classe responsável pela lógica do aplicativo;
+    private FabricaTemas temas = new FabricaTemas(listTema);//Classe responsável por instanciar os desafios do tema escolhido;
+    private static final int NIVEL_SELECIONADO = 0;//Variável que indica o nível para seleção dos desafios;
+    private int temaSelecionado;//Variável que indica qual o tema a ser carregado;
+    private char[] desafio;//Array responsável por guardar e atualizar o desafio de acordo com as respostas;
+    private int indice = 0;//Variável que indica o índice atual na lista de temas;
+    private JogadorSingleton jogador = JogadorSingleton.getJogador();//Variável utilizada para definir a pontuação do jogador.
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.game_model_vogais);
 
-        //Inicialização das variaveis
-        acertou = false;
-        indice = 0;
-        jogador = jogador.getJogador();
-
-        instanciarBotoes();
-
-        //Pegando o tema escolhido
+        //Obtendo o tema escolhido
         Bundle extras = getIntent().getExtras();
-        select = extras.getInt("tema");
+        temaSelecionado = extras.getInt("tema");
 
         //Carregando os temas de acordo com a escolha
-        temas.escolhaDeTema(select);
-        listTema = desafioFacade.carregarTemas(listTema, TEMA_SELECT);
+        temas.escolhaDeTema(temaSelecionado);
+        listTema = desafioFacade.carregarTemas(listTema, NIVEL_SELECIONADO);
 
         //Instanciando a interface
         imagem = findViewById(R.id.imageVogal);
         txtQuiz = findViewById(R.id.txtQuiz);
-        viewBotoes = findViewById(R.id.botoesVogais);
+        botoesVogais = findViewById(R.id.botoesVogais);
+        desafioFacade.getComponentesAuxiliares().instanciarBotoes(botoesVogais, this, botoes);
 
         //Definindo os primeiros elementos a serem iniciados
         imagem.setImageResource(listTema.get(indice).getImagem());
@@ -75,25 +65,30 @@ public class VogalActivity extends AppCompatActivity implements View.OnClickList
         verificaResposta(alternativa.charAt(0));
     }
 
+    /**
+     * Reproduz o nome da imagem que representa o desafio.
+     * @param v necessário para o mapeamento via XML
+     */
     public void falarImagem(View v){
         desafioFacade.falarImagem(listTema, indice);
     }
 
+    /**
+     * Verifica se o caractere escolhido existe no desafio.
+     * @param alternativa Caractere escolhido (botão clicado no teclado).
+     */
     private void verificaResposta(char alternativa){
         String resposta = desafioFacade.verificarAlternativa(this, alternativa,listTema.get(indice).getNomeImagem(),desafio, jogador);
         txtQuiz.setText(desafioFacade.dandoEspacos(resposta));
 
-        acertou = desafioFacade.verificaResposta(listTema.get(indice).getNomeImagem(), resposta);
+        boolean acertou = desafioFacade.verificaResposta(listTema.get(indice).getNomeImagem(), resposta);
         if (acertou){
             desafioFacade.acertou(this, AppConfig.getInstance(this).getCurrentSound());
             indice++;
             if(indice == listTema.size()) {
-                Intent it = new Intent(VogalActivity.this, FimDeJogoActivity.class);
-                it.putExtra("tema", select);
-                startActivity(it);
-                finish();
+                desafioFacade.getComponentesAuxiliares().invocarIntent(this, FimDeJogoActivity.class, temaSelecionado);
             }else if(indice < listTema.size()){
-                desafioFacade.getComponentesAuxiliares().desligarBotoes(botoes, viewBotoes);
+                desafioFacade.getComponentesAuxiliares().desligarBotoes(botoes, botoesVogais);
                 Handler handle = new Handler();
                 handle.postDelayed(new Runnable() {
                     @Override
@@ -102,33 +97,36 @@ public class VogalActivity extends AppCompatActivity implements View.OnClickList
                         desafio = desafioFacade.definirPalavraVogal(listTema.get(indice).getNomeImagem()).toCharArray();
                         //Mudando o desafio. Para isso é chamado o método que seta a quantidade de espaços que formam a palavra
                         txtQuiz.setText(desafioFacade.dandoEspacos(desafioFacade.definirPalavraVogal(listTema.get(indice).getNomeImagem())));
-                        desafioFacade.getComponentesAuxiliares().ligarBotoes(botoes, viewBotoes);
+                        desafioFacade.getComponentesAuxiliares().ligarBotoes(botoes, botoesVogais);
                     }
                 }, 2000);
             }
         }
     }
 
-    public void instanciarBotoes(){
-        int i;
-        for(i = 0; i < botoes.length; i++){
-            Button btn = findViewById(botoes[i]);
-            btn.setOnClickListener(this);
-        }
-    }
-
+    /**
+     * Mapeia o botão de voltar nativo do Android, exibe um AlertDialog perguntando se o jogador
+     * deseja voltar ao menu de seleção de temas.
+     */
     @Override
     public void onBackPressed(){
         desafioFacade.getComponentesAuxiliares().exibirConfirmacaoVoltar(this);
     }
 
+    /**
+     * Mapeia o botão de voltar presente.
+     * @param v View mapeada
+     */
     public void voltarVogais(View v){
         onBackPressed();
     }
 
+    /**
+     * Mapeia o botão de fechar atividade.
+     * @param v View mapeada
+     */
     public void fecharVogais(View v){
         desafioFacade.getComponentesAuxiliares().exibirConfirmacaoFechar(this);
     }
-
 }
 

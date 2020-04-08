@@ -6,22 +6,26 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
-import android.view.WindowManager;
 
 import com.napoleao.alphabeto.R;
-import com.napoleao.alphabeto.controller.SingletonAudio;
+import com.napoleao.alphabeto.controller.DesafioFacade;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+    private static final int TEMA_CORES = 0;
+    private static final int TEMA_OBJETOS = 1;
+    private static final int TEMA_ANIMAIS = 2;
+    private static final int TEMA_FRUTAS = 3;
+    private static final int TEMA_PAISES = 4;
 
-    private int tema_select;
-    private SingletonAudio tts;
+    private int temaSelecionado;
+    private DesafioFacade desafioFacade;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        tts = SingletonAudio.getSingleton(this);
+        desafioFacade = new DesafioFacade();
     }
 
     @Override
@@ -29,37 +33,37 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()) {
             case R.id.txtCores:
             case R.id.btnCores:
-                impedirDuploClique();
-                tts.ditarFoto("Cores");
-                tema_select = 0;
+                desafioFacade.getComponentesAuxiliares().impedirDuploClique(this);
+                desafioFacade.ditarPalavra("Cores");
+                temaSelecionado = TEMA_CORES;
                 invocarIntent();
                 break;
             case R.id.txtObjetos:
             case R.id.btnObjetos:
-                impedirDuploClique();
-                tts.ditarFoto("Objetos");
-                tema_select = 1;
+                desafioFacade.getComponentesAuxiliares().impedirDuploClique(this);
+                desafioFacade.ditarPalavra("Objetos");
+                temaSelecionado = TEMA_OBJETOS;
                 invocarIntent();
                 break;
             case R.id.txtAnimais:
             case R.id.btnAnimais:
-                impedirDuploClique();
-                tts.ditarFoto("Animais");
-                tema_select = 2;
+                desafioFacade.getComponentesAuxiliares().impedirDuploClique(this);
+                desafioFacade.ditarPalavra("Animais");
+                temaSelecionado = TEMA_ANIMAIS;
                 invocarIntent();
                 break;
             case R.id.txtFrutas:
             case R.id.btnFrutas:
-                impedirDuploClique();
-                tts.ditarFoto("Frutas");
-                tema_select = 3;
+                desafioFacade.getComponentesAuxiliares().impedirDuploClique(this);
+                desafioFacade.ditarPalavra("Frutas");
+                temaSelecionado = TEMA_FRUTAS;
                 invocarIntent();
                 break;
             case R.id.txtPaises:
             case R.id.btnPaises:
-                impedirDuploClique();
-                tts.ditarFoto("Países");
-                tema_select = 4;
+                desafioFacade.getComponentesAuxiliares().impedirDuploClique(this);
+                desafioFacade.ditarPalavra("Países");
+                temaSelecionado = TEMA_PAISES;
                 invocarIntent();
                 break;
             case R.id.btnMenuInicial:
@@ -67,6 +71,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    /**
+     * Abre a Activity de Níveis passando o tema selecionado.
+     */
     private void invocarIntent(){
         Handler handler = new Handler();
 
@@ -74,22 +81,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void run() {
                 Intent it = new Intent(MainActivity.this, NiveisActivity.class);
-                it.putExtra("tema", tema_select);
+                it.putExtra("tema", temaSelecionado);
                 startActivity(it);
                 finish();
             }
         }, 1300);
     }
 
+    /**
+     * Mapeia o botão de voltar nativo do Android, para que feche a Activity atual e retorne à
+     * Activity anterior.
+     */
     @Override
     public void onBackPressed() {
         finish();
-    }
-
-    // Desativa a Activity (impedir clique em outro botão)
-    public void impedirDuploClique(){
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
-                WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
     }
 
 }

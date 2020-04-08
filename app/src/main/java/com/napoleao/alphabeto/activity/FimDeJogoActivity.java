@@ -15,8 +15,7 @@ import com.willy.ratingbar.ScaleRatingBar;
 
 public class FimDeJogoActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private TextView txt;
-    private JogadorSingleton jogador;
+    private JogadorSingleton jogador = JogadorSingleton.getJogador();
     private int select;
     private DesafioFacade desafioFacade;
 
@@ -27,12 +26,9 @@ public class FimDeJogoActivity extends AppCompatActivity implements View.OnClick
 
         Bundle extras = getIntent().getExtras();
         select = extras.getInt("tema");
-        //desafioFacade = DesafioFacade.getSingleton();
+        desafioFacade = new DesafioFacade();
 
-        jogador = jogador.getJogador();
-
-        txt = findViewById(R.id.txtFraseFim);
-
+        TextView txt = findViewById(R.id.txtFraseFim);
 
         if(jogador.getPontuacao() <= 1){
             txt.setText("Você é capaz!\nContinue tentando!");
@@ -57,12 +53,9 @@ public class FimDeJogoActivity extends AppCompatActivity implements View.OnClick
         ratingBar.setOnRatingChangeListener(new BaseRatingBar.OnRatingChangeListener() {
             @Override
             public void onRatingChange(BaseRatingBar ratingBar, float rating, boolean fromUser) {
-
             }
         });
-
         jogador.resetarPontuacao();
-
     }
 
     @Override
@@ -82,8 +75,8 @@ public class FimDeJogoActivity extends AppCompatActivity implements View.OnClick
         }
     }
 
-    //@Override
-    //public void onBackPressed(){
-      //  desafioFacade.exibirConfirmacaoVoltar(this);
-    //}
+    @Override
+    public void onBackPressed(){
+        desafioFacade.getComponentesAuxiliares().exibirConfirmacaoVoltar(this);
+    }
 }

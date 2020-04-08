@@ -1,6 +1,5 @@
 package com.napoleao.alphabeto.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -15,57 +14,46 @@ import com.napoleao.alphabeto.config.AppConfig;
 import com.napoleao.alphabeto.controller.DesafioFacade;
 import com.napoleao.alphabeto.controller.FabricaTemas;
 import com.napoleao.alphabeto.controller.JogadorSingleton;
-import com.napoleao.alphabeto.controller.SingletonAudio;
 import com.napoleao.alphabeto.model.Tema;
 
 import java.util.ArrayList;
 
 
 public class ConsoanteActivity extends AppCompatActivity implements View.OnClickListener {
-
+    //Componentes da interface
     private ImageView imagem;
     private TextView txtQuiz;
-    private FabricaTemas temas;
-    private ArrayList<Tema> listTema;
-    private DesafioFacade desafioFacade;
-    private int select;
-    private final int TEMA_SELECT = 1;
-    private char[] desafio;//Array responsável por guardar e atualizar o desafio de acordo com as respostas
-    private boolean acertou;
-    private int indice;
-    private JogadorSingleton jogador;
-
+    private View botoesConsoantes;
     private int[] botoes = {R.id.btnB,R.id.btnC,R.id.btnD,R.id.btnF,R.id.btnG,R.id.btnH,R.id.btnJ,R.id.btnK,R.id.btnL,
             R.id.btnM,R.id.btnN,R.id.btnP,R.id.btnQ,R.id.btnR,R.id.btnS,R.id.btnT,R.id.btnV,R.id.btnW,R.id.btnX,
             R.id.btnY,R.id.btnZ};
-    private View botoesConsoantes;
+    //--------------------------------------------------------------------------------------------//
+    private ArrayList<Tema> listTema = new ArrayList<>();
+    private DesafioFacade desafioFacade = new DesafioFacade();
+    private FabricaTemas temas = new FabricaTemas(listTema);
+    private static final int NIVEL_SELECIONADO = 1;
+    private int temaSelecionado;
+    private char[] desafio;//Array responsável por guardar e atualizar o desafio de acordo com as respostas
+    private int indice = 0;
+    private JogadorSingleton jogador = JogadorSingleton.getJogador();
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.game_model_consoantes);
 
-        //Inicialização das classes e variaveis
-        listTema = new ArrayList<>();
-        temas = new FabricaTemas(listTema);
-        desafioFacade = new DesafioFacade();
-        acertou = false;
-        indice = 0;
-        jogador = jogador.getJogador();
-
-        instanciarBotoes();
-
-        //Pegando o tema escolhido
+        //Obtendo o tema escolhido
         Bundle extras = getIntent().getExtras();
-        select = extras.getInt("tema");
+        temaSelecionado = extras.getInt("tema");
 
         //Carregando os temas de acordo com a escolha
-        temas.escolhaDeTema(select);
-        listTema = desafioFacade.carregarTemas(listTema, TEMA_SELECT);
+        temas.escolhaDeTema(temaSelecionado);
+        listTema = desafioFacade.carregarTemas(listTema, NIVEL_SELECIONADO);
 
         //Instanciando a interface
         imagem = findViewById(R.id.imageConsoante);
         txtQuiz = findViewById(R.id.textConsoante);
         botoesConsoantes = findViewById(R.id.botoesConsoantes);
+        desafioFacade.getComponentesAuxiliares().instanciarBotoes(botoesConsoantes, this, botoes);
 
         //Definindo os primeiros elementos a serem iniciados
         imagem.setImageResource(listTema.get(indice).getImagem());
@@ -80,23 +68,28 @@ public class ConsoanteActivity extends AppCompatActivity implements View.OnClick
         verificaResposta(alternativa.charAt(0));
     }
 
+    /**
+     * Reproduz o nome da imagem que representa o desafio.
+     * @param v necessário para o mapeamento via XML
+     */
     public void falarImagem(View v){
         desafioFacade.falarImagem(listTema, indice);
     }
 
+    /**
+     * Verifica se o caractere escolhido existe no desafio.
+     * @param alternativa Caractere escolhido (botão clicado no teclado).
+     */
     private void verificaResposta(char alternativa){
         String resposta = desafioFacade.verificarAlternativa(this, alternativa,listTema.get(indice).getNomeImagem(),desafio, jogador);
         txtQuiz.setText(desafioFacade.dandoEspacos(resposta));
 
-        acertou = desafioFacade.verificaResposta(listTema.get(indice).getNomeImagem(), resposta);
+        boolean acertou = desafioFacade.verificaResposta(listTema.get(indice).getNomeImagem(), resposta);
         if (acertou){
             desafioFacade.acertou(this, AppConfig.getInstance(this).getCurrentSound());
             indice++;
             if(indice == listTema.size()) {
-                Intent it = new Intent(ConsoanteActivity.this, FimDeJogoActivity.class);
-                it.putExtra("tema", select);
-                startActivity(it);
-                finish();
+                desafioFacade.getComponentesAuxiliares().invocarIntent(this, FimDeJogoActivity.class, temaSelecionado);
             }else if(indice < listTema.size()){
                 desafioFacade.getComponentesAuxiliares().desligarBotoes(botoes, botoesConsoantes);
                 Handler handle = new Handler();
@@ -114,23 +107,27 @@ public class ConsoanteActivity extends AppCompatActivity implements View.OnClick
         }
     }
 
-    public void instanciarBotoes(){
-        int i;
-        for(i = 0; i < botoes.length; i++){
-            Button btn = findViewById(botoes[i]);
-            btn.setOnClickListener(this);
-        }
-    }
-
+    /**
+     * Mapeia o botão de voltar nativo do Android, exibe um AlertDialog perguntando se o jogador
+     * deseja voltar ao menu de seleção de temas.
+     */
     @Override
     public void onBackPressed(){
         desafioFacade.getComponentesAuxiliares().exibirConfirmacaoVoltar(this);
     }
 
+    /**
+     * Mapeia o botão de voltar presente.
+     * @param v View mapeada
+     */
     public void voltarConsoantes(View v){
         onBackPressed();
     }
 
+    /**
+     * Mapeia o botão de fechar atividade.
+     * @param v View mapeada
+     */
     public void fecharConsoantes(View v){
         desafioFacade.getComponentesAuxiliares().exibirConfirmacaoFechar(this);
     }
