@@ -23,76 +23,112 @@ public class DesafioFacade {
         this.tts = SingletonAudio.getSingleton(context);
     }
 
+    /**
+     * Método de acesso aos componenetes da classe auxiliar.
+     * @return Acesso aos componentes.
+     */
     public ComponentesAuxiliares getComponentesAuxiliares() {
         return componentesAuxiliares;
     }
 
+    /**
+     * Reproduz o nome da palavra indicada.
+     * @param palavra Palavra a ser reproduzida.
+     */
+    public void ditarPalavra(String palavra){
+        tts.ditarFoto(palavra);
+    }
+
+    /**
+     * Recebe uma palavra (desafio) e transforma todos os caracteres vogais em espaços.
+     * @param vogal Desafio do nível vogais
+     * @return String referente ao desafio
+     */
     //Recebe o nome do desafio, deixa as consoantes e transforma as vogais em espaços.
-    public static String definirPalavraVogal(String vogal) {
+    public String definirPalavraVogal(String vogal) {
         char[] caracteres = {'A','E','I','O','U'};
         char[] palavra = vogal.toCharArray();
 
         for(int i = 0; i < palavra.length; i++){
-            for (int k = 0; k < caracteres.length; k++) {
-                if (palavra[i] == caracteres[k]) {
+            for (char caractere : caracteres) {
+                if (palavra[i] == caractere) {
                     palavra[i] = '_';
+                    break;
                 }
             }
         }
 
-        String desafioFormatado = formatarDesafio(palavra);
-
-        return desafioFormatado;
+        return formatarDesafio(palavra);
     }
-    //Recebe o nome do desafio, deixa as vogais e transforma as consoantes em espaços.
-    public static String definirPalavraConsoante(String consoante){
+
+    /**
+     * Recebe uma palavra (desafio) e transforma todos os caracteres consoantes em espaços.
+     * @param consoante Desafio do nível consoantes
+     * @return String referente ao desafio
+     */
+    public String definirPalavraConsoante(String consoante){
         char[] caracteres = {'B','C','D','F','G','H','J','K','L','M','N','P','Q',
                 'R','S','T','V','W','X','Y','Z'};
         char[] palavra = consoante.toCharArray();
 
         for(int i = 0; i < palavra.length; i++){
-            for(int k = 0; k < caracteres.length; k++){
-                if (palavra[i] == caracteres[k]){
+            for (char caractere : caracteres) {
+                if (palavra[i] == caractere) {
                     palavra[i] = '_';
+                    break;
                 }
             }
         }
 
-        String desafioFormatado = formatarDesafio(palavra);
-
-        return desafioFormatado;
+        return formatarDesafio(palavra);
     }
-    //Recebe o nome do desafio e tranforma todas as letras em espaços.
-    public static String definirPalavraAlfabeto(String alfabeto){
+
+    /**
+     * Recebe uma palavra (desafio) e transforma todas as letras em espaços (com excecção ao caracteres especiais).
+     * @param alfabeto Desafio do nível alfabeto
+     * @return String referente ao desafio
+     */
+    public String definirPalavraAlfabeto(String alfabeto){
         char[] caracteres = {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q',
                 'R','S','T','U','V','W','X','Y','Z'};
         char[] palavra = alfabeto.toCharArray();
 
         for(int i = 0; i < palavra.length; i++){
-            for (int k = 0; k < caracteres.length; k++){
-                if (palavra[i] == caracteres[k]){
+            for (char caractere : caracteres) {
+                if (palavra[i] == caractere) {
                     palavra[i] = '_';
+                    break;
                 }
             }
         }
 
-        String desafioFormatado = formatarDesafio(palavra);
-
-        return desafioFormatado;
+        return formatarDesafio(palavra);
     }
 
-    public static String formatarDesafio(char[] palavra){
+    /**
+     * Transforma um Array de Char em uma String.
+     * @param palavra Array de char
+     * @return String formatada
+     */
+    private String formatarDesafio(char[] palavra){
         StringBuilder nome = new StringBuilder();
-        for(int i = 0; i < palavra.length; i++){
-            nome.append(palavra[i]);
+        for (char c : palavra) {
+            nome.append(c);
         }
 
-        String desafioFormatado = nome.toString();
-
-        return desafioFormatado;
+        return nome.toString();
     }
 
-    //Recebe uma letra, o desafio em string, e por ultimo o desafio em array. Verifica se a alternativa existe na palavra e retorna a palavra modificada.
+    /**
+     * Recebe um caractere, uma palavra, e um array de caracteres, depois verifica se o caractere inserido existe na palavra.
+     * @param context Activity atual
+     * @param alternativa Caractere (alternativa do teclado)
+     * @param palavra Palavra referente ao desafio que deve ser resolvido
+     * @param palavraFormatada Array com os caracteres que estão sendo exibidos no desafio
+     * @param jogador Objeto utilizado para representar o jogador, nele esta contido a pontuação do mesmo, que é decrementada em 0.20f se a
+     *                resposta dada for incorreta.
+     * @return desafio atualizado mediante a resposta do usuário.
+     */
     public String verificarAlternativa(Context context, char alternativa, String palavra, char[] palavraFormatada, JogadorSingleton jogador){
         char[] palavraPura = palavra.toCharArray();
         boolean certo = false;
@@ -104,7 +140,6 @@ public class DesafioFacade {
             }
         }
 
-        //Aqui é diminuido da pontuação 0.20 caso o jogador erre
         if (!certo){
             componentesAuxiliares.vibrar(context);
             jogador.setPontuacao(jogador.getPontuacao() - 0.20f);
@@ -113,13 +148,16 @@ public class DesafioFacade {
             componentesAuxiliares.vibrar(context);
         }
 
-        String desafioFormatado = formatarDesafio(palavraFormatada);
-
-        return desafioFormatado;
+        return formatarDesafio(palavraFormatada);
     }
 
-    //Recebe uma lista com temas e escolhe 5 deles
-    public static ArrayList<Tema> carregarTemas(ArrayList<Tema> listTemas, int nivel){
+    /**
+     * Recebe uma lista com temas e escolhe 5 deles à depender do nível escolhido.
+     * @param listTemas Lista com temas carregados
+     * @param nivel Inteiro que indica qual o nível selecionado pelo usuário
+     * @return Uma lista com 5 desafios do tema e nível selecionado.
+     */
+    public ArrayList<Tema> carregarTemas(ArrayList<Tema> listTemas, int nivel){
         ArrayList<Tema> temas = new ArrayList<>();
 
         int i;
@@ -139,27 +177,60 @@ public class DesafioFacade {
 
         return temas;
     }
-    //Verifica se a resposta é igual ao desafio
-    public static boolean verificaResposta(String palavra, String resposta){
+
+    /**
+     * Verifica se a resposta é igual ao desafio.
+     * @param palavra Nome da palavra que deve ser completada
+     * @param resposta Resposta atual do usuário
+     * @return true se ambas Strings forem iguais;
+     *         false se não forem iguais.
+     */
+    public boolean verificaResposta(String palavra, String resposta){
         return resposta.equals(palavra);
     }
 
-    public static void setAtributosVogais(ImageView imagem, TextView textoImagem, ArrayList<Tema> temas, int indice){
+    /**
+     * Define os elementos que irão ser mostrados na tela de desafios do nível Vogais.
+     * @param imagem ImageView da interface
+     * @param textoImagem TextView da interface que mostrará o desafio
+     * @param temas Lista dos temas carregados
+     * @param indice Índice atual da lista de temas
+     */
+    public void setAtributosVogais(ImageView imagem, TextView textoImagem, ArrayList<Tema> temas, int indice){
         imagem.setImageResource(temas.get(indice).getImagem());
         textoImagem.setText(definirPalavraVogal(temas.get(indice).getNomeImagem()));
     }
 
-    public static void setAtributosConsoantes(ImageView imagem, TextView textoImagem, ArrayList<Tema> temas, int indice){
+    /**
+     * Define os elementos que irão ser mostrados na tela de desafios do nível Consoantes.
+     * @param imagem ImageView da interface
+     * @param textoImagem TextView da interface que mostrará o desafio
+     * @param temas Lista dos temas carregados
+     * @param indice Índice atual da lista de temas
+     */
+    public void setAtributosConsoantes(ImageView imagem, TextView textoImagem, ArrayList<Tema> temas, int indice){
         imagem.setImageResource(temas.get(indice).getImagem());
         textoImagem.setText(definirPalavraConsoante(temas.get(indice).getNomeImagem()));
     }
 
-    public static void setAtributosAlfabeto(ImageView imagem, TextView textoImagem, ArrayList<Tema> temas, int indice){
+    /**
+     * Define os elementos que irão ser mostrados na tela de desafios do nível Alfabeto.
+     * @param imagem ImageView da interface
+     * @param textoImagem TextView da interface que mostrará o desafio
+     * @param temas Lista dos temas carregados
+     * @param indice Índice atual da lista de temas
+     */
+    public void setAtributosAlfabeto(ImageView imagem, TextView textoImagem, ArrayList<Tema> temas, int indice){
         imagem.setImageResource(temas.get(indice).getImagem());
         textoImagem.setText(definirPalavraAlfabeto(temas.get(indice).getNomeImagem()));
     }
 
-    public static void acertou(Context context, String opcao){
+    /**
+     * Reproduz um som indicando o acerto do usuário.
+     * @param context Activity atual
+     * @param opcao String que define qual som deve ser reproduzido
+     */
+    public void acertou(Context context, String opcao){
         MediaPlayer acertou;
 
         if(opcao.equals("Opção 01")){
@@ -173,17 +244,27 @@ public class DesafioFacade {
         acertou.start();
     }
 
-    public static String dandoEspacos(String underscore) {
+    /**
+     * Adiciona um espaço a cada caractere que forma o desafio.
+     * @param desafio Palavra que deve ser completada pelo usuário
+     * @return Desafio com espaços entre caracteres
+     */
+    public String dandoEspacos(String desafio) {
         StringBuilder novaString = new StringBuilder();
         novaString.append(" ");
-        for(int i = 0; i < underscore.length(); i++) {
-            novaString.append(underscore.charAt(i)) ;
+        for(int i = 0; i < desafio.length(); i++) {
+            novaString.append(desafio.charAt(i)) ;
             novaString.append(" ");
         }
 
         return novaString.toString();
     }
 
+    /**
+     * Reproduz o nome da imagem que está sendo exibida ao usuário.
+     * @param listTema Lista dos temas carregados
+     * @param indice Índice atual da lista de temas
+     */
     public void falarImagem(List<Tema> listTema, int indice){
         tts.ditarFoto(listTema.get(indice).getNomeImagem());
     }
