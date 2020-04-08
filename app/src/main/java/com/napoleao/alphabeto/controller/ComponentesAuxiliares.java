@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Vibrator;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -15,6 +16,47 @@ import com.napoleao.alphabeto.activity.MainActivity;
 
 public class ComponentesAuxiliares {
 
+    /**
+     * Faz a chamada de uma Intent.
+     * @param context Activity atual
+     * @param classe Activity a ser chamada
+     * @param select Inteiro que define o tema dos desafios
+     */
+    public void invocarIntent(Context context, Class classe, int select){
+        Intent it = new Intent(context, classe);
+        it.putExtra("tema", select);
+        context.startActivity(it);
+        ((Activity) context).finish();
+    }
+
+    /**
+     * Desativa a Activity - impede clique em outro botão.
+     * @param activity Activity atual
+     */
+    public void impedirDuploClique(Activity activity){
+       activity.getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
+                WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+    }
+
+    /**
+     * Instancia os botões personalizados da interface.
+     * @param view View que agrupa os botões
+     * @param onClickListener Listener responsável pelos eventos de Click
+     * @param botoes Array com todos os ID's dos botões
+     */
+    public void instanciarBotoes(View view, View.OnClickListener onClickListener, int[] botoes){
+        int i;
+        for(i = 0; i < botoes.length; i++){
+            Button btn = view.findViewById(botoes[i]);
+            btn.setOnClickListener(onClickListener);
+        }
+    }
+
+    /**
+     * Desativa momentaneamente o clique dos botões.
+     * @param botoes Array com todos os ID's dos botões
+     * @param view View que agrupa os botões
+     */
     public void desligarBotoes(int[] botoes, View view){
         int i;
         for(i = 0; i < botoes.length; i++){
@@ -23,6 +65,11 @@ public class ComponentesAuxiliares {
         }
     }
 
+    /**
+     * Ativa o clique dos botões.
+     * @param botoes Array com todos os ID's dos botões
+     * @param view View que agrupa os botões
+     */
     public void ligarBotoes(int[] botoes, View view){
         int i;
         for(i = 0; i < botoes.length; i++){
@@ -31,12 +78,20 @@ public class ComponentesAuxiliares {
         }
     }
 
+    /**
+     * Ativa a vibração do dispositivo ao clicar em determinados botões.
+     * @param context Activity atual
+     */
     public void vibrar(Context context){
         Vibrator vibrator = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
         long milliseconds = 100;
         vibrator.vibrate(milliseconds);
     }
 
+    /**
+     * Invoca um AlertDialog perguntando se o jogador deseja sair da partida atual.
+     * @param activity Activity atual
+     */
     public void exibirConfirmacaoFechar(final Activity activity) {
 
         AlertDialog.Builder mensagem = new AlertDialog.Builder(activity);
@@ -61,6 +116,10 @@ public class ComponentesAuxiliares {
         mensagem.show();
     }
 
+    /**
+     * Invoca um AlertDialog perguntando se o jogador deseja voltar para a tela de seleção de temas.
+     * @param activity Activity atual
+     */
     public void exibirConfirmacaoVoltar(final Activity activity) {
 
         AlertDialog.Builder mensagem = new AlertDialog.Builder(activity);
