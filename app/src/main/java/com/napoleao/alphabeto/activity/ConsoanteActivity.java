@@ -18,7 +18,6 @@ import com.napoleao.alphabeto.model.Tema;
 
 import java.util.ArrayList;
 
-
 public class ConsoanteActivity extends AppCompatActivity implements View.OnClickListener {
     //Componentes da interface
     private ImageView imagem;
@@ -29,7 +28,7 @@ public class ConsoanteActivity extends AppCompatActivity implements View.OnClick
             R.id.btnY,R.id.btnZ};
     //--------------------------------------------------------------------------------------------//
     private ArrayList<Tema> listTema = new ArrayList<>();
-    private DesafioFacade desafioFacade = new DesafioFacade();
+    private DesafioFacade desafioFacade;
     private FabricaTemas temas = new FabricaTemas(listTema);
     private static final int NIVEL_SELECIONADO = 1;
     private int temaSelecionado;
@@ -40,6 +39,8 @@ public class ConsoanteActivity extends AppCompatActivity implements View.OnClick
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.game_model_consoantes);
+
+        desafioFacade = new DesafioFacade();
 
         //Obtendo o tema escolhido
         Bundle extras = getIntent().getExtras();

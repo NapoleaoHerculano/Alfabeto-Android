@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradiente_fundo"
+    android:background="@drawable/background_gradient"
     tools:context=".activity.ConfiguracoesActivity">
 
     <androidx.appcompat.widget.AppCompatTextView
@@ -281,9 +281,9 @@
         android:layout_marginLeft="32dp"
         android:layout_marginBottom="8dp"
         android:background="@android:color/transparent"
+        android:contentDescription="@string/voltar"
         android:onClick="voltarConfiguracoes"
         android:scaleType="fitCenter"
-        android:contentDescription="@string/voltar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btnSalvar"
         app:layout_constraintHorizontal_bias="0.5"

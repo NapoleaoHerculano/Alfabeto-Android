@@ -28,7 +28,7 @@ public class AlfabetoActivity extends AppCompatActivity implements View.OnClickL
             R.id.btnR,R.id.btnS,R.id.btnT,R.id.btnU,R.id.btnV,R.id.btnW,R.id.btnX,R.id.btnY,R.id.btnZ};
     //--------------------------------------------------------------------------------------------//
     private ArrayList<Tema> listTema = new ArrayList<>();
-    private DesafioFacade desafioFacade = new DesafioFacade();
+    private DesafioFacade desafioFacade;
     private FabricaTemas temas = new FabricaTemas(listTema);
     private static final int NIVEL_SELECIONADO = 2;
     private int temaSelecionado;
@@ -39,6 +39,8 @@ public class AlfabetoActivity extends AppCompatActivity implements View.OnClickL
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.game_model_alfabeto);
+
+        desafioFacade = new DesafioFacade();
 
         //Obtendo o tema escolhido
         Bundle extras = getIntent().getExtras();

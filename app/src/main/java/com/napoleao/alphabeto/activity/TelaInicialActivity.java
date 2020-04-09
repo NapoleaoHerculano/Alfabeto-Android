@@ -58,7 +58,7 @@ public class TelaInicialActivity extends AppCompatActivity implements View.OnCli
 
     @Override
     public void onBackPressed() {
-        AlertDialog.Builder mensagem = new AlertDialog.Builder(this);
+        AlertDialog.Builder mensagem = new AlertDialog.Builder(this, R.style.AlertDialogStyle);
         mensagem.setTitle("Confirmação");
         mensagem.setIcon(null);
         mensagem.setMessage("Deseja sair do jogo?");

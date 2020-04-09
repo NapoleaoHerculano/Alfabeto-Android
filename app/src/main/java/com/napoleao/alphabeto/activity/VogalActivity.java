@@ -38,6 +38,8 @@ public class VogalActivity extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.game_model_vogais);
 
+        desafioFacade = new DesafioFacade();
+
         //Obtendo o tema escolhido
         Bundle extras = getIntent().getExtras();
         temaSelecionado = extras.getInt("tema");

@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 
+import com.napoleao.alphabeto.R;
 import com.napoleao.alphabeto.activity.MainActivity;
 
 public class ComponentesAuxiliares {
@@ -94,7 +95,7 @@ public class ComponentesAuxiliares {
      */
     public void exibirConfirmacaoFechar(final Activity activity) {
 
-        AlertDialog.Builder mensagem = new AlertDialog.Builder(activity);
+        AlertDialog.Builder mensagem = new AlertDialog.Builder(activity, R.style.AlertDialogStyle);
         mensagem.setTitle("Confirmação");
         mensagem.setIcon(null);
         mensagem.setMessage("Você voltará para a tela inicial. Deseja sair da partida?");
@@ -122,7 +123,7 @@ public class ComponentesAuxiliares {
      */
     public void exibirConfirmacaoVoltar(final Activity activity) {
 
-        AlertDialog.Builder mensagem = new AlertDialog.Builder(activity);
+        AlertDialog.Builder mensagem = new AlertDialog.Builder(activity, R.style.AlertDialogStyle);
         mensagem.setTitle("Confirmação");
         mensagem.setIcon(null);
         mensagem.setMessage("Você voltará para a seleção de temas. Deseja sair da partida?");
