@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Vibrator;
 import android.view.View;
 import android.view.WindowManager;
@@ -14,6 +15,7 @@ import androidx.appcompat.app.AlertDialog;
 
 import com.napoleao.alphabeto.R;
 import com.napoleao.alphabeto.activity.MainActivity;
+import com.napoleao.alphabeto.config.AppConfig;
 
 public class ComponentesAuxiliares {
 
@@ -45,10 +47,13 @@ public class ComponentesAuxiliares {
      * @param onClickListener Listener responsável pelos eventos de Click
      * @param botoes Array com todos os ID's dos botões
      */
-    public void instanciarBotoes(View view, View.OnClickListener onClickListener, int[] botoes){
+    public void instanciarBotoes(View view, View.OnClickListener onClickListener, int[] botoes, Context context){
         int i;
+        Typeface typeface = Typeface.createFromAsset(context.getAssets(), AppConfig.getInstance(context).getCurrentButtonConfig());
         for(i = 0; i < botoes.length; i++){
             Button btn = view.findViewById(botoes[i]);
+            btn.setTypeface(typeface, Typeface.BOLD);
+            btn.setAllCaps(AppConfig.getInstance(context).isCurrentButtonCase());
             btn.setOnClickListener(onClickListener);
         }
     }
