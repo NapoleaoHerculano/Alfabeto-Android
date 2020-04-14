@@ -20,8 +20,9 @@ public class AppConfig extends JsonManager {
     private String currentLetterType;
     private String currentLetterCase;
     private String currentSound;
+    private String currentButtonConfig;
+    private boolean currentButtonCase;
     private JSONObject jsonObjConfig;
-
 
     private AppConfig(Context appContext){
         this.jsonObjConfig = super.getJsonObjectOfArchive(appContext);
@@ -29,6 +30,8 @@ public class AppConfig extends JsonManager {
             this.currentLetterType = (String) this.jsonObjConfig.get("letter_type");
             this.currentLetterCase = (String) this.jsonObjConfig.get("letter_case");
             this.currentSound = (String) this.jsonObjConfig.get("hit_sound");
+            this.currentButtonConfig = (String) this.jsonObjConfig.get("button_font_preferences");
+            this.currentButtonCase = (boolean) this.jsonObjConfig.get("button_case_preferences");
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -50,6 +53,14 @@ public class AppConfig extends JsonManager {
     @Override
     protected String getJsonFileName() {
         return "configs.json";
+    }
+
+    public boolean isCurrentButtonCase() {
+        return currentButtonCase;
+    }
+
+    public void setCurrentButtonCase(boolean currentButtonCase) {
+        this.currentButtonCase = currentButtonCase;
     }
 
     public String getCurrentLetterType() {
@@ -76,12 +87,22 @@ public class AppConfig extends JsonManager {
         this.currentSound = currentSound;
     }
 
+    public String getCurrentButtonConfig() {
+        return currentButtonConfig;
+    }
+
+    public void setCurrentButtonConfig(String currentButtonConfig) {
+        this.currentButtonConfig = currentButtonConfig;
+    }
+
     public void saveAllChange(Context appContext){
         JSONObject newJsonObjConfig = new JSONObject();
         try {
             newJsonObjConfig.put("letter_type", this.currentLetterType);
             newJsonObjConfig.put("letter_case", this.currentLetterCase);
             newJsonObjConfig.put("hit_sound", this.currentSound);
+            newJsonObjConfig.put("button_font_preferences", this.currentButtonConfig);
+            newJsonObjConfig.put("button_case_preferences", this.currentButtonCase);
             this.jsonObjConfig = newJsonObjConfig;
             super.writeJsonObject(appContext, this.jsonObjConfig);
             Log.i("Json - AppConfig", "All changes have been saved");

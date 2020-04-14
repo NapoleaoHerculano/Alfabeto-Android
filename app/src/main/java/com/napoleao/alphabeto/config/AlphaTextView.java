@@ -39,13 +39,15 @@ public class AlphaTextView extends AppCompatTextView {
 
         switch (this.fontFamily) {
             case AppConfig.CURSIVA: {
-                Typeface tf = Typeface.createFromAsset(this.context.getAssets(), "fonts/Maria_lucia.ttf");
+                final String cursivaFontPath = "fonts/cursiva.ttf";
+                Typeface tf = Typeface.createFromAsset(this.context.getAssets(), cursivaFontPath);
                 this.setTypeface(tf);
                 break;
             }
 
             case AppConfig.BASTAO: {
-                Typeface tf = Typeface.create("sans-serif", Typeface.NORMAL);
+                final String bastaoFontPath = "fonts/bastão.ttf";
+                Typeface tf = Typeface.createFromAsset(this.context.getAssets(), bastaoFontPath);
                 this.setTypeface(tf);
                 break;
             }

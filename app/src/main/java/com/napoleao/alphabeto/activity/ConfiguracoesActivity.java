@@ -27,7 +27,6 @@ public class ConfiguracoesActivity extends AppCompatActivity implements View.OnC
     private RadioButton rbOpcao2;
     private RadioButton rbOpcao3;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,6 +67,20 @@ public class ConfiguracoesActivity extends AppCompatActivity implements View.OnC
         this.configurator.setCurrentLetterType(rgSelectedLetterType);
         this.configurator.setCurrentLetterCase(rgSelectedLetterCase);
         this.configurator.setCurrentSound(rgSelectedSound);
+
+        if (rgSelectedLetterType.equals("Cursiva")){
+            this.configurator.setCurrentButtonConfig("fonts/cursiva.ttf");
+        }else {
+            this.configurator.setCurrentButtonConfig("fonts/bastão.ttf");
+        }
+
+        if (rgSelectedLetterCase.equals("Maiúsculas")){
+            this.configurator.setCurrentButtonCase(true);
+        }else {
+            this.configurator.setCurrentButtonCase(false);
+        }
+
+        Log.d("Button Config", this.configurator.getCurrentButtonConfig());
     }
 
     /**
@@ -78,6 +91,8 @@ public class ConfiguracoesActivity extends AppCompatActivity implements View.OnC
         Log.i("Json-Config","CurrentLetterType: " + this.configurator.getCurrentLetterType());
         Log.i("Json-Config","CurrentLetterCase: " + this.configurator.getCurrentLetterCase());
         Log.i("Json-Config","CurrentSound: " + this.configurator.getCurrentSound());
+        Log.i("Json-Config","CurrentButtonConfig: " + this.configurator.getCurrentButtonConfig());
+        Log.i("Json-Config","CurrentButtonCase: " + this.configurator.isCurrentButtonCase());
         switch(this.configurator.getCurrentLetterType()){
             case(AppConfig.CURSIVA):
                 rgLetterType.check(rbCursiva.getId());
