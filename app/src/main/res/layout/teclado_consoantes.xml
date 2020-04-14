@@ -25,7 +25,7 @@
             android:padding="0dp"
             android:text="@string/b"
             android:textColor="@color/colorPrimary"
-            android:textSize="20sp"
+            android:textSize="24sp"
             android:textStyle="bold"
             app:backgroundTint="@android:color/white" />
 
@@ -39,7 +39,7 @@
             android:padding="0dp"
             android:text="@string/c"
             android:textColor="@color/colorPrimary"
-            android:textSize="20sp"
+            android:textSize="24sp"
             android:textStyle="bold"
             app:backgroundTint="@android:color/white" />
 
@@ -53,7 +53,7 @@
             android:padding="0dp"
             android:text="@string/d"
             android:textColor="@color/colorPrimary"
-            android:textSize="20sp"
+            android:textSize="24sp"
             android:textStyle="bold"
             app:backgroundTint="@android:color/white" />
 
@@ -67,7 +67,7 @@
             android:padding="0dp"
             android:text="@string/f"
             android:textColor="@color/colorPrimary"
-            android:textSize="20sp"
+            android:textSize="24sp"
             android:textStyle="bold"
             app:backgroundTint="@android:color/white" />
 
@@ -81,7 +81,7 @@
             android:padding="0dp"
             android:text="@string/g"
             android:textColor="@color/colorPrimary"
-            android:textSize="20sp"
+            android:textSize="24sp"
             android:textStyle="bold"
             app:backgroundTint="@android:color/white" />
 
@@ -95,7 +95,7 @@
             android:padding="0dp"
             android:text="@string/h"
             android:textColor="@color/colorPrimary"
-            android:textSize="20sp"
+            android:textSize="24sp"
             android:textStyle="bold"
             app:backgroundTint="@android:color/white" />
 
@@ -109,7 +109,7 @@
             android:padding="0dp"
             android:text="@string/j"
             android:textColor="@color/colorPrimary"
-            android:textSize="20sp"
+            android:textSize="24sp"
             android:textStyle="bold"
             app:backgroundTint="@android:color/white" />
     </LinearLayout>
@@ -133,7 +133,7 @@
             android:padding="0dp"
             android:text="@string/k"
             android:textColor="@color/colorPrimary"
-            android:textSize="20sp"
+            android:textSize="24sp"
             android:textStyle="bold"
             app:backgroundTint="@android:color/white" />
 
@@ -147,7 +147,7 @@
             android:padding="0dp"
             android:text="@string/l"
             android:textColor="@color/colorPrimary"
-            android:textSize="20sp"
+            android:textSize="24sp"
             android:textStyle="bold"
             app:backgroundTint="@android:color/white" />
 
@@ -161,7 +161,7 @@
             android:padding="0dp"
             android:text="@string/m"
             android:textColor="@color/colorPrimary"
-            android:textSize="20sp"
+            android:textSize="24sp"
             android:textStyle="bold"
             app:backgroundTint="@android:color/white" />
 
@@ -175,7 +175,7 @@
             android:padding="0dp"
             android:text="@string/n"
             android:textColor="@color/colorPrimary"
-            android:textSize="20sp"
+            android:textSize="24sp"
             android:textStyle="bold"
             app:backgroundTint="@android:color/white" />
 
@@ -189,7 +189,7 @@
             android:padding="0dp"
             android:text="@string/p"
             android:textColor="@color/colorPrimary"
-            android:textSize="20sp"
+            android:textSize="24sp"
             android:textStyle="bold"
             app:backgroundTint="@android:color/white" />
 
@@ -203,7 +203,7 @@
             android:padding="0dp"
             android:text="@string/q"
             android:textColor="@color/colorPrimary"
-            android:textSize="20sp"
+            android:textSize="24sp"
             android:textStyle="bold"
             app:backgroundTint="@android:color/white" />
 
@@ -217,7 +217,7 @@
             android:padding="0dp"
             android:text="@string/r"
             android:textColor="@color/colorPrimary"
-            android:textSize="20sp"
+            android:textSize="24sp"
             android:textStyle="bold"
             app:backgroundTint="@android:color/white" />
     </LinearLayout>
@@ -241,7 +241,7 @@
             android:padding="0dp"
             android:text="@string/s"
             android:textColor="@color/colorPrimary"
-            android:textSize="20sp"
+            android:textSize="24sp"
             android:textStyle="bold"
             app:backgroundTint="@android:color/white" />
 
@@ -255,7 +255,7 @@
             android:padding="0dp"
             android:text="@string/t"
             android:textColor="@color/colorPrimary"
-            android:textSize="20sp"
+            android:textSize="24sp"
             android:textStyle="bold"
             app:backgroundTint="@android:color/white" />
 
@@ -269,7 +269,7 @@
             android:padding="0dp"
             android:text="@string/v"
             android:textColor="@color/colorPrimary"
-            android:textSize="20sp"
+            android:textSize="24sp"
             android:textStyle="bold"
             app:backgroundTint="@android:color/white" />
 
@@ -283,7 +283,7 @@
             android:padding="0dp"
             android:text="@string/w"
             android:textColor="@color/colorPrimary"
-            android:textSize="20sp"
+            android:textSize="24sp"
             android:textStyle="bold"
             app:backgroundTint="@android:color/white" />
 
@@ -297,7 +297,7 @@
             android:padding="0dp"
             android:text="@string/x"
             android:textColor="@color/colorPrimary"
-            android:textSize="20sp"
+            android:textSize="24sp"
             android:textStyle="bold"
             app:backgroundTint="@android:color/white" />
 
@@ -311,7 +311,7 @@
             android:padding="0dp"
             android:text="@string/y"
             android:textColor="@color/colorPrimary"
-            android:textSize="20sp"
+            android:textSize="24sp"
             android:textStyle="bold"
             app:backgroundTint="@android:color/white" />
 
@@ -325,7 +325,7 @@
             android:padding="0dp"
             android:text="@string/z"
             android:textColor="@color/colorPrimary"
-            android:textSize="20sp"
+            android:textSize="24sp"
             android:textStyle="bold"
             app:backgroundTint="@android:color/white" />
 

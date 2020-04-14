@@ -343,12 +343,30 @@
         android:orientation="horizontal">
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnNull"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_weight="1"
+            android:background="@color/design_default_color_primary_dark"
+            android:clickable="false"
+            android:padding="10dp"
+            android:text="@string/v"
+            android:textColor="@color/colorPrimary"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:visibility="invisible"
+            app:backgroundTint="@android:color/white"
+            app:iconPadding="8dp" />
+
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="115dp"
+            android:layout_margin="5dp"
             android:layout_marginTop="5dp"
-            android:layout_marginRight="5dp"
             android:layout_marginBottom="5dp"
             android:layout_weight="1"
             android:background="@color/design_default_color_primary_dark"
@@ -409,9 +427,8 @@
             android:id="@+id/btnZ"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
+            android:layout_margin="5dp"
             android:layout_marginTop="5dp"
-            android:layout_marginRight="115dp"
             android:layout_marginBottom="5dp"
             android:layout_weight="1"
             android:background="@color/design_default_color_primary_dark"
@@ -420,6 +437,23 @@
             android:textColor="@color/colorPrimary"
             android:textSize="30sp"
             android:textStyle="bold"
+            app:backgroundTint="@android:color/white"
+            app:iconPadding="8dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnNull2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@color/design_default_color_primary_dark"
+            android:clickable="false"
+            android:padding="10dp"
+            android:text="@string/w"
+            android:textColor="@color/colorPrimary"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:visibility="invisible"
             app:backgroundTint="@android:color/white"
             app:iconPadding="8dp" />
 
