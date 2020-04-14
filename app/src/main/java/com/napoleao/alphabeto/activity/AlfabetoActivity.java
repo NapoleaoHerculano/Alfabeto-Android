@@ -54,7 +54,7 @@ public class AlfabetoActivity extends AppCompatActivity implements View.OnClickL
         imagem = findViewById(R.id.imageAlfabeto);
         txtQuiz = findViewById(R.id.textAlfabeto);
         botoesAlfabeto = findViewById(R.id.botoesAlfabeto);
-        desafioFacade.getComponentesAuxiliares().instanciarBotoes(botoesAlfabeto, this, botoes);
+        desafioFacade.getComponentesAuxiliares().instanciarBotoes(botoesAlfabeto, this, botoes, this);
 
         //Definindo os primeiros elementos a serem iniciados
         imagem.setImageResource(listTema.get(indice).getImagem());

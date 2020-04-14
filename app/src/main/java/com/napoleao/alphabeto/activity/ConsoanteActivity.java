@@ -54,7 +54,7 @@ public class ConsoanteActivity extends AppCompatActivity implements View.OnClick
         imagem = findViewById(R.id.imageConsoante);
         txtQuiz = findViewById(R.id.textConsoante);
         botoesConsoantes = findViewById(R.id.botoesConsoantes);
-        desafioFacade.getComponentesAuxiliares().instanciarBotoes(botoesConsoantes, this, botoes);
+        desafioFacade.getComponentesAuxiliares().instanciarBotoes(botoesConsoantes, this, botoes, this);
 
         //Definindo os primeiros elementos a serem iniciados
         imagem.setImageResource(listTema.get(indice).getImagem());

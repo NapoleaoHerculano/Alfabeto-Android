@@ -52,7 +52,7 @@ public class VogalActivity extends AppCompatActivity implements View.OnClickList
         imagem = findViewById(R.id.imageVogal);
         txtQuiz = findViewById(R.id.txtQuiz);
         botoesVogais = findViewById(R.id.botoesVogais);
-        desafioFacade.getComponentesAuxiliares().instanciarBotoes(botoesVogais, this, botoes);
+        desafioFacade.getComponentesAuxiliares().instanciarBotoes(botoesVogais, this, botoes, this);
 
         //Definindo os primeiros elementos a serem iniciados
         imagem.setImageResource(listTema.get(indice).getImagem());
