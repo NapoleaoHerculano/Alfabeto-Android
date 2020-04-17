@@ -11,31 +11,30 @@
         android:id="@+id/btnVoltarConfiguracoes"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:layout_marginBottom="16dp"
         android:background="@android:color/transparent"
         android:contentDescription="@string/voltar"
         android:onClick="voltarConfiguracoes"
+        android:padding="5dp"
         android:scaleType="fitCenter"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/textView17"
         app:layout_constraintEnd_toStartOf="@+id/btnSalvar"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rgSound"
         app:srcCompat="@drawable/botao_tela_anterior" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textView17"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
+        android:layout_marginBottom="8dp"
         android:gravity="center|center_horizontal"
         android:text="@string/voltar"
         android:textColor="@android:color/white"
         android:textSize="20sp"
         app:fontFamily="@font/luckiest_guy"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/btnVoltarConfiguracoes"
-        app:layout_constraintStart_toStartOf="@+id/btnVoltarConfiguracoes"
-        app:layout_constraintTop_toBottomOf="@+id/btnVoltarConfiguracoes" />
+        app:layout_constraintStart_toStartOf="@+id/btnVoltarConfiguracoes" />
 
     <TextView
         android:id="@+id/textView16"
@@ -54,29 +53,28 @@
         android:id="@+id/textView21"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
         android:gravity="center|center_horizontal"
         android:text="@string/salvar"
         android:textColor="@android:color/white"
         android:textSize="20sp"
         app:fontFamily="@font/luckiest_guy"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/btnSalvar"
-        app:layout_constraintStart_toStartOf="@+id/btnSalvar"
-        app:layout_constraintTop_toBottomOf="@+id/btnSalvar" />
+        app:layout_constraintStart_toStartOf="@+id/btnSalvar" />
 
     <ImageButton
         android:id="@+id/btnSalvar"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_marginBottom="16dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:background="@android:color/transparent"
         android:contentDescription="@string/salvar"
         android:onClick="saveChanges"
         android:scaleType="fitCenter"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/textView21"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/btnVoltarConfiguracoes"
-        app:layout_constraintTop_toBottomOf="@+id/rgSound"
         app:srcCompat="@drawable/btn_salvar" />
 
     <RadioGroup
@@ -127,7 +125,8 @@
         app:layout_constraintEnd_toStartOf="@+id/rgLetterCase"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView13">
+        app:layout_constraintTop_toBottomOf="@+id/textView13"
+        app:layout_constraintVertical_bias="0.0">
 
         <RadioButton
             android:id="@+id/rdButtonCursiva"
@@ -161,7 +160,7 @@
         android:id="@+id/txtConfig"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="8dp"
         android:text="@string/configuracoes"
         android:textAllCaps="true"
         android:textColor="@android:color/white"
@@ -176,7 +175,7 @@
         android:id="@+id/textView13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="32dp"
         android:text="@string/font_tipo"
         android:textColor="@color/white"
         android:textSize="24sp"
@@ -203,7 +202,7 @@
         android:id="@+id/textView18"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="32dp"
         android:text="@string/letra_tipo"
         android:textColor="@color/white"
         android:textSize="24sp"
@@ -231,11 +230,11 @@
             android:gravity="center"
             android:padding="5dp"
             android:text="@string/alfabeto"
-            android:textSize="25sp"
+            android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="1.0" />
@@ -247,7 +246,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/recycler_view"
         android:onClick="onClick"
-        app:layout_constraintBottom_toTopOf="@+id/btnSalvar"
+        app:layout_constraintBottom_toTopOf="@+id/guideline"
         app:layout_constraintEnd_toEndOf="@+id/textView16"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/textView16"
@@ -286,5 +285,12 @@
             android:textSize="18sp"
             android:textStyle="bold" />
     </RadioGroup>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.75" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
