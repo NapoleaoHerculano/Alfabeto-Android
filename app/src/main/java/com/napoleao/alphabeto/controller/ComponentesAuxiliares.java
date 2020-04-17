@@ -103,7 +103,7 @@ public class ComponentesAuxiliares {
         AlertDialog.Builder mensagem = new AlertDialog.Builder(activity, R.style.AlertDialogStyle);
         mensagem.setTitle("Confirmação");
         mensagem.setIcon(null);
-        mensagem.setMessage("Você voltará para a tela inicial. Deseja sair da partida?");
+        mensagem.setMessage("Você voltará para a tela inicial. Deseja sair?");
 
         mensagem.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
             @Override
@@ -131,7 +131,7 @@ public class ComponentesAuxiliares {
         AlertDialog.Builder mensagem = new AlertDialog.Builder(activity, R.style.AlertDialogStyle);
         mensagem.setTitle("Confirmação");
         mensagem.setIcon(null);
-        mensagem.setMessage("Você voltará para a seleção de temas. Deseja sair da partida?");
+        mensagem.setMessage("Você voltará para a seleção de temas. Deseja sair?");
 
         mensagem.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
             @Override
