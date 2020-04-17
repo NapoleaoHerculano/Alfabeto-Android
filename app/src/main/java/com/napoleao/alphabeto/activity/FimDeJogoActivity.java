@@ -77,6 +77,6 @@ public class FimDeJogoActivity extends AppCompatActivity implements View.OnClick
 
     @Override
     public void onBackPressed(){
-        desafioFacade.getComponentesAuxiliares().exibirConfirmacaoVoltar(this);
+        desafioFacade.getComponentesAuxiliares().exibirConfirmacaoFechar(this);
     }
 }
