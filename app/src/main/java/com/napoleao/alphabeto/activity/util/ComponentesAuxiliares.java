@@ -1,4 +1,4 @@
-package com.napoleao.alphabeto.controller;
+package com.napoleao.alphabeto.activity.util;
 
 import android.app.Activity;
 import android.content.Context;

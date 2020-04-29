@@ -1,6 +1,5 @@
 package com.napoleao.alphabeto.activity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -10,12 +9,14 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.napoleao.alphabeto.R;
-import com.napoleao.alphabeto.controller.DesafioFacade;
+import com.napoleao.alphabeto.activity.util.ComponentesAuxiliares;
+import com.napoleao.alphabeto.controller.GerenteDeDesafios;
 
 public class NiveisActivity extends AppCompatActivity implements View.OnClickListener{
 
     private int temaSelecionado;
-    private DesafioFacade desafioFacade;
+    private GerenteDeDesafios gerenteDeDesafios;
+    private ComponentesAuxiliares componentesAuxiliares;
 
     int[] botoes = {R.id.txtVogais, R.id.txtConsoantes, R.id.txtAlfabeto};
 
@@ -26,7 +27,8 @@ public class NiveisActivity extends AppCompatActivity implements View.OnClickLis
 
         instanciarTextButtons();
 
-        desafioFacade = new DesafioFacade();
+        gerenteDeDesafios = new GerenteDeDesafios();
+        componentesAuxiliares = new ComponentesAuxiliares();
 
         Bundle extras = getIntent().getExtras();
         temaSelecionado = extras.getInt("tema");
@@ -37,8 +39,8 @@ public class NiveisActivity extends AppCompatActivity implements View.OnClickLis
         switch (v.getId()){
             case R.id.txtVogais:
             case R.id.btnVogais:
-                desafioFacade.getComponentesAuxiliares().impedirDuploClique(this);
-                desafioFacade.ditarPalavra("Vogais");
+                componentesAuxiliares.impedirDuploClique(this);
+                gerenteDeDesafios.ditarPalavra("Vogais");
 
                 Handler handler = new Handler();
                 handler.postDelayed(new Runnable() {
@@ -51,8 +53,8 @@ public class NiveisActivity extends AppCompatActivity implements View.OnClickLis
 
             case R.id.txtConsoantes:
             case R.id.btnConsoantes:
-                desafioFacade.getComponentesAuxiliares().impedirDuploClique(this);
-                desafioFacade.ditarPalavra("Consoantes");
+                componentesAuxiliares.impedirDuploClique(this);
+                gerenteDeDesafios.ditarPalavra("Consoantes");
 
                 handler = new Handler();
                 handler.postDelayed(new Runnable() {
@@ -65,8 +67,8 @@ public class NiveisActivity extends AppCompatActivity implements View.OnClickLis
 
             case R.id.txtAlfabeto:
             case R.id.btnAlfabeto:
-                desafioFacade.getComponentesAuxiliares().impedirDuploClique(this);
-                desafioFacade.ditarPalavra("Alfabeto");
+                componentesAuxiliares.impedirDuploClique(this);
+                gerenteDeDesafios.ditarPalavra("Alfabeto");
 
                 handler = new Handler();
                 handler.postDelayed(new Runnable() {

@@ -12,24 +12,15 @@ import com.napoleao.alphabeto.model.Tema;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DesafioFacade {
+public class GerenteDeDesafios {
 
-    private Context context;
     private ComponentesAuxiliares componentesAuxiliares;
     private SingletonAudio tts;
 
 
-    public DesafioFacade() {
+    public GerenteDeDesafios() {
         this.componentesAuxiliares = new ComponentesAuxiliares();
-        this.tts = SingletonAudio.getSingleton(context);
-    }
-
-    /**
-     * Método de acesso aos componenetes da classe auxiliar.
-     * @return Acesso aos componentes.
-     */
-    public ComponentesAuxiliares getComponentesAuxiliares() {
-        return componentesAuxiliares;
+        this.tts = SingletonAudio.getSingleton();
     }
 
     /**
@@ -130,7 +121,7 @@ public class DesafioFacade {
      *                resposta dada for incorreta.
      * @return desafio atualizado mediante a resposta do usuário.
      */
-    public String verificarAlternativa(Context context, char alternativa, String palavra, char[] palavraFormatada, JogadorSingleton jogador){
+    public String verificarAlternativa(Context context, char alternativa, String palavra, char[] palavraFormatada, SingletonJogador jogador){
         char[] palavraPura = palavra.toCharArray();
         boolean certo = false;
 
@@ -269,4 +260,5 @@ public class DesafioFacade {
     public void falarImagem(List<Tema> listTema, int indice){
         tts.ditarFoto(listTema.get(indice).getNomeImagem());
     }
+
 }

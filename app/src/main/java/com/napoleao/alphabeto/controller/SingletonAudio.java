@@ -17,12 +17,21 @@ public class SingletonAudio implements TextToSpeech.OnInitListener{
         tts = new TextToSpeech(context, this, "com.google.android.tts");
     }
 
-    public static SingletonAudio getSingleton(Context context) {
+    public static synchronized SingletonAudio getSingleton(Context context) {
         if(singleton == null){
             singleton = new SingletonAudio(context);
         }
 
         return singleton;
+    }
+
+    public static synchronized SingletonAudio getSingleton(){
+        if(singleton == null){
+            throw new RuntimeException("Não há instância do serviço de áudio! Alguma activity deve" +
+                    " chamar o SingletonAudio inicialmente");
+        }else{
+            return singleton;
+        }
     }
 
     public void ditarFoto(String palavra){

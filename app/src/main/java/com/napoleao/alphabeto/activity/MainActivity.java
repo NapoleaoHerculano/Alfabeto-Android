@@ -8,7 +8,8 @@ import android.os.Handler;
 import android.view.View;
 
 import com.napoleao.alphabeto.R;
-import com.napoleao.alphabeto.controller.DesafioFacade;
+import com.napoleao.alphabeto.activity.util.ComponentesAuxiliares;
+import com.napoleao.alphabeto.controller.GerenteDeDesafios;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private static final int TEMA_CORES = 0;
@@ -18,14 +19,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private static final int TEMA_PAISES = 4;
 
     private int temaSelecionado;
-    private DesafioFacade desafioFacade;
+    private GerenteDeDesafios gerenteDeDesafios;
+    private ComponentesAuxiliares componentesAuxiliares;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        desafioFacade = new DesafioFacade();
+        gerenteDeDesafios = new GerenteDeDesafios();
+        componentesAuxiliares = new ComponentesAuxiliares();
     }
 
     @Override
@@ -33,36 +36,36 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()) {
             case R.id.txtCores:
             case R.id.btnCores:
-                desafioFacade.getComponentesAuxiliares().impedirDuploClique(this);
-                desafioFacade.ditarPalavra("Cores");
+                componentesAuxiliares.impedirDuploClique(this);
+                gerenteDeDesafios.ditarPalavra("Cores");
                 temaSelecionado = TEMA_CORES;
                 invocarIntent();
                 break;
             case R.id.txtObjetos:
             case R.id.btnObjetos:
-                desafioFacade.getComponentesAuxiliares().impedirDuploClique(this);
-                desafioFacade.ditarPalavra("Objetos");
+                componentesAuxiliares.impedirDuploClique(this);
+                gerenteDeDesafios.ditarPalavra("Objetos");
                 temaSelecionado = TEMA_OBJETOS;
                 invocarIntent();
                 break;
             case R.id.txtAnimais:
             case R.id.btnAnimais:
-                desafioFacade.getComponentesAuxiliares().impedirDuploClique(this);
-                desafioFacade.ditarPalavra("Animais");
+                componentesAuxiliares.impedirDuploClique(this);
+                gerenteDeDesafios.ditarPalavra("Animais");
                 temaSelecionado = TEMA_ANIMAIS;
                 invocarIntent();
                 break;
             case R.id.txtFrutas:
             case R.id.btnFrutas:
-                desafioFacade.getComponentesAuxiliares().impedirDuploClique(this);
-                desafioFacade.ditarPalavra("Frutas");
+                componentesAuxiliares.impedirDuploClique(this);
+                gerenteDeDesafios.ditarPalavra("Frutas");
                 temaSelecionado = TEMA_FRUTAS;
                 invocarIntent();
                 break;
             case R.id.txtPaises:
             case R.id.btnPaises:
-                desafioFacade.getComponentesAuxiliares().impedirDuploClique(this);
-                desafioFacade.ditarPalavra("Países");
+                componentesAuxiliares.impedirDuploClique(this);
+                gerenteDeDesafios.ditarPalavra("Países");
                 temaSelecionado = TEMA_PAISES;
                 invocarIntent();
                 break;

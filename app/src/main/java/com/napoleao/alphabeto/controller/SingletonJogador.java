@@ -1,18 +1,18 @@
 package com.napoleao.alphabeto.controller;
 
-public class JogadorSingleton {
+public class SingletonJogador {
 
     private float pontuacao = 3;
 
-    private static JogadorSingleton jogador;
+    private static SingletonJogador jogador;
 
-    private JogadorSingleton (){
+    private SingletonJogador(){
 
     }
 
-    public static JogadorSingleton getJogador(){
+    public static SingletonJogador getJogador(){
         if(jogador == null){
-            jogador = new JogadorSingleton();
+            jogador = new SingletonJogador();
         }
         return jogador;
     }

@@ -4,24 +4,16 @@ import com.napoleao.alphabeto.model.Tema;
 
 import java.util.ArrayList;
 
-public class FabricaTemas extends InstanciarTemas {
+public class FabricaTemas {
 
-    public FabricaTemas(ArrayList<Tema> tema) {
-        super(tema);
+    private GerenteDeTemas gerenteDeTemas;
+
+    public FabricaTemas(ArrayList<Tema> temas) {
+        this.gerenteDeTemas = new GerenteDeTemas(temas);
     }
 
-    public void escolhaDeTema(int select) {
-        if (select == 0) {
-            instanciarCores();
-        } else if (select == 1) {
-            instanciarObjetos();
-        } else if (select == 2) {
-            instanciarAnimais();
-        }else if (select == 3){
-            instanciarFrutas();
-        }else{
-            instanciarPaises();
-        }
+    public void escolhaDeTema(int temaSelecionado) {
+        this.gerenteDeTemas.escolhaDeTema(temaSelecionado);
     }
 
 }

@@ -10,10 +10,11 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.napoleao.alphabeto.R;
+import com.napoleao.alphabeto.activity.util.ComponentesAuxiliares;
 import com.napoleao.alphabeto.config.AppConfig;
-import com.napoleao.alphabeto.controller.DesafioFacade;
+import com.napoleao.alphabeto.controller.GerenteDeDesafios;
 import com.napoleao.alphabeto.controller.FabricaTemas;
-import com.napoleao.alphabeto.controller.JogadorSingleton;
+import com.napoleao.alphabeto.controller.SingletonJogador;
 import com.napoleao.alphabeto.model.Tema;
 
 import java.util.ArrayList;
@@ -28,19 +29,21 @@ public class ConsoanteActivity extends AppCompatActivity implements View.OnClick
             R.id.btnY,R.id.btnZ};
     //--------------------------------------------------------------------------------------------//
     private ArrayList<Tema> listTema = new ArrayList<>();
-    private DesafioFacade desafioFacade;
+    private GerenteDeDesafios gerenteDeDesafios;
+    private ComponentesAuxiliares componentesAuxiliares;
     private FabricaTemas temas = new FabricaTemas(listTema);
     private static final int NIVEL_SELECIONADO = 1;
     private int temaSelecionado;
     private char[] desafio;//Array responsável por guardar e atualizar o desafio de acordo com as respostas
     private int indice = 0;
-    private JogadorSingleton jogador = JogadorSingleton.getJogador();
+    private SingletonJogador jogador = SingletonJogador.getJogador();
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.game_model_consoantes);
 
-        desafioFacade = new DesafioFacade();
+        gerenteDeDesafios = new GerenteDeDesafios();
+        componentesAuxiliares = new ComponentesAuxiliares();
 
         //Obtendo o tema escolhido
         Bundle extras = getIntent().getExtras();
@@ -48,18 +51,18 @@ public class ConsoanteActivity extends AppCompatActivity implements View.OnClick
 
         //Carregando os temas de acordo com a escolha
         temas.escolhaDeTema(temaSelecionado);
-        listTema = desafioFacade.carregarTemas(listTema, NIVEL_SELECIONADO);
+        listTema = gerenteDeDesafios.carregarTemas(listTema, NIVEL_SELECIONADO);
 
         //Instanciando a interface
         imagem = findViewById(R.id.imageConsoante);
         txtQuiz = findViewById(R.id.textConsoante);
         botoesConsoantes = findViewById(R.id.botoesConsoantes);
-        desafioFacade.getComponentesAuxiliares().instanciarBotoes(botoesConsoantes, this, botoes, this);
+        componentesAuxiliares.instanciarBotoes(botoesConsoantes, this, botoes, this);
 
         //Definindo os primeiros elementos a serem iniciados
         imagem.setImageResource(listTema.get(indice).getImagem());
-        txtQuiz.setText(desafioFacade.definirPalavraConsoante(desafioFacade.dandoEspacos(listTema.get(indice).getNomeImagem())));
-        desafio = desafioFacade.definirPalavraConsoante(listTema.get(indice).getNomeImagem()).toCharArray();
+        txtQuiz.setText(gerenteDeDesafios.definirPalavraConsoante(gerenteDeDesafios.dandoEspacos(listTema.get(indice).getNomeImagem())));
+        desafio = gerenteDeDesafios.definirPalavraConsoante(listTema.get(indice).getNomeImagem()).toCharArray();
     }
 
     @Override
@@ -74,7 +77,7 @@ public class ConsoanteActivity extends AppCompatActivity implements View.OnClick
      * @param v necessário para o mapeamento via XML
      */
     public void falarImagem(View v){
-        desafioFacade.falarImagem(listTema, indice);
+        gerenteDeDesafios.falarImagem(listTema, indice);
     }
 
     /**
@@ -82,26 +85,26 @@ public class ConsoanteActivity extends AppCompatActivity implements View.OnClick
      * @param alternativa Caractere escolhido (botão clicado no teclado).
      */
     private void verificaResposta(char alternativa){
-        String resposta = desafioFacade.verificarAlternativa(this, alternativa,listTema.get(indice).getNomeImagem(),desafio, jogador);
-        txtQuiz.setText(desafioFacade.dandoEspacos(resposta));
+        String resposta = gerenteDeDesafios.verificarAlternativa(this, alternativa,listTema.get(indice).getNomeImagem(),desafio, jogador);
+        txtQuiz.setText(gerenteDeDesafios.dandoEspacos(resposta));
 
-        boolean acertou = desafioFacade.verificaResposta(listTema.get(indice).getNomeImagem(), resposta);
+        boolean acertou = gerenteDeDesafios.verificaResposta(listTema.get(indice).getNomeImagem(), resposta);
         if (acertou){
-            desafioFacade.acertou(this, AppConfig.getInstance(this).getCurrentSound());
+            gerenteDeDesafios.acertou(this, AppConfig.getInstance(this).getCurrentSound());
             indice++;
             if(indice == listTema.size()) {
-                desafioFacade.getComponentesAuxiliares().invocarIntent(this, FimDeJogoActivity.class, temaSelecionado);
+                componentesAuxiliares.invocarIntent(this, FimDeJogoActivity.class, temaSelecionado);
             }else if(indice < listTema.size()){
-                desafioFacade.getComponentesAuxiliares().desligarBotoes(botoes, botoesConsoantes);
+                componentesAuxiliares.desligarBotoes(botoes, botoesConsoantes);
                 Handler handle = new Handler();
                 handle.postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        desafioFacade.setAtributosConsoantes(imagem, txtQuiz, listTema, indice);
-                        desafio = desafioFacade.definirPalavraConsoante(listTema.get(indice).getNomeImagem()).toCharArray();
+                        gerenteDeDesafios.setAtributosConsoantes(imagem, txtQuiz, listTema, indice);
+                        desafio = gerenteDeDesafios.definirPalavraConsoante(listTema.get(indice).getNomeImagem()).toCharArray();
                         //Mudando o desafio. Para isso é chamado o método que seta a quantidade de espaços que formam a palavra
-                        txtQuiz.setText(desafioFacade.definirPalavraConsoante(desafioFacade.dandoEspacos(listTema.get(indice).getNomeImagem())));
-                        desafioFacade.getComponentesAuxiliares().ligarBotoes(botoes, botoesConsoantes);
+                        txtQuiz.setText(gerenteDeDesafios.definirPalavraConsoante(gerenteDeDesafios.dandoEspacos(listTema.get(indice).getNomeImagem())));
+                        componentesAuxiliares.ligarBotoes(botoes, botoesConsoantes);
                     }
                 }, 2000);
             }
@@ -114,7 +117,7 @@ public class ConsoanteActivity extends AppCompatActivity implements View.OnClick
      */
     @Override
     public void onBackPressed(){
-        desafioFacade.getComponentesAuxiliares().exibirConfirmacaoVoltar(this);
+        componentesAuxiliares.exibirConfirmacaoVoltar(this);
     }
 
     /**
@@ -130,7 +133,7 @@ public class ConsoanteActivity extends AppCompatActivity implements View.OnClick
      * @param v View mapeada
      */
     public void fecharConsoantes(View v){
-        desafioFacade.getComponentesAuxiliares().exibirConfirmacaoFechar(this);
+        componentesAuxiliares.exibirConfirmacaoFechar(this);
     }
 
 }

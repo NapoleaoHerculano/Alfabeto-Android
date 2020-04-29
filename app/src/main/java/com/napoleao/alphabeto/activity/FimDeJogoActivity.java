@@ -8,16 +8,18 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.napoleao.alphabeto.R;
-import com.napoleao.alphabeto.controller.DesafioFacade;
-import com.napoleao.alphabeto.controller.JogadorSingleton;
+import com.napoleao.alphabeto.activity.util.ComponentesAuxiliares;
+import com.napoleao.alphabeto.controller.GerenteDeDesafios;
+import com.napoleao.alphabeto.controller.SingletonJogador;
 import com.willy.ratingbar.BaseRatingBar;
 import com.willy.ratingbar.ScaleRatingBar;
 
 public class FimDeJogoActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private JogadorSingleton jogador = JogadorSingleton.getJogador();
+    private SingletonJogador jogador = SingletonJogador.getJogador();
     private int select;
-    private DesafioFacade desafioFacade;
+    private GerenteDeDesafios gerenteDeDesafios;
+    private ComponentesAuxiliares componentesAuxiliares;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +28,9 @@ public class FimDeJogoActivity extends AppCompatActivity implements View.OnClick
 
         Bundle extras = getIntent().getExtras();
         select = extras.getInt("tema");
-        desafioFacade = new DesafioFacade();
+
+        gerenteDeDesafios = new GerenteDeDesafios();
+        componentesAuxiliares = new ComponentesAuxiliares();
 
         TextView txt = findViewById(R.id.txtFraseFim);
 
@@ -77,6 +81,6 @@ public class FimDeJogoActivity extends AppCompatActivity implements View.OnClick
 
     @Override
     public void onBackPressed(){
-        desafioFacade.getComponentesAuxiliares().exibirConfirmacaoFechar(this);
+        componentesAuxiliares.exibirConfirmacaoFechar(this);
     }
 }
