@@ -13,10 +13,11 @@
         android:id="@+id/textView23"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:gravity="center|center_horizontal"
         android:text="@string/sobre"
         android:textColor="@android:color/white"
-        android:textSize="40sp"
+        android:textSize="35sp"
         app:fontFamily="@font/luckiest_guy"
         app:layout_constraintEnd_toEndOf="@+id/btnSobre"
         app:layout_constraintStart_toStartOf="@+id/btnSobre"
@@ -24,8 +25,8 @@
 
     <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/btnSobre"
-        android:layout_width="180dp"
-        android:layout_height="180dp"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
         android:layout_marginBottom="16dp"
         android:background="@android:color/transparent"
         android:onClick="onClick"
@@ -41,7 +42,7 @@
 
     <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/btnIniciar"
-        android:layout_width="200dp"
+        android:layout_width="180dp"
         android:layout_height="200dp"
         android:background="@android:color/transparent"
         android:scaleType="centerInside"
@@ -55,7 +56,7 @@
 
     <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/btnConfig"
-        android:layout_width="200dp"
+        android:layout_width="180dp"
         android:layout_height="200dp"
         android:background="@android:color/transparent"
         android:onClick="onClick"
@@ -75,7 +76,7 @@
         android:layout_marginTop="8dp"
         android:text="@string/jogar"
         android:textColor="@android:color/white"
-        android:textSize="40sp"
+        android:textSize="35sp"
         app:fontFamily="@font/luckiest_guy"
         app:layout_constraintEnd_toEndOf="@+id/btnIniciar"
         app:layout_constraintStart_toStartOf="@+id/btnIniciar"
@@ -90,7 +91,7 @@
         android:layout_marginTop="8dp"
         android:text="@string/configuracoes"
         android:textColor="@android:color/white"
-        android:textSize="40sp"
+        android:textSize="35sp"
         app:fontFamily="@font/luckiest_guy"
         app:layout_constraintEnd_toEndOf="@+id/btnConfig"
         app:layout_constraintStart_toStartOf="@+id/btnConfig"

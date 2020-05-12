@@ -82,7 +82,7 @@ public class GerenteDeTemas {
         Tema c1 = new Tema(R.drawable.amarelo, "amarelo");
         Tema c2 = new Tema(R.drawable.azul, "azul");
         Tema c3 = new Tema(R.drawable.cinza, "cinza");
-        Tema c4 = new Tema(R.drawable.laranja, "laranja");
+        Tema c4 = new Tema(R.drawable.cor_laranja, "laranja");
         Tema c5 = new Tema(R.drawable.marrom, "marrom");
         Tema c6 = new Tema(R.drawable.preto, "preto");
         Tema c7 = new Tema(R.drawable.rosa, "rosa");
