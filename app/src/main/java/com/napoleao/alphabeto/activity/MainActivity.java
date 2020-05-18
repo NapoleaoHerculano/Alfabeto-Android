@@ -16,7 +16,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private static final int TEMA_OBJETOS = 1;
     private static final int TEMA_ANIMAIS = 2;
     private static final int TEMA_FRUTAS = 3;
-    private static final int TEMA_PAISES = 4;
+    private static final int TEMA_BRINQUEDOS = 4;
+    private static final int TEMA_PARTES_DO_CORPO = 5;
+    private static final int TEMA_PAISES = 6;
 
     private int temaSelecionado;
     private GerenteDeDesafios gerenteDeDesafios;
@@ -67,6 +69,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 componentesAuxiliares.impedirDuploClique(this);
                 gerenteDeDesafios.ditarPalavra("Países");
                 temaSelecionado = TEMA_PAISES;
+                invocarIntent();
+                break;
+            case R.id.txtBrinquedos:
+            case R.id.btnBrinquedos:
+                componentesAuxiliares.impedirDuploClique(this);
+                gerenteDeDesafios.ditarPalavra("Brinquedos");
+                temaSelecionado = TEMA_BRINQUEDOS;
+                invocarIntent();
+                break;
+            case R.id.txtPartesDoCorpo:
+            case R.id.btnPartesDoCorpo:
+                componentesAuxiliares.impedirDuploClique(this);
+                gerenteDeDesafios.ditarPalavra("Partes do Corpo");
+                temaSelecionado = TEMA_PARTES_DO_CORPO;
                 invocarIntent();
                 break;
             case R.id.btnMenuInicial:

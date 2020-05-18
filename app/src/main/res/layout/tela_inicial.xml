@@ -113,4 +113,17 @@
         app:layout_constraintStart_toStartOf="@+id/btnConfig"
         app:layout_constraintTop_toBottomOf="@+id/btnConfig" />
 
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textView24"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/version"
+        android:textColor="@color/white"
+        android:textSize="36sp"
+        app:fontFamily="@font/luckiest_guy"
+        app:layout_constraintEnd_toEndOf="@+id/imageView5"
+        app:layout_constraintHorizontal_bias="0.97"
+        app:layout_constraintStart_toStartOf="@+id/imageView5"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
