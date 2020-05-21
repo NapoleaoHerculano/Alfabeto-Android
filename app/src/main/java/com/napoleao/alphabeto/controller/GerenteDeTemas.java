@@ -70,7 +70,7 @@ public class GerenteDeTemas {
         Tema p9 = new Tema(R.drawable.holanda, "holanda");
         Tema p10 = new Tema(R.drawable.italia, "itália");
         Tema p11 = new Tema(R.drawable.japao, "japão");
-        Tema p12 = new Tema(R.drawable.coreia, "coréia\ndo\nsul");
+        Tema p12 = new Tema(R.drawable.coreia, "coréia do\nsul");
         Tema p13 = new Tema(R.drawable.russia, "rússia");
         Tema p14 = new Tema(R.drawable.reino, "reino\nunido");
         Tema p15 = new Tema(R.drawable.usa, "estados\nunidos");

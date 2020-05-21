@@ -27,8 +27,6 @@
         app:layout_constraintEnd_toStartOf="@+id/repetir"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtFraseFim"
-        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/botao_tela_temas" />
 
     <ImageButton
@@ -48,8 +46,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/voltar_temas"
-        app:layout_constraintTop_toBottomOf="@+id/txtFraseFim"
-        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/botao_repetir" />
 
     <TextView
@@ -66,10 +62,10 @@
         android:includeFontPadding="true"
         android:text="@string/exemplo"
         android:textColor="@android:color/white"
-        android:textSize="50sp"
+        android:textSize="55sp"
         android:typeface="normal"
         app:fontFamily="@font/luckiest_guy"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/voltar_temas"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/simpleRatingBar"
