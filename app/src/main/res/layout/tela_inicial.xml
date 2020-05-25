@@ -13,6 +13,8 @@
         android:id="@+id/btnSobre"
         android:layout_width="120dp"
         android:layout_height="120dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
         android:layout_marginBottom="16dp"
         android:background="@android:color/transparent"
         android:onClick="onClick"
@@ -20,9 +22,7 @@
         android:scaleType="fitCenter"
         android:tint="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnConfig"
-        app:layout_constraintHorizontal_bias="0.74"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textView24"
         app:layout_constraintTop_toBottomOf="@+id/btnIniciar"
         app:srcCompat="@drawable/btn_sobre" />
 
@@ -30,18 +30,15 @@
         android:id="@+id/btnConfig"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
         android:background="@android:color/transparent"
         android:onClick="onClick"
         android:padding="10dp"
         android:scaleType="centerInside"
-        app:layout_constraintBottom_toTopOf="@+id/btnSobre"
+        app:layout_constraintBottom_toBottomOf="@+id/btnSobre"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/btnIniciar"
+        app:layout_constraintStart_toEndOf="@+id/btnSobre"
         app:layout_constraintTop_toTopOf="@+id/btnIniciar"
-        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/botaoconfig_cropped" />
 
     <androidx.appcompat.widget.AppCompatImageButton

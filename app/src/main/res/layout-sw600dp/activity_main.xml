@@ -248,7 +248,7 @@
             app:layout_constraintBottom_toTopOf="@+id/btnPartesDoCorpo"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btnAnimais"
-            app:srcCompat="@drawable/brinquedos" />
+            app:srcCompat="@drawable/natureza" />
 
         <ImageButton
             android:id="@+id/btnPartesDoCorpo"
@@ -276,7 +276,7 @@
             android:layout_marginRight="8dp"
             android:gravity="center"
             android:onClick="onClick"
-            android:text="@string/brinquedos"
+            android:text="@string/natureza"
             android:textAllCaps="true"
             android:textColor="@color/white"
             android:textSize="45sp"

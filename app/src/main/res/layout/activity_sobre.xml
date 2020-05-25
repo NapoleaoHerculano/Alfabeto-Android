@@ -35,63 +35,50 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6">
 
-        <ImageView
-            android:id="@+id/btnFreeImages"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginBottom="8dp"
-            android:contentDescription="@string/creditos"
-            android:onClick="onClick"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/btnPixabay"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtCreditos"
-            app:srcCompat="@drawable/free_images" />
-
         <TextView
             android:id="@+id/txtCreditos"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
-            android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             android:autoLink="all"
             android:clickable="true"
             android:focusable="true"
-            android:padding="10dp"
             android:text="@string/creditos_imgs"
             android:textColorLink="@android:color/holo_blue_dark"
+            app:layout_constraintBottom_toBottomOf="@+id/btnPixabay"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toEndOf="@+id/btnPixabay"
+            app:layout_constraintTop_toTopOf="@+id/btnPixabay"
+            app:layout_constraintVertical_bias="0.3" />
 
         <ImageView
             android:id="@+id/btnPixabay"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
             android:layout_marginBottom="8dp"
             android:contentDescription="@string/creditos"
             android:onClick="onClick"
             android:scaleType="centerInside"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/btnFreeImages"
-            app:layout_constraintTop_toBottomOf="@+id/txtCreditos"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/pixabay" />
+
+        <TextView
+            android:id="@+id/textView30"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:autoLink="all"
+            android:text="@string/pixabay"
+            android:textColorLink="@android:color/holo_blue_dark"
+            app:layout_constraintStart_toStartOf="@+id/txtCreditos"
+            app:layout_constraintTop_toBottomOf="@+id/txtCreditos" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -113,9 +100,11 @@
         <ImageView
             android:id="@+id/imageView2"
             android:layout_width="100dp"
-            android:layout_height="0dp"
+            android:layout_height="100dp"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
             android:contentDescription="@string/projeto"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -195,14 +184,15 @@
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="100dp"
-            android:layout_height="0dp"
+            android:layout_height="100dp"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
             android:contentDescription="@string/dev_name"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
             app:srcCompat="@drawable/me_photo" />
 
         <TextView

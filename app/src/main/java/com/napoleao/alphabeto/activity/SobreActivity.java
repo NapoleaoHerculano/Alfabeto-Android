@@ -24,12 +24,8 @@ public class SobreActivity extends AppCompatActivity implements View.OnClickList
             case R.id.btnMenuInicialSobre:
                 finish();
                 break;
-            case R.id.btnFreeImages:
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.freeimages.com/"));
-                startActivity(intent);
-                break;
             case R.id.btnPixabay:
-                intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://pixabay.com/pt/"));
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://pixabay.com/pt/"));
                 startActivity(intent);
                 break;
         }

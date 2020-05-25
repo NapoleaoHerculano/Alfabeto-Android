@@ -9,11 +9,25 @@
     android:orientation="vertical"
     tools:context=".activity.TelaInicialActivity">
 
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/btnSobre"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:background="@android:color/transparent"
+        android:onClick="onClick"
+        android:scaleType="fitCenter"
+        android:tint="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textView25"
+        app:layout_constraintTop_toBottomOf="@+id/btnIniciar"
+        app:srcCompat="@drawable/btn_sobre" />
+
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textView23"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:gravity="center|center_horizontal"
         android:text="@string/sobre"
         android:textColor="@android:color/white"
@@ -24,56 +38,21 @@
         app:layout_constraintTop_toBottomOf="@+id/btnSobre" />
 
     <androidx.appcompat.widget.AppCompatImageButton
-        android:id="@+id/btnSobre"
-        android:layout_width="160dp"
-        android:layout_height="160dp"
-        android:layout_marginBottom="16dp"
-        android:background="@android:color/transparent"
-        android:onClick="onClick"
-        android:scaleType="fitCenter"
-        android:tint="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnConfig"
-        app:layout_constraintHorizontal_bias="0.694"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnIniciar"
-        app:layout_constraintVertical_bias="0.683"
-        app:srcCompat="@drawable/btn_sobre" />
-
-    <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/btnIniciar"
         android:layout_width="180dp"
         android:layout_height="200dp"
         android:background="@android:color/transparent"
         android:scaleType="centerInside"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btnSobre"
         app:layout_constraintEnd_toStartOf="@+id/btnConfig"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView6"
-        app:layout_constraintVertical_bias="0.257"
+        app:layout_constraintTop_toBottomOf="@+id/textView25"
         app:srcCompat="@drawable/botaoplay" />
-
-    <androidx.appcompat.widget.AppCompatImageButton
-        android:id="@+id/btnConfig"
-        android:layout_width="180dp"
-        android:layout_height="200dp"
-        android:background="@android:color/transparent"
-        android:onClick="onClick"
-        android:scaleType="centerInside"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/btnIniciar"
-        app:layout_constraintTop_toBottomOf="@+id/imageView6"
-        app:layout_constraintVertical_bias="0.487"
-        app:srcCompat="@drawable/botaoconfig_cropped" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:text="@string/jogar"
         android:textColor="@android:color/white"
         android:textSize="35sp"
@@ -82,13 +61,23 @@
         app:layout_constraintStart_toStartOf="@+id/btnIniciar"
         app:layout_constraintTop_toBottomOf="@+id/btnIniciar" />
 
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/btnConfig"
+        android:layout_width="180dp"
+        android:layout_height="200dp"
+        android:background="@android:color/transparent"
+        android:onClick="onClick"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="@+id/btnSobre"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnSobre"
+        app:layout_constraintTop_toTopOf="@+id/btnIniciar"
+        app:srcCompat="@drawable/botaoconfig_cropped" />
+
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
         android:text="@string/configuracoes"
         android:textColor="@android:color/white"
         android:textSize="35sp"
@@ -97,27 +86,18 @@
         app:layout_constraintStart_toStartOf="@+id/btnConfig"
         app:layout_constraintTop_toBottomOf="@+id/btnConfig" />
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/imageView6"
-        android:layout_width="530dp"
-        android:layout_height="130dp"
-        android:layout_marginTop="135dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/beto_logo" />
-
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textView25"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/version"
+        android:layout_marginTop="135dp"
+        android:text="@string/app_name"
+        android:textAllCaps="true"
         android:textColor="@color/white"
-        android:textSize="60sp"
+        android:textSize="100sp"
         app:fontFamily="@font/luckiest_guy"
-        app:layout_constraintEnd_toEndOf="@+id/imageView6"
-        app:layout_constraintHorizontal_bias="0.97"
-        app:layout_constraintStart_toStartOf="@+id/imageView6"
-        app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
