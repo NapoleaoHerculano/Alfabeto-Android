@@ -13,7 +13,7 @@
         android:background="@color/colorPrimaryDark">
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/textView28"
+            android:id="@+id/textKids"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/version"

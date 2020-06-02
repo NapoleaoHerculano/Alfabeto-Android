@@ -6,9 +6,11 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Vibrator;
+import android.view.Gravity;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
@@ -30,6 +32,17 @@ public class ComponentesAuxiliares {
         it.putExtra("tema", select);
         context.startActivity(it);
         ((Activity) context).finish();
+    }
+
+    /**
+     * Define as fonte utilizada no aplicativo, visto que nas versões antigas as mesmas não podem
+     * ser definidas no arquivo xml da activity.
+     * @param context activity atual
+     * @param textView label que receberá a fonte
+     */
+    public static void definirFonte(Context context, TextView textView){
+        Typeface font = Typeface.createFromAsset(context.getAssets(), "fonts/luckiest-guy.ttf");
+        textView.setTypeface(font);
     }
 
     /**
@@ -108,7 +121,9 @@ public class ComponentesAuxiliares {
         mensagem.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Toast.makeText(activity, "Início", Toast.LENGTH_SHORT).show();
+                Toast toast = Toast.makeText(activity, "Início", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.BOTTOM, 0, 0);
+                toast.show();
                 activity.finish();
             }
         });
@@ -116,7 +131,9 @@ public class ComponentesAuxiliares {
         mensagem.setNegativeButton("Não", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Toast.makeText(activity, "Continuando...", Toast.LENGTH_SHORT).show();
+                Toast toast = Toast.makeText(activity, "Continuando...", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.BOTTOM, 0, 0);
+                toast.show();
             }
         });
         mensagem.show();
@@ -136,7 +153,9 @@ public class ComponentesAuxiliares {
         mensagem.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Toast.makeText(activity, "Seleção de temas", Toast.LENGTH_SHORT).show();
+                Toast toast = Toast.makeText(activity, "Seleção de temas", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.BOTTOM, 0, 0);
+                toast.show();
                 Intent it = new Intent(activity, MainActivity.class);
                 activity.startActivity(it);
                 activity.finish();
@@ -146,7 +165,9 @@ public class ComponentesAuxiliares {
         mensagem.setNegativeButton("Não", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Toast.makeText(activity, "Continuando...", Toast.LENGTH_SHORT).show();
+                Toast toast = Toast.makeText(activity, "Continuando...", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.BOTTOM, 0, 0);
+                toast.show();
             }
         });
         mensagem.show();

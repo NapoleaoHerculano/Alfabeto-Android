@@ -38,7 +38,7 @@ public class VogalActivity extends AppCompatActivity implements View.OnClickList
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.game_model_vogais);
+        setContentView(R.layout.activity_vogais);
 
         gerenteDeDesafios = new GerenteDeDesafios();
         componentesAuxiliares = new ComponentesAuxiliares();

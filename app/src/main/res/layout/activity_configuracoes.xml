@@ -16,14 +16,14 @@
         android:onClick="voltarConfiguracoes"
         android:padding="5dp"
         android:scaleType="fitCenter"
-        app:layout_constraintBottom_toTopOf="@+id/textView17"
+        app:layout_constraintBottom_toTopOf="@+id/txtBack"
         app:layout_constraintEnd_toStartOf="@+id/btnSalvar"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/botao_tela_anterior" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/textView17"
+        android:id="@+id/txtBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -37,7 +37,7 @@
         app:layout_constraintStart_toStartOf="@+id/btnVoltarConfiguracoes" />
 
     <TextView
-        android:id="@+id/textView16"
+        android:id="@+id/txtSomAcerto"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -55,7 +55,7 @@
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout7" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/textView21"
+        android:id="@+id/txtSave"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -76,7 +76,7 @@
         android:contentDescription="@string/salvar"
         android:onClick="saveChanges"
         android:scaleType="fitCenter"
-        app:layout_constraintBottom_toTopOf="@+id/textView21"
+        app:layout_constraintBottom_toTopOf="@+id/txtSave"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/btnVoltarConfiguracoes"
@@ -88,11 +88,11 @@
         android:layout_height="wrap_content"
         android:background="@drawable/recycler_view"
         android:padding="5dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView19"
+        app:layout_constraintBottom_toTopOf="@+id/txtVisualizacao"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/rgLetterType"
-        app:layout_constraintTop_toBottomOf="@+id/textView18">
+        app:layout_constraintTop_toBottomOf="@+id/txtTipoLetra">
 
         <RadioButton
             android:id="@+id/rdButtonMaiusculas"
@@ -125,11 +125,11 @@
         android:layout_height="wrap_content"
         android:background="@drawable/recycler_view"
         android:padding="5dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView19"
+        app:layout_constraintBottom_toTopOf="@+id/txtVisualizacao"
         app:layout_constraintEnd_toStartOf="@+id/rgLetterCase"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView18"
+        app:layout_constraintTop_toBottomOf="@+id/txtTipoLetra"
         app:layout_constraintVertical_bias="0.0">
 
         <RadioButton
@@ -180,7 +180,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView19"
+        android:id="@+id/txtVisualizacao"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -198,7 +198,7 @@
         app:layout_constraintTop_toBottomOf="@+id/rgLetterType" />
 
     <TextView
-        android:id="@+id/textView18"
+        android:id="@+id/txtTipoLetra"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -220,11 +220,11 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:background="@drawable/recycler_view"
-        app:layout_constraintBottom_toTopOf="@+id/textView16"
+        app:layout_constraintBottom_toTopOf="@+id/txtSomAcerto"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView19">
+        app:layout_constraintTop_toBottomOf="@+id/txtVisualizacao">
 
         <com.napoleao.alphabeto.config.AlphaTextView
             android:id="@+id/textView20"
@@ -250,10 +250,10 @@
         android:background="@drawable/recycler_view"
         android:onClick="onClick"
         app:layout_constraintBottom_toTopOf="@+id/guideline"
-        app:layout_constraintEnd_toEndOf="@+id/textView16"
+        app:layout_constraintEnd_toEndOf="@+id/txtSomAcerto"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/textView16"
-        app:layout_constraintTop_toBottomOf="@+id/textView16">
+        app:layout_constraintStart_toStartOf="@+id/txtSomAcerto"
+        app:layout_constraintTop_toBottomOf="@+id/txtSomAcerto">
 
         <RadioButton
             android:id="@+id/rbOpcao1"

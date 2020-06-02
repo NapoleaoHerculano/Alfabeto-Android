@@ -10,7 +10,7 @@
     tools:context=".activity.TelaInicialActivity">
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/textView23"
+        android:id="@+id/textSobre"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -70,7 +70,7 @@
         app:srcCompat="@drawable/botaoconfig_cropped" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/textView3"
+        android:id="@+id/textJogar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -84,7 +84,7 @@
         app:layout_constraintTop_toBottomOf="@+id/btnIniciar" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/textView4"
+        android:id="@+id/textConfig"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -111,7 +111,7 @@
         app:srcCompat="@drawable/beto_logo" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/textView25"
+        android:id="@+id/txtKidsInicial"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/version"

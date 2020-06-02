@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.widget.TextView;
 
 import com.napoleao.alphabeto.R;
 import com.napoleao.alphabeto.activity.util.ComponentesAuxiliares;
@@ -21,6 +22,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private static final int TEMA_PAISES = 6;
 
     private int temaSelecionado;
+    int[] botoes = {R.id.txtTemas, R.id.txtCores, R.id.txtObjetos, R.id.txtFrutas, R.id.txtAnimais,
+            R.id.txtBrinquedos, R.id.txtPartesDoCorpo, R.id.txtPaises};
     private GerenteDeDesafios gerenteDeDesafios;
     private ComponentesAuxiliares componentesAuxiliares;
 
@@ -28,6 +31,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        instanciarTextButtons();
 
         gerenteDeDesafios = new GerenteDeDesafios();
         componentesAuxiliares = new ComponentesAuxiliares();
@@ -105,6 +110,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 finish();
             }
         }, 1300);
+    }
+
+    /**
+     * Define os ID's dos TextView's e define a fonte do TextView.
+     */
+    private void instanciarTextButtons(){
+        for (int buttons : botoes) {
+            TextView btn = findViewById(buttons);
+            ComponentesAuxiliares.definirFonte(this, btn);
+        }
     }
 
     /**

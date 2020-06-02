@@ -35,7 +35,7 @@ public class GerenteDeTemas {
         temas.clear();
 
         Tema a1 = new Tema(R.drawable.ovelha, "ovelha");
-        Tema a2 = new Tema(R.drawable.boi, "boi");
+        Tema a2 = new Tema(R.drawable.touro, "touro");
         Tema a3 = new Tema(R.drawable.cachorro, "cachorro");
         Tema a4 = new Tema(R.drawable.cavalo, "cavalo");
         Tema a5 = new Tema(R.drawable.elefante, "elefante");
@@ -95,9 +95,9 @@ public class GerenteDeTemas {
         Tema c10 = new Tema(R.drawable.vermelho, "vermelho");
         Tema c11 = new Tema(R.drawable.dourado, "dourado");
         Tema c12 = new Tema(R.drawable.azul_escuro, "azul\nmarinho");
-        Tema c13 = new Tema(R.drawable.purpura, "roxo\npúrpura");
-        Tema c14 = new Tema(R.drawable.marrom_caramelo, "marrom\ncaramelo");
-        Tema c15 = new Tema(R.drawable.azul_turquesa, "azul\nturquesa");
+        Tema c13 = new Tema(R.drawable.bege, "bege");
+        Tema c14 = new Tema(R.drawable.prata, "prata");
+        Tema c15 = new Tema(R.drawable.branco, "branco");
 
         temas.add(c1); temas.add(c2);temas.add(c3);temas.add(c4);temas.add(c5);temas.add(c6);
         temas.add(c7);temas.add(c8);temas.add(c9);temas.add(c10);temas.add(c11);temas.add(c12);
@@ -117,7 +117,7 @@ public class GerenteDeTemas {
         Tema o8 = new Tema(R.drawable.chave, "chave");
         Tema o9 = new Tema(R.drawable.oculos, "óculos");
         Tema o10 = new Tema(R.drawable.relogio, "relógio");
-        Tema o11 = new Tema(R.drawable.sorvete, "sorvete");
+        Tema o11 = new Tema(R.drawable.televisao, "televisão");
         Tema o12= new Tema(R.drawable.tambor, "tambor");
         Tema o13 = new Tema(R.drawable.celular, "celular");
         Tema o14 = new Tema(R.drawable.xicara, "xícara");
@@ -134,7 +134,7 @@ public class GerenteDeTemas {
         Tema f1 = new Tema(R.drawable.abacaxi, "abacaxi");
         Tema f2 = new Tema(R.drawable.maca, "maçã");
         Tema f3 = new Tema(R.drawable.morango, "morango");
-        Tema f4 = new Tema(R.drawable.pera, "pêra");
+        Tema f4 = new Tema(R.drawable.pera, "pera");
         Tema f5 = new Tema(R.drawable.banana, "banana");
         Tema f6 = new Tema(R.drawable.laranja, "laranja");
         Tema f7 = new Tema(R.drawable.uva, "uva");
@@ -142,7 +142,7 @@ public class GerenteDeTemas {
         Tema f9 = new Tema(R.drawable.abacate, "abacate");
         Tema f10 = new Tema(R.drawable.caju, "caju");
         Tema f11 = new Tema(R.drawable.cereja, "cereja");
-        Tema f12 = new Tema(R.drawable.coco, "côco");
+        Tema f12 = new Tema(R.drawable.coco, "coco");
         Tema f13 = new Tema(R.drawable.melancia, "melancia");
         Tema f14 = new Tema(R.drawable.mamao, "mamão");
         Tema f15 = new Tema(R.drawable.limao, "limão");
@@ -168,7 +168,7 @@ public class GerenteDeTemas {
         Tema b11 = new Tema(R.drawable.boneca, "boneca");
         Tema b12 = new Tema(R.drawable.boliche, "boliche");
         Tema b13 = new Tema(R.drawable.bicicleta, "bicicleta");
-        Tema b14 = new Tema(R.drawable.piano, "piano");
+        Tema b14 = new Tema(R.drawable.gangorra, "gangorra");
         Tema b15 = new Tema(R.drawable.quebra_cabecas, "quebra-\ncabeça");
 
         temas.add(b1); temas.add(b2);temas.add(b3);temas.add(b4);temas.add(b5);temas.add(b6);
@@ -183,17 +183,17 @@ public class GerenteDeTemas {
         Tema p2 = new Tema(R.drawable.mao, "mão");
         Tema p3 = new Tema(R.drawable.lingua, "língua");
         Tema p4 = new Tema(R.drawable.joelho, "joelho");
-        Tema p5 = new Tema(R.drawable.dente, "dente");
+        Tema p5 = new Tema(R.drawable.cotovelo, "cotovelo");
         Tema p6 = new Tema(R.drawable.perna, "perna");
         Tema p7 = new Tema(R.drawable.braco, "braço");
-        Tema p8 = new Tema(R.drawable.olhos, "olhos");
+        Tema p8 = new Tema(R.drawable.olho, "olho");
         Tema p9 = new Tema(R.drawable.pe, "pé");
         Tema p10 = new Tema(R.drawable.orelha, "orelha");
-        Tema p11 = new Tema(R.drawable.pulmao, "pulmão");
+        Tema p11 = new Tema(R.drawable.cabeca, "cabeça");
         Tema p12 = new Tema(R.drawable.cerebro, "cérebro");
         Tema p13 = new Tema(R.drawable.coracao, "coração");
         Tema p14 = new Tema(R.drawable.nariz, "nariz");
-        Tema p15 = new Tema(R.drawable.ossos, "ossos");
+        Tema p15 = new Tema(R.drawable.calcanhar, "calcanhar");
 
         temas.add(p1); temas.add(p2);temas.add(p3);temas.add(p4);temas.add(p5);temas.add(p6);
         temas.add(p7);temas.add(p8);temas.add(p9);temas.add(p10);temas.add(p11);temas.add(p12);

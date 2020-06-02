@@ -9,7 +9,7 @@
     android:orientation="vertical"
     tools:context=".activity.ConsoanteActivity">
 
-    <androidx.appcompat.widget.AppCompatImageButton
+    <ImageButton
         android:id="@+id/btnVoltarConsoantes"
         android:layout_width="50dp"
         android:layout_height="50dp"
@@ -22,7 +22,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.appcompat.widget.AppCompatImageButton
+    <ImageButton
         android:id="@+id/btnFecharConsoantes"
         android:layout_width="50dp"
         android:layout_height="50dp"

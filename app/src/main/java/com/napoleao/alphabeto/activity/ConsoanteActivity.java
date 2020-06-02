@@ -40,7 +40,7 @@ public class ConsoanteActivity extends AppCompatActivity implements View.OnClick
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.game_model_consoantes);
+        setContentView(R.layout.activity_consoantes);
 
         gerenteDeDesafios = new GerenteDeDesafios();
         componentesAuxiliares = new ComponentesAuxiliares();

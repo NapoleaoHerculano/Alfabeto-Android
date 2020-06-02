@@ -38,6 +38,7 @@
     <string name="y">y</string>
     <string name="z">z</string>
 
+    <string name="config">Config.</string>
     <string name="configuracoes">Configurações</string>
     <string name="font_tipo">Tipo de fonte</string>
     <string name="letra_tipo">Tipo de letra</string>

@@ -18,13 +18,16 @@ public class FimDeJogoActivity extends AppCompatActivity implements View.OnClick
 
     private SingletonJogador jogador = SingletonJogador.getJogador();
     private int select;
+    int[] textIds = {R.id.txtPontuacao, R.id.txtRetornarTemas, R.id.txtRepetir, R.id.txtFraseFim};
     private GerenteDeDesafios gerenteDeDesafios;
     private ComponentesAuxiliares componentesAuxiliares;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.tela_parabens);
+        setContentView(R.layout.activity_fim_de_jogo);
+
+        instanciarTextButtons();
 
         Bundle extras = getIntent().getExtras();
         select = extras.getInt("tema");
@@ -82,6 +85,16 @@ public class FimDeJogoActivity extends AppCompatActivity implements View.OnClick
                 startActivity(it);
                 finish();
                 break;
+        }
+    }
+
+    /**
+     * Define os ID's dos TextView's e define a fonte do TextView.
+     */
+    private void instanciarTextButtons(){
+        for (int buttons : textIds) {
+            TextView btn = findViewById(buttons);
+            ComponentesAuxiliares.definirFonte(this, btn);
         }
     }
 
