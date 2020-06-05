@@ -1,6 +1,7 @@
 package com.napoleao.alphabeto.activity;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -34,6 +35,10 @@ public class FimDeJogoActivity extends AppCompatActivity implements View.OnClick
 
         gerenteDeDesafios = new GerenteDeDesafios();
         componentesAuxiliares = new ComponentesAuxiliares();
+
+        MediaPlayer mediaPlayer;
+        mediaPlayer = MediaPlayer.create(this, R.raw.applause);
+        mediaPlayer.start();
 
         TextView txt = findViewById(R.id.txtFraseFim);
         String texto;

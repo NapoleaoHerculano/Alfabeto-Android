@@ -9,6 +9,18 @@
     android:orientation="vertical"
     tools:context=".activity.AlfabetoActivity">
 
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animationAlfabeto"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:elevation="2dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageAlfabeto"
+        app:lottie_autoPlay="false"
+        app:lottie_rawRes="@raw/firework" />
+
     <ImageButton
         android:id="@+id/btnVoltarAlfabeto"
         android:layout_width="50dp"

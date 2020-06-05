@@ -9,6 +9,18 @@
     android:orientation="vertical"
     tools:context=".activity.VogalActivity">
 
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animationVogais"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:elevation="2dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageVogal"
+        app:lottie_autoPlay="false"
+        app:lottie_rawRes="@raw/firework" />
+
     <ImageButton
         android:id="@+id/btnVoltarVogais"
         android:layout_width="70dp"

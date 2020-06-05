@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.napoleao.alphabeto.R;
 import com.napoleao.alphabeto.activity.util.ComponentesAuxiliares;
 import com.napoleao.alphabeto.config.AppConfig;
@@ -24,6 +25,7 @@ public class ConsoanteActivity extends AppCompatActivity implements View.OnClick
     private ImageView imagem;
     private TextView txtQuiz;
     private View botoesConsoantes;
+    private LottieAnimationView animationView;
     private int[] botoes = {R.id.btnB,R.id.btnC,R.id.btnD,R.id.btnF,R.id.btnG,R.id.btnH,R.id.btnJ,R.id.btnK,R.id.btnL,
             R.id.btnM,R.id.btnN,R.id.btnP,R.id.btnQ,R.id.btnR,R.id.btnS,R.id.btnT,R.id.btnV,R.id.btnW,R.id.btnX,
             R.id.btnY,R.id.btnZ};
@@ -58,6 +60,7 @@ public class ConsoanteActivity extends AppCompatActivity implements View.OnClick
         txtQuiz = findViewById(R.id.textConsoante);
         botoesConsoantes = findViewById(R.id.botoesConsoantes);
         componentesAuxiliares.instanciarBotoes(botoesConsoantes, this, botoes, this);
+        animationView = findViewById(R.id.animationConsoantes);
 
         //Definindo os primeiros elementos a serem iniciados
         imagem.setImageResource(listTema.get(indice).getImagem());
@@ -90,6 +93,7 @@ public class ConsoanteActivity extends AppCompatActivity implements View.OnClick
 
         boolean acertou = gerenteDeDesafios.verificaResposta(listTema.get(indice).getNomeImagem(), resposta);
         if (acertou){
+            animationView.playAnimation();
             gerenteDeDesafios.acertou(this, AppConfig.getInstance(this).getCurrentSound());
             indice++;
             if(indice == listTema.size()) {

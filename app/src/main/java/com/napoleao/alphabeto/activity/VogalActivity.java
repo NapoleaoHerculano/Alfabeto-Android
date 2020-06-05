@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.napoleao.alphabeto.R;
 import com.napoleao.alphabeto.activity.util.ComponentesAuxiliares;
 import com.napoleao.alphabeto.config.AppConfig;
@@ -24,6 +25,7 @@ public class VogalActivity extends AppCompatActivity implements View.OnClickList
     private ImageView imagem;
     private TextView txtQuiz;
     private View botoesVogais;
+    private LottieAnimationView animationView;
     private int[] botoes = {R.id.btnA,R.id.btnE,R.id.btnI,R.id.btnO,R.id.btnU};
     //--------------------------------------------------------------------------------------------//
     private ArrayList<Tema> listTema = new ArrayList<>();//Lista com os temas carregados;
@@ -56,6 +58,7 @@ public class VogalActivity extends AppCompatActivity implements View.OnClickList
         txtQuiz = findViewById(R.id.txtQuiz);
         botoesVogais = findViewById(R.id.botoesVogais);
         componentesAuxiliares.instanciarBotoes(botoesVogais, this, botoes, this);
+        animationView = findViewById(R.id.animationVogais);
 
         //Definindo os primeiros elementos a serem iniciados
         imagem.setImageResource(listTema.get(indice).getImagem());
@@ -88,6 +91,7 @@ public class VogalActivity extends AppCompatActivity implements View.OnClickList
 
         boolean acertou = gerenteDeDesafios.verificaResposta(listTema.get(indice).getNomeImagem(), resposta);
         if (acertou){
+            animationView.playAnimation();
             gerenteDeDesafios.acertou(this, AppConfig.getInstance(this).getCurrentSound());
             indice++;
             if(indice == listTema.size()) {
