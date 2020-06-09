@@ -2,15 +2,19 @@ package com.napoleao.alphabeto.activity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.napoleao.alphabeto.R;
+import com.napoleao.alphabeto.activity.util.ComponentesAuxiliares;
 import com.napoleao.alphabeto.controller.SingletonAudio;
 
 
@@ -21,8 +25,18 @@ public class TelaInicialActivity extends AppCompatActivity implements View.OnCli
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        setContentView(R.layout.tela_inicial);
+        setContentView(R.layout.activity_tela_inicial);
         super.onCreate(savedInstanceState);
+
+        TextView txtKidsInicial = findViewById(R.id.txtKidsInicial);
+        TextView txtJogar = findViewById(R.id.textJogar);
+        TextView txtConfig = findViewById(R.id.textConfig);
+        TextView txtSobre = findViewById(R.id.textSobre);
+
+        ComponentesAuxiliares.definirFonte(this, txtKidsInicial);
+        ComponentesAuxiliares.definirFonte(this, txtJogar);
+        ComponentesAuxiliares.definirFonte(this, txtConfig);
+        ComponentesAuxiliares.definirFonte(this, txtSobre);
 
         tts = SingletonAudio.getSingleton(this);
 
@@ -66,7 +80,9 @@ public class TelaInicialActivity extends AppCompatActivity implements View.OnCli
         mensagem.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Toast.makeText(TelaInicialActivity.this, "Até a próxima!", Toast.LENGTH_LONG).show();
+                Toast toast = Toast.makeText(TelaInicialActivity.this, "Até a próxima!", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.BOTTOM, 0, 0);
+                toast.show();
                 tts.stopTts();
                 finish();
             }
@@ -75,7 +91,9 @@ public class TelaInicialActivity extends AppCompatActivity implements View.OnCli
         mensagem.setNegativeButton("Não", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Toast.makeText(TelaInicialActivity.this, "Continuando...", Toast.LENGTH_LONG).show();
+                Toast toast = Toast.makeText(TelaInicialActivity.this, "Continuando...", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.BOTTOM, 0, 0);
+                toast.show();
             }
         });
         mensagem.show();

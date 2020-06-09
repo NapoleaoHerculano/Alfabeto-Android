@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">AlfaBeto</string>
     <string name="title_app">ALFABETO</string>
+    <string name="version">kids</string>
     <string name="vogais">Vogais</string>
     <string name="consoantes">Consoantes</string>
     <string name="animais">Animais</string>
@@ -8,6 +9,8 @@
     <string name="cores">Cores</string>
     <string name="frutas">Frutas</string>
     <string name="paises">Países</string>
+    <string name="brinquedos">Brinquedos</string>
+    <string name="partes_corpo">Partes do Corpo</string>
     <string name="a">a</string>
     <string name="b">b</string>
     <string name="c">c</string>
@@ -35,6 +38,7 @@
     <string name="y">y</string>
     <string name="z">z</string>
 
+    <string name="config">Config.</string>
     <string name="configuracoes">Configurações</string>
     <string name="font_tipo">Tipo de fonte</string>
     <string name="letra_tipo">Tipo de letra</string>
@@ -55,7 +59,9 @@
     <string name="creditos">Créditos :</string>
     <string name="sobre_projeto">O Apps4Society é um projeto de extensão desenvolvido pela UFPB - Campus IV. O objetivo do mesmo é desenvolver aplicativos que impactem positivamente a sociedade.</string>
     <string name="link_projeto">https://apps4society.dcx.ufpb.br/</string>
-    <string name="creditos_imgs">As imagens usadas nos desafios foram obtidas do site: https://pt.freeimages.com/</string>
+    <string name="git_link">https://github.com/NapoleaoHerculano</string>
+    <string name="creditos_imgs">As imagens usadas nos desafios foram obtidas do site:</string>
+    <string name="pixabay">https://pixabay.com/pt/</string>
     <string name="site_projeto">https://apps4society.dcx.ufpb.br/</string>
     <string name="dev_name">Francivaldo Napoleão Herculano</string>
     <string name="dev_curso">Sistemas de Informação</string>

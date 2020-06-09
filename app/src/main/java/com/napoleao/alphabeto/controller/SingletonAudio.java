@@ -2,6 +2,7 @@ package com.napoleao.alphabeto.controller;
 
 import android.content.Context;
 import android.speech.tts.TextToSpeech;
+import android.view.Gravity;
 import android.widget.Toast;
 
 import java.util.Locale;
@@ -43,9 +44,11 @@ public class SingletonAudio implements TextToSpeech.OnInitListener{
         if(status == TextToSpeech.SUCCESS){
             tts.setLanguage(Locale.getDefault());
             Toast toast = Toast.makeText(myContext, "Serviço de áudio carregado com sucesso!", Toast.LENGTH_LONG);
+            toast.setGravity(Gravity.BOTTOM, 0, 0);
             toast.show();
         }else{
             Toast toast = Toast.makeText(myContext, "Serviço de áudio indisponível. Reinicie o aplicativo!", Toast.LENGTH_LONG);
+            toast.setGravity(Gravity.BOTTOM, 0, 0);
             toast.show();
         }
 

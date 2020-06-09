@@ -16,14 +16,14 @@
         android:onClick="voltarConfiguracoes"
         android:padding="5dp"
         android:scaleType="fitCenter"
-        app:layout_constraintBottom_toTopOf="@+id/textView17"
+        app:layout_constraintBottom_toTopOf="@+id/txtBack"
         app:layout_constraintEnd_toStartOf="@+id/btnSalvar"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/botao_tela_anterior" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/textView17"
+        android:id="@+id/txtBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -37,9 +37,14 @@
         app:layout_constraintStart_toStartOf="@+id/btnVoltarConfiguracoes" />
 
     <TextView
-        android:id="@+id/textView16"
-        android:layout_width="wrap_content"
+        android:id="@+id/txtSomAcerto"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:gravity="center"
         android:text="@string/som_acerto"
         android:textColor="@color/white"
         android:textSize="24sp"
@@ -50,7 +55,7 @@
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout7" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/textView21"
+        android:id="@+id/txtSave"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -71,7 +76,7 @@
         android:contentDescription="@string/salvar"
         android:onClick="saveChanges"
         android:scaleType="fitCenter"
-        app:layout_constraintBottom_toTopOf="@+id/textView21"
+        app:layout_constraintBottom_toTopOf="@+id/txtSave"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/btnVoltarConfiguracoes"
@@ -83,11 +88,11 @@
         android:layout_height="wrap_content"
         android:background="@drawable/recycler_view"
         android:padding="5dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView19"
-        app:layout_constraintEnd_toEndOf="@+id/textView18"
+        app:layout_constraintBottom_toTopOf="@+id/txtVisualizacao"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/textView18"
-        app:layout_constraintTop_toBottomOf="@+id/textView18">
+        app:layout_constraintStart_toEndOf="@+id/rgLetterType"
+        app:layout_constraintTop_toBottomOf="@+id/txtTipoLetra">
 
         <RadioButton
             android:id="@+id/rdButtonMaiusculas"
@@ -120,12 +125,11 @@
         android:layout_height="wrap_content"
         android:background="@drawable/recycler_view"
         android:padding="5dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView19"
-        app:layout_constraintEnd_toEndOf="@+id/textView13"
+        app:layout_constraintBottom_toTopOf="@+id/txtVisualizacao"
         app:layout_constraintEnd_toStartOf="@+id/rgLetterCase"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView13"
+        app:layout_constraintTop_toBottomOf="@+id/txtTipoLetra"
         app:layout_constraintVertical_bias="0.0">
 
         <RadioButton
@@ -158,40 +162,35 @@
 
     <TextView
         android:id="@+id/txtConfig"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:gravity="center"
         android:text="@string/configuracoes"
         android:textAllCaps="true"
         android:textColor="@android:color/white"
         android:textSize="40sp"
         app:fontFamily="@font/luckiest_guy"
-        app:layout_constraintBottom_toTopOf="@+id/textView13"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView13"
-        android:layout_width="wrap_content"
+        android:id="@+id/txtVisualizacao"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="@string/font_tipo"
-        android:textColor="@color/white"
-        android:textSize="24sp"
-        app:fontFamily="@font/luckiest_guy"
-        app:layout_constraintEnd_toStartOf="@+id/textView18"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtConfig" />
-
-    <TextView
-        android:id="@+id/textView19"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:gravity="center"
         android:text="@string/visualizacao"
         android:textColor="@color/white"
-        android:textSize="28sp"
+        android:textSize="24sp"
         app:fontFamily="@font/luckiest_guy"
         app:layout_constraintBottom_toTopOf="@+id/constraintLayout7"
         app:layout_constraintEnd_toEndOf="parent"
@@ -199,29 +198,33 @@
         app:layout_constraintTop_toBottomOf="@+id/rgLetterType" />
 
     <TextView
-        android:id="@+id/textView18"
-        android:layout_width="wrap_content"
+        android:id="@+id/txtTipoLetra"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
         android:text="@string/letra_tipo"
         android:textColor="@color/white"
         android:textSize="24sp"
         app:fontFamily="@font/luckiest_guy"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/textView13"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtConfig" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout7"
-        android:layout_width="344dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         android:background="@drawable/recycler_view"
-        app:layout_constraintBottom_toTopOf="@+id/textView16"
+        app:layout_constraintBottom_toTopOf="@+id/txtSomAcerto"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView19">
+        app:layout_constraintTop_toBottomOf="@+id/txtVisualizacao">
 
         <com.napoleao.alphabeto.config.AlphaTextView
             android:id="@+id/textView20"
@@ -247,10 +250,10 @@
         android:background="@drawable/recycler_view"
         android:onClick="onClick"
         app:layout_constraintBottom_toTopOf="@+id/guideline"
-        app:layout_constraintEnd_toEndOf="@+id/textView16"
+        app:layout_constraintEnd_toEndOf="@+id/txtSomAcerto"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/textView16"
-        app:layout_constraintTop_toBottomOf="@+id/textView16">
+        app:layout_constraintStart_toStartOf="@+id/txtSomAcerto"
+        app:layout_constraintTop_toBottomOf="@+id/txtSomAcerto">
 
         <RadioButton
             android:id="@+id/rbOpcao1"
@@ -291,6 +294,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.75" />
+        app:layout_constraintGuide_percent="0.78" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

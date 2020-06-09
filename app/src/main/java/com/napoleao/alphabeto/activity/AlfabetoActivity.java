@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.napoleao.alphabeto.R;
 import com.napoleao.alphabeto.activity.util.ComponentesAuxiliares;
 import com.napoleao.alphabeto.config.AppConfig;
@@ -24,6 +25,7 @@ public class AlfabetoActivity extends AppCompatActivity implements View.OnClickL
     private ImageView imagem;
     private TextView txtQuiz;
     private View botoesAlfabeto;
+    private LottieAnimationView animationView;
     int[] botoes = {R.id.btnA,R.id.btnB,R.id.btnC,R.id.btnD,R.id.btnE,R.id.btnF,R.id.btnG,R.id.btnH,
             R.id.btnI,R.id.btnJ,R.id.btnK,R.id.btnL,R.id.btnM,R.id.btnN,R.id.btnO,R.id.btnP,R.id.btnQ,
             R.id.btnR,R.id.btnS,R.id.btnT,R.id.btnU,R.id.btnV,R.id.btnW,R.id.btnX,R.id.btnY,R.id.btnZ};
@@ -40,7 +42,7 @@ public class AlfabetoActivity extends AppCompatActivity implements View.OnClickL
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.game_model_alfabeto);
+        setContentView(R.layout.activity_alfabeto);
 
         gerenteDeDesafios = new GerenteDeDesafios();
         componentesAuxiliares = new ComponentesAuxiliares();
@@ -58,6 +60,7 @@ public class AlfabetoActivity extends AppCompatActivity implements View.OnClickL
         txtQuiz = findViewById(R.id.textAlfabeto);
         botoesAlfabeto = findViewById(R.id.botoesAlfabeto);
         componentesAuxiliares.instanciarBotoes(botoesAlfabeto, this, botoes, this);
+        animationView = findViewById(R.id.animationAlfabeto);
 
         //Definindo os primeiros elementos a serem iniciados
         imagem.setImageResource(listTema.get(indice).getImagem());
@@ -90,6 +93,7 @@ public class AlfabetoActivity extends AppCompatActivity implements View.OnClickL
 
         boolean acertou = gerenteDeDesafios.verificaResposta(listTema.get(indice).getNomeImagem(), resposta);
         if (acertou){
+            animationView.playAnimation();
             gerenteDeDesafios.acertou(this, AppConfig.getInstance(this).getCurrentSound());
             indice++;
             if(indice == listTema.size()) {

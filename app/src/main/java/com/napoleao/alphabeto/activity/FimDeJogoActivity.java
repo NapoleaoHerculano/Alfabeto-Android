@@ -1,6 +1,7 @@
 package com.napoleao.alphabeto.activity;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -18,13 +19,16 @@ public class FimDeJogoActivity extends AppCompatActivity implements View.OnClick
 
     private SingletonJogador jogador = SingletonJogador.getJogador();
     private int select;
+    int[] textIds = {R.id.txtPontuacao, R.id.txtRetornarTemas, R.id.txtRepetir, R.id.txtFraseFim};
     private GerenteDeDesafios gerenteDeDesafios;
     private ComponentesAuxiliares componentesAuxiliares;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.tela_parabens);
+        setContentView(R.layout.activity_fim_de_jogo);
+
+        instanciarTextButtons();
 
         Bundle extras = getIntent().getExtras();
         select = extras.getInt("tema");
@@ -32,14 +36,24 @@ public class FimDeJogoActivity extends AppCompatActivity implements View.OnClick
         gerenteDeDesafios = new GerenteDeDesafios();
         componentesAuxiliares = new ComponentesAuxiliares();
 
-        TextView txt = findViewById(R.id.txtFraseFim);
+        MediaPlayer mediaPlayer;
+        mediaPlayer = MediaPlayer.create(this, R.raw.applause);
+        mediaPlayer.start();
 
+        TextView txt = findViewById(R.id.txtFraseFim);
+        String texto;
         if(jogador.getPontuacao() <= 1){
-            txt.setText("Você é capaz!\nContinue tentando!");
+            texto = "Você é capaz!\nContinue tentando!";
+            txt.setText(texto);
+            gerenteDeDesafios.ditarPalavra(texto);
         }else if(jogador.getPontuacao() > 1 && jogador.getPontuacao() <= 2){
-            txt.setText("Parabéns!\nVocê foi muito bem!");
+            texto = "Parabéns!\nVocê foi muito bem!";
+            txt.setText(texto);
+            gerenteDeDesafios.ditarPalavra(texto);
         }else if(jogador.getPontuacao() > 2 && jogador.getPontuacao() <= 3){
-            txt.setText("Parabéns!\n Você foi demais!");
+            texto = "Parabéns!\n Você foi demais!";
+            txt.setText(texto);
+            gerenteDeDesafios.ditarPalavra(texto);
         }
 
         final ScaleRatingBar ratingBar = findViewById(R.id.simpleRatingBar);
@@ -76,6 +90,16 @@ public class FimDeJogoActivity extends AppCompatActivity implements View.OnClick
                 startActivity(it);
                 finish();
                 break;
+        }
+    }
+
+    /**
+     * Define os ID's dos TextView's e define a fonte do TextView.
+     */
+    private void instanciarTextButtons(){
+        for (int buttons : textIds) {
+            TextView btn = findViewById(buttons);
+            ComponentesAuxiliares.definirFonte(this, btn);
         }
     }
 

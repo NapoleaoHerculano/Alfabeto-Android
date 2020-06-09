@@ -222,7 +222,7 @@ public class GerenteDeDesafios {
      * @param context Activity atual
      * @param opcao String que define qual som deve ser reproduzido
      */
-    public void acertou(Context context, String opcao){
+    public static void acertou(Context context, String opcao){
         MediaPlayer acertou;
 
         if(opcao.equals("Opção 01")){

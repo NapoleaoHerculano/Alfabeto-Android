@@ -22,10 +22,13 @@ public class NiveisActivity extends AppCompatActivity implements View.OnClickLis
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        setContentView(R.layout.niveis_screen);
+        setContentView(R.layout.activity_niveis);
         super.onCreate(savedInstanceState);
 
         instanciarTextButtons();
+
+        TextView txtNivel = findViewById(R.id.txtNivel);
+        ComponentesAuxiliares.definirFonte(this, txtNivel);
 
         gerenteDeDesafios = new GerenteDeDesafios();
         componentesAuxiliares = new ComponentesAuxiliares();
@@ -97,11 +100,12 @@ public class NiveisActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     /**
-     * Define os ID's dos TextView's e adicionam eventos de clique.
+     * Define os ID's dos TextView's, adicionam eventos de clique e modifica a fonte.
      */
     private void instanciarTextButtons(){
         for (int buttons : botoes) {
             TextView btn = findViewById(buttons);
+            ComponentesAuxiliares.definirFonte(this, btn);
             btn.setOnClickListener(this);
         }
     }

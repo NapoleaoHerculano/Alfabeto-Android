@@ -8,9 +8,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.napoleao.alphabeto.R;
+import com.napoleao.alphabeto.activity.util.ComponentesAuxiliares;
 import com.napoleao.alphabeto.config.AppConfig;
 
 public class ConfiguracoesActivity extends AppCompatActivity implements View.OnClickListener{
@@ -26,11 +28,15 @@ public class ConfiguracoesActivity extends AppCompatActivity implements View.OnC
     private RadioButton rbOpcao1;
     private RadioButton rbOpcao2;
     private RadioButton rbOpcao3;
+    int[] textIds = {R.id.txtConfig, R.id.txtTipoLetra, R.id.txtVisualizacao, R.id.txtSomAcerto,
+        R.id.txtBack, R.id.txtSave};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_configuracoes);
+
+        instanciarTextButtons();
 
         this.configurator = AppConfig.getInstance(getApplicationContext());
 
@@ -156,6 +162,16 @@ public class ConfiguracoesActivity extends AppCompatActivity implements View.OnC
 
     public void voltarConfiguracoes(View v){
         onBackPressed();
+    }
+
+    /**
+     * Define os ID's dos TextView's e define a fonte do TextView.
+     */
+    private void instanciarTextButtons(){
+        for (int buttons : textIds) {
+            TextView btn = findViewById(buttons);
+            ComponentesAuxiliares.definirFonte(this, btn);
+        }
     }
 
     @Override

@@ -1,19 +1,15 @@
 package com.napoleao.alphabeto.activity;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
-import android.text.SpannableString;
-import android.text.Spanned;
-import android.text.method.LinkMovementMethod;
-import android.text.style.ClickableSpan;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.napoleao.alphabeto.R;
+import com.napoleao.alphabeto.activity.util.ComponentesAuxiliares;
 
 public class SobreActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -22,23 +18,16 @@ public class SobreActivity extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sobre);
 
-        TextView txtCreditos = findViewById(R.id.txtCreditos);
+        TextView txtSobre, txtDevby, txtProjeto, txtCreditos;
+        txtSobre = findViewById(R.id.txtSobre);
+        txtDevby = findViewById(R.id.txtDev);
+        txtProjeto = findViewById(R.id.txtProjeto);
+        txtCreditos = findViewById(R.id.txtCredit);
 
-        String creditos = "As imagens usadas nos desafios foram obtidas do site: https://pt.freeimages.com";
-
-        SpannableString ss = new SpannableString(creditos);
-
-        ClickableSpan clickableSpan = new ClickableSpan() {
-            @Override
-            public void onClick(@NonNull View view) {
-                Toast.makeText(SobreActivity.this, "Go to", Toast.LENGTH_LONG);
-            }
-        };
-
-        ss.setSpan(clickableSpan, 54, 79, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-
-        txtCreditos.setText(creditos);
-        txtCreditos.setMovementMethod(LinkMovementMethod.getInstance());
+        ComponentesAuxiliares.definirFonte(this, txtSobre);
+        ComponentesAuxiliares.definirFonte(this, txtDevby);
+        ComponentesAuxiliares.definirFonte(this, txtProjeto);
+        ComponentesAuxiliares.definirFonte(this, txtCreditos);
     }
 
 
@@ -47,6 +36,11 @@ public class SobreActivity extends AppCompatActivity implements View.OnClickList
         switch (view.getId()){
             case R.id.btnMenuInicialSobre:
                 finish();
+                break;
+            case R.id.btnPixabay:
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://pixabay.com/pt/"));
+                startActivity(intent);
+                break;
         }
     }
 }
