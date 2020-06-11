@@ -23,7 +23,7 @@ public class GerenteDeTemas {
         }else if (select == 3){
             instanciarFrutas();
         } else if (select == 4) {
-            instanciarBrinquedos();
+            instanciarNatureza();
         } else if (select == 5) {
             instanciarPartesDoCorpo();
         }else{
@@ -35,7 +35,7 @@ public class GerenteDeTemas {
         temas.clear();
 
         Tema a1 = new Tema(R.drawable.ovelha, "ovelha");
-        Tema a2 = new Tema(R.drawable.touro, "touro");
+        Tema a2 = new Tema(R.drawable.boi, "boi");
         Tema a3 = new Tema(R.drawable.cachorro, "cachorro");
         Tema a4 = new Tema(R.drawable.cavalo, "cavalo");
         Tema a5 = new Tema(R.drawable.elefante, "elefante");
@@ -110,15 +110,15 @@ public class GerenteDeTemas {
         Tema o1 = new Tema(R.drawable.pilha, "pilha");
         Tema o2 = new Tema(R.drawable.vaso, "vaso");
         Tema o3 = new Tema(R.drawable.mesa, "mesa");
-        Tema o4 = new Tema(R.drawable.cubo_objeto, "cubo");
+        Tema o4 = new Tema(R.drawable.cadeira, "cadeira");
         Tema o5 = new Tema(R.drawable.livro, "livro");
         Tema o6 = new Tema(R.drawable.lupa, "lupa");
         Tema o7 = new Tema(R.drawable.martelo, "martelo");
         Tema o8 = new Tema(R.drawable.chave, "chave");
         Tema o9 = new Tema(R.drawable.oculos, "óculos");
         Tema o10 = new Tema(R.drawable.relogio, "relógio");
-        Tema o11 = new Tema(R.drawable.televisao, "televisão");
-        Tema o12= new Tema(R.drawable.tambor, "tambor");
+        Tema o11 = new Tema(R.drawable.ventilador, "ventilador");
+        Tema o12= new Tema(R.drawable.camera, "câmera");
         Tema o13 = new Tema(R.drawable.celular, "celular");
         Tema o14 = new Tema(R.drawable.xicara, "xícara");
         Tema o15 = new Tema(R.drawable.telefone, "telefone");
@@ -152,24 +152,24 @@ public class GerenteDeTemas {
         temas.add(f13);temas.add(f14);temas.add(f15);
     }
 
-    void instanciarBrinquedos(){
+    void instanciarNatureza(){
         temas.clear();
 
-        Tema b1 = new Tema(R.drawable.aviao, "avião");
-        Tema b2 = new Tema(R.drawable.moto, "moto");
-        Tema b3 = new Tema(R.drawable.bola, "bola");
-        Tema b4 = new Tema(R.drawable.pipa, "pipa");
-        Tema b5 = new Tema(R.drawable.urso, "urso");
-        Tema b6 = new Tema(R.drawable.balanco, "balanço");
-        Tema b7 = new Tema(R.drawable.carro_brinquedo, "carro");
-        Tema b8 = new Tema(R.drawable.trem, "trem");
-        Tema b9 = new Tema(R.drawable.cavalo_brinquedo, "cavalo");
-        Tema b10 = new Tema(R.drawable.robo, "robô");
-        Tema b11 = new Tema(R.drawable.boneca, "boneca");
-        Tema b12 = new Tema(R.drawable.boliche, "boliche");
-        Tema b13 = new Tema(R.drawable.bicicleta, "bicicleta");
-        Tema b14 = new Tema(R.drawable.gangorra, "gangorra");
-        Tema b15 = new Tema(R.drawable.quebra_cabecas, "quebra-\ncabeça");
+        Tema b1 = new Tema(R.drawable.rio, "rio");
+        Tema b2 = new Tema(R.drawable.neve, "neve");
+        Tema b3 = new Tema(R.drawable.lua, "lua");
+        Tema b4 = new Tema(R.drawable.ceu, "céu");
+        Tema b5 = new Tema(R.drawable.praia, "praia");
+        Tema b6 = new Tema(R.drawable.arvore, "árvore");
+        Tema b7 = new Tema(R.drawable.caverna, "caverna");
+        Tema b8 = new Tema(R.drawable.pedra, "pedra");
+        Tema b9 = new Tema(R.drawable.flor, "flor");
+        Tema b10 = new Tema(R.drawable.montanha, "montanha");
+        Tema b11 = new Tema(R.drawable.furacao, "furacão");
+        Tema b12 = new Tema(R.drawable.cachoeira, "cachoeira");
+        Tema b13 = new Tema(R.drawable.relampago, "relâmpago");
+        Tema b14 = new Tema(R.drawable.geleira, "geleira");
+        Tema b15 = new Tema(R.drawable.vegetacao, "vegetação");
 
         temas.add(b1); temas.add(b2);temas.add(b3);temas.add(b4);temas.add(b5);temas.add(b6);
         temas.add(b7);temas.add(b8);temas.add(b9);temas.add(b10);temas.add(b11);temas.add(b12);

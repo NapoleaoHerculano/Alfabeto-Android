@@ -17,8 +17,8 @@ public class SplashScreenActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
         super.onCreate(savedInstanceState);
 
-        TextView txtKids = findViewById(R.id.textKids);
-        ComponentesAuxiliares.definirFonte(this, txtKids);
+        TextView textAppName = findViewById(R.id.textAppName);
+        ComponentesAuxiliares.definirFonte(this, textAppName);
 
         //Inserindo tempo de delay para Splash Screen
         Handler handle = new Handler();

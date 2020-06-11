@@ -94,7 +94,7 @@
             android:contentDescription="@string/animais"
             android:onClick="onClick"
             android:scaleType="centerInside"
-            app:layout_constraintBottom_toTopOf="@+id/btnBrinquedos"
+            app:layout_constraintBottom_toTopOf="@+id/btnNatureza"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btnFrutas"
             app:srcCompat="@drawable/animais" />
@@ -235,20 +235,20 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
-            android:id="@+id/btnBrinquedos"
+            android:id="@+id/btnNatureza"
             android:layout_width="95dp"
             android:layout_height="105dp"
             android:layout_marginStart="50dp"
             android:layout_marginLeft="50dp"
             android:layout_marginTop="16dp"
             android:background="@android:color/transparent"
-            android:contentDescription="@string/brinquedos"
+            android:contentDescription="@string/natureza"
             android:onClick="onClick"
             android:scaleType="centerInside"
             app:layout_constraintBottom_toTopOf="@+id/btnPartesDoCorpo"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btnAnimais"
-            app:srcCompat="@drawable/brinquedos" />
+            app:srcCompat="@drawable/natureza" />
 
         <ImageButton
             android:id="@+id/btnPartesDoCorpo"
@@ -263,11 +263,11 @@
             android:scaleType="centerInside"
             app:layout_constraintBottom_toTopOf="@+id/btnPaises"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnBrinquedos"
+            app:layout_constraintTop_toBottomOf="@+id/btnNatureza"
             app:srcCompat="@drawable/partes" />
 
         <TextView
-            android:id="@+id/txtBrinquedos"
+            android:id="@+id/txtNatureza"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -276,15 +276,15 @@
             android:layout_marginRight="8dp"
             android:gravity="center"
             android:onClick="onClick"
-            android:text="@string/brinquedos"
+            android:text="@string/natureza"
             android:textAllCaps="true"
             android:textColor="@color/white"
             android:textSize="30sp"
             app:fontFamily="@font/luckiest_guy"
-            app:layout_constraintBottom_toBottomOf="@+id/btnBrinquedos"
+            app:layout_constraintBottom_toBottomOf="@+id/btnNatureza"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/btnBrinquedos"
-            app:layout_constraintTop_toTopOf="@+id/btnBrinquedos" />
+            app:layout_constraintStart_toEndOf="@+id/btnNatureza"
+            app:layout_constraintTop_toTopOf="@+id/btnNatureza" />
 
         <TextView
             android:id="@+id/txtPartesDoCorpo"

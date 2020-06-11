@@ -28,12 +28,12 @@ public class TelaInicialActivity extends AppCompatActivity implements View.OnCli
         setContentView(R.layout.activity_tela_inicial);
         super.onCreate(savedInstanceState);
 
-        TextView txtKidsInicial = findViewById(R.id.txtKidsInicial);
+        TextView textAppInicial = findViewById(R.id.textAppInicial);
         TextView txtJogar = findViewById(R.id.textJogar);
         TextView txtConfig = findViewById(R.id.textConfig);
         TextView txtSobre = findViewById(R.id.textSobre);
 
-        ComponentesAuxiliares.definirFonte(this, txtKidsInicial);
+        ComponentesAuxiliares.definirFonte(this, textAppInicial);
         ComponentesAuxiliares.definirFonte(this, txtJogar);
         ComponentesAuxiliares.definirFonte(this, txtConfig);
         ComponentesAuxiliares.definirFonte(this, txtSobre);
